@@ -1,0 +1,44 @@
+.formDesign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputDesign{
+    border-bottom: 1px solid black !important;
+    border-radius: 0;
+}
+
+
+.form-control:focus{
+  border-color: #ced4da;
+  box-shadow: none;
+}
+
+.btnDesign{
+    background-color: rgb(255, 113, 19);
+    border: 0;
+
+}
+.btnDesign:focus{
+    border-color: #ced4da;
+    box-shadow: none!important;
+}
+
+.btnDesignGoogle{
+    background-color: rgb(13, 29, 255);
+    border: 0;
+
+}
+.btnDesignGoogle:focus{
+    border-color: #ced4da;
+    box-shadow: none!important;
+}
+
+
+
+.linkTextDecoration{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+
+}
