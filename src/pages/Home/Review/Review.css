@@ -1,0 +1,47 @@
+
+.cardContainer{
+    box-shadow: rgba(3, 15, 36, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    background-image: url('https://media.istockphoto.com/photos/white-abstract-marble-texture-silver-grey-light-background-wave-swirl-picture-id1277592603?b=1&k=20&m=1277592603&s=170667a&w=0&h=4-uL8pdN5DRnmaKKGzCX8QQ4BTFvnTQUhsQWJuYHgBk=');
+}
+
+.cardHeader{
+   
+    display: flex;
+    justify-content:start;
+    align-items: center;
+}
+
+.cardTitle{
+    font-size: 18px;
+    font-weight: 400;
+    color: rgb(2, 2, 2);
+    margin-bottom: 0!important;
+}
+
+.cardText{
+    margin-top: 0;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(118, 118, 118);
+}
+
+.cardTextBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+
+}
+
+.rating-star{
+    font-size: 20px;
+    color: rgb(248, 190, 41);
+}
+
+.quote{
+    margin-top:-12px;
+    margin-right: 5px;
+    font-size: 18px;
+    color: rgb(48, 48, 48);
+}

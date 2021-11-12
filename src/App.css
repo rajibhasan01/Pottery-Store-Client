@@ -1,38 +1,82 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Satisfy&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  /* overflow-x: hidden!important; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root{
+  --btn-bg: #ffffffdc;
+  --btn-color: rgb(0, 0, 0);
+  --btn-hover-bg: rgb(240, 119, 54);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.stylishFont{
+    font-family: 'Satisfy', cursive;
+}
+.robotoFont{
+    font-family: 'Roboto', sans-serif;
+}
+.dancingFont{
+  font-family: 'Dancing Script', cursive;
+}
+.shadowsFont{
+  font-family: 'Shadows Into Light', cursive;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.hoverImage{
+    transition: transform 500ms ease-in-out 25ms;
 }
 
-.App-link {
-  color: #61dafb;
+.hoverImage:hover{
+     transform: translateX(0px) translateY(-5px) scale(1.08);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btnColor{
+  color: var(--btn-color)!important;
+  background-color: var(--btn-bg)!important;
 }
+
+.btnColor:hover{
+  background-color: var(--btn-hover-bg)!important;
+  color: #ffffffdc!important;
+}
+
+.logoImage{
+  width: 50px;
+  height: 50px;
+  
+}
+
+
+.text4{
+  font-size: 4rem;
+}
+
+.text3{
+  font-size: 3rem;
+}
+
+.text2{
+  font-size: 2rem;
+}
+
+.fontLight{
+  font-weight: 300;
+}
+
+.fontSemiBold{
+  font-weight: 500;
+}
+
