@@ -1,7 +1,6 @@
 import React from 'react';
 import './Banner.css';
 import * as GaIcons from 'react-icons/gi';
-import * as BsIconName from "react-icons/bs";
 
 
 const Banner = () => {

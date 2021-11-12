@@ -3,12 +3,14 @@ import { Button, Form } from 'react-bootstrap';
 import * as BiIconName from "react-icons/bi";
 import * as FcIconName from "react-icons/fc";
 import { NavLink } from 'react-router-dom';
+import useFirebase from '../../../../hooks/useFirebase';
 
 import './Login.css';
 
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
+    const { user, googleLogin } = useFirebase();
 
     const handleOnChange = (e) => {
         const field = e.target.name;
@@ -26,7 +28,7 @@ const Login = () => {
     }
 
     const handleGoogleSignIn = () => {
-
+        googleLogin();
     }
 
 

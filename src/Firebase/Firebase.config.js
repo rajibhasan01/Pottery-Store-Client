@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyAkdCbM7ey5nDcXale8tSo4nrHJX37iTB8",
-    authDomain: "potteryshop3.firebaseapp.com",
-    projectId: "potteryshop3",
-    storageBucket: "potteryshop3.appspot.com",
-    messagingSenderId: "1059625562614",
-    appId: "1:1059625562614:web:4512d578204051beba57d7"
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID
 };
 
 export default firebaseConfig;
