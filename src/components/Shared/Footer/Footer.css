@@ -1,0 +1,90 @@
+.footer-content{
+    background: rgb(25,25,35);
+    display: flex;
+    font-family: 'Open Sans Condensed', sans-serif;
+    width: 100%;
+    overflow:hidden;
+    bottom: 0;
+    
+}
+
+.card-body #bttnn{
+    padding: 3px 25px;
+    border-radius: 20px;
+    border: 0;
+    color: white;
+    background: #a80000;
+}
+.card-body #bttnn:hover {
+    background: transparent;
+    border: 1px solid #a80000;
+    color:#a80000;
+}
+
+.indicator{
+    width: 7px!important;
+    height: 7px!important;
+    position: absolute;
+    
+}
+
+.text-color{
+    color: #a80000;
+    
+}
+
+.email-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.email-box button{
+    background: #a80000;
+}
+
+.email-box i{
+    font-size: 20px;
+    padding: 5px;
+    color: rgb(255, 253, 253);
+   
+
+}
+
+.email-box input:hover{
+    background: #fff!important;
+
+}
+
+
+
+.email-box i:hover{
+    color:#a80000;
+    font-size: 20px;
+
+    
+}
+.email-box button:hover{
+    background: transparent!important;
+    border-left: 0!important;
+
+    
+}
+
+.footer-text{
+    display: flex;
+    justify-content: space-between;
+    margin-top: -5px;
+    flex-wrap: wrap;
+
+}
+
+.payWith{
+    width: 280px;
+    height: 120px;
+}
+.googlePlay{
+    width: 250px;
+    height: 100px;
+    
+}
