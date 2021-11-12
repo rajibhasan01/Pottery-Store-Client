@@ -13,6 +13,8 @@ const Product = () => {
                     <Card.Img variant="top" className="card-image hoverImage" src="https://www.veniceclayartists.com/wp-content/uploads/2012/01/475px-475px-MVictorinoWV590.jpg" />
                 </div>
 
+                <Card.Text className="discountProduct">-17%</Card.Text>
+
                 <Card.Text className="text-white img-text-bg py-2 text-center">New Arrival <span> - </span> <span className="text-background text-white pe-3"><MdIconName.MdPlace /> Style </span> - <span className="text-white d-none d-md-inline">Skiing</span></Card.Text>
 
                 <Card.Body className="ps-0">
