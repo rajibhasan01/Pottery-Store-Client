@@ -53,6 +53,7 @@ const Reviews = () => {
         <Container className="text-center my-5">
             <h1 className="shadowsFont">Customer Review</h1>
             <hr className="hr-style mx-auto" />
+            <p className="robotoFont">Some of our customer feedback here</p>
 
             {/* slider */}
             <Slider {...settings}>
