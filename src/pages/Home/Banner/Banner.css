@@ -36,48 +36,70 @@
 
 }
 
-.home .content {
+.home_blog {
+  min-height: 60vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  background: url('https://i.swncdn.com/media/800w/via/15678-two-sets-hands-throwing-clay-pot-on-pottery-w.jpg') no-repeat;
+  background-position: 0px 0px;
+  background-size: cover;
+  position: relative;
+  animation: animatedBackground 60s linear infinite alternate;
+
+}
+
+.content {
   width: 50rem;
 }
 
-.home .content h3 {
+.content h3 {
   font-size: 6rem;
   color: #fff;
   padding-bottom: 1rem;
 }
 
-.home .content h3 span {
+.content h3 span {
   color: #e62222;
 }
 
-.home .content .btn {
+.content .btn {
   color: #fff;
   border-color: #fff;
   font-weight: 500;
   
 }
 
-.home .content .btn:hover {
+.content .btn:hover {
   color: #130f40!important;
   background: #fff;
 }
 
-
-.home .wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 12rem;
+.barBoxDesign{
+  background-color: #1a1a1fd5!important;
 }
 
 .Btext-color{
   color: #222229d5!important;
 }
 
+.btn-design{
+  color: white !important;
+  background-color: rgb(220, 24, 24);
+}
 
+.barDesign{
+  color: rgb(220, 24, 24)!important;
+  margin-top: -15px;
+  padding-right: 5px;
 
-
+}
 
 
 .icon-background{
@@ -119,11 +141,11 @@
     background-position: right;
 
 }
-.home .content {
+.content {
     text-align: center;
     padding-bottom: 5rem;
 }
-.home .content h3 {
+.content h3 {
     font-size: 3rem;
 }
 }

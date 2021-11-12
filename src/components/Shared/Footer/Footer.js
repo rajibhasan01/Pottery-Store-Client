@@ -26,7 +26,7 @@ const Footer = () => {
                     <div className="col-sm-12 col-md-12 col-lg-8 email-box ps-lg-5">
                         <p className="text-secondary text-start mt-md-5 stylishFont">To know our lattest update, sign up here ...</p>
                         <div className="input-group mb-3">
-                            <input type="text" className="form-control bg-transparent border-top border-start border-bottom " placeholder="Enter your email her" aria-label="Recipient's username" aria-describedby="button-addons" />
+                            <input type="text" className="form-control bg-transparent border-top border-start border-bottom " placeholder="Enter your email here" aria-label="Recipient's username" aria-describedby="button-addons" />
                             <button className="btn btn-outline-secondary border" type="button" id="button-addons"> <div><i className="far fa-envelope"></i></div></button>
                         </div>
 
