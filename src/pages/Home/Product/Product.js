@@ -5,10 +5,10 @@ import * as MdIconName from "react-icons/md";
 import { Link } from 'react-router-dom';
 
 
-const Product = () => {
+const Product = ({ value }) => {
     return (
         <Col>
-            <Card className="border-0 p-0 text-start card-container HomeBackground mb-4">
+            <Card className={value ? "border-0 p-3 text-start card-container HomeBackground mb-4" : "border-0 p-0 text-start card-container HomeBackground mb-4"}>
                 <div className="image-box">
                     <Card.Img variant="top" className="card-image hoverImage" src="https://www.veniceclayartists.com/wp-content/uploads/2012/01/475px-475px-MVictorinoWV590.jpg" />
                 </div>

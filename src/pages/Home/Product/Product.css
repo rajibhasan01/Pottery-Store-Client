@@ -41,8 +41,8 @@
 
 .discountProduct{
     position:absolute;
-    top:15px;
-    right:15px;
+    top:20px;
+    right:16px;
     background-color:rgb(238, 43, 43);
     width: 60px;
     text-align: center;
