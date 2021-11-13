@@ -4,3 +4,7 @@
     background-repeat: repeat;
     background-size: cover;
 }
+
+.containerBox{
+    border-bottom: 1px solid black;
+}

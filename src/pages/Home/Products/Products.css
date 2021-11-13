@@ -3,3 +3,27 @@
     width: 80px !important;
     text-align: center;
 }
+
+.buttonBox{
+    margin-bottom: -1px;
+
+}
+
+.productsBoxBtn{
+    color: rgb(131, 131, 131);
+    font-size: 14px;
+
+}
+
+.productsBoxBtn:focus{
+    box-shadow: none!important;
+}
+
+.btnActive{
+    
+    border: 1px solid lightgray;
+    border-radius: 0px;
+    border-bottom: 1px solid #F3F3F3;
+    color: rgb(255, 36, 36)!important;
+}
+
