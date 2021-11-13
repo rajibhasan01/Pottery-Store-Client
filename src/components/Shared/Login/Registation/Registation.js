@@ -1,38 +1,61 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import * as BiIconName from "react-icons/bi";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
+import useAuth from '../../../../hooks/useAuth';
 
 const Registation = () => {
     const [loginData, setLoginData] = useState({});
+    const { user, registerUser, isLoading, authError } = useAuth();
 
-    const handleOnChange = (e) => {
+    const history = useHistory();
+
+    const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
-
-        const newValue = { ...loginData };
-        newValue[field] = value;
-        setLoginData(newValue);
+        const newLoginData = { ...loginData };
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
         console.log(loginData);
+
+
     }
+    const handleLoginSubmit = e => {
+        if (loginData.password !== loginData.re_password) {
+            alert("Password didn't match");
+            e.preventDefault();
+            return;
+        }
 
-    const handleRegisation = e => {
+        registerUser(loginData.email, loginData.password, loginData.name, history);
+
         e.preventDefault();
-
     }
 
 
     return (
         <div className="container">
-            <div className="row">
 
+            <div className="row">
                 <div className="col-md-5 formDesign">
 
-                    <Form onSubmit={handleRegisation}>
+
+                    <Form onSubmit={handleLoginSubmit}>
+                        {
+                            isLoading && <img src="http://webdesign-finder.com/skymax-demo/brobit/wp-content/uploads/2019/07/preloader03.gif" alt="" className="d-flex justify-content-center align-items-center" />
+                        }
+
+                        {
+                            user?.email && <p>User created successful!</p>
+                        }
+                        {
+                            authError && <p>{authError}</p>
+                        }
+
                         <h1 className="mb-5">Register <BiIconName.BiLogInCircle /></h1>
                         <Form.Group className="mb-3 w-100" controlId="formBasicEmail">
                             <Form.Control
-                                onChange={handleOnChange}
+                                onBlur={handleOnBlur}
                                 type="text"
                                 name="name"
                                 placeholder="User name"
@@ -41,7 +64,7 @@ const Registation = () => {
 
                         <Form.Group className="mb-3 w-100" controlId="formBasicEmail">
                             <Form.Control
-                                onChange={handleOnChange}
+                                onBlur={handleOnBlur}
                                 type="email"
                                 name="email"
                                 placeholder="Enter email"
@@ -50,7 +73,7 @@ const Registation = () => {
 
                         <Form.Group className="mb-3 w-100" controlId="formBasicPassword">
                             <Form.Control
-                                onChange={handleOnChange}
+                                onBlur={handleOnBlur}
                                 type="password"
                                 name="password"
                                 placeholder="Enter password"
@@ -59,9 +82,9 @@ const Registation = () => {
 
                         <Form.Group className="mb-3 w-100" controlId="formBasicPassword">
                             <Form.Control
-                                onChange={handleOnChange}
+                                onBlur={handleOnBlur}
                                 type="password"
-                                name="re-password"
+                                name="re_password"
                                 placeholder="Confirm password"
                                 className="inputDesign border-0 ps-0" />
                         </Form.Group>

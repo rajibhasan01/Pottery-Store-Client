@@ -1,34 +1,38 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Alert, Button, Form } from 'react-bootstrap';
 import * as BiIconName from "react-icons/bi";
 import * as FcIconName from "react-icons/fc";
-import { NavLink } from 'react-router-dom';
-import useFirebase from '../../../../hooks/useFirebase';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import useAuth from '../../../../hooks/useAuth';
 
 import './Login.css';
 
 
 const Login = () => {
     const [loginData, setLoginData] = useState({});
-    const { user, googleLogin } = useFirebase();
+    const { user, loginUser, isLoading, authError, signInWithGoogle } = useAuth();
+
+    const location = useLocation();
+    const history = useHistory();
 
     const handleOnChange = (e) => {
         const field = e.target.name;
         const value = e.target.value;
 
-        const newValue = { ...loginData };
-        newValue[field] = value;
-        setLoginData(newValue);
+        const newLoginData = { ...loginData };
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
         console.log(loginData);
     }
 
-    const handleLogin = e => {
-        e.preventDefault();
+    const handleLoginSubmit = e => {
+        loginUser(loginData.email, loginData.password, location, history);
 
+        e.preventDefault();
     }
 
     const handleGoogleSignIn = () => {
-        googleLogin();
+        signInWithGoogle(location, history);
     }
 
 
@@ -37,42 +41,61 @@ const Login = () => {
             <div className="row">
 
                 <div className="col-md-5 formDesign">
+                    {
+                        isLoading && <img src="http://webdesign-finder.com/skymax-demo/brobit/wp-content/uploads/2019/07/preloader03.gif" alt="" className="d-flex justify-content-center align-items-center" />
+                    }
 
-                    <Form onSubmit={handleLogin}>
-                        <h1 className="mb-5">Login <BiIconName.BiLogInCircle /></h1>
-                        <Form.Group className="mb-3 w-100" controlId="formBasicEmail">
-                            <Form.Control
-                                onChange={handleOnChange}
-                                type="email"
-                                name="email"
-                                placeholder="Enter email"
-                                className="inputDesign border-0 ps-0" />
-                        </Form.Group>
+                    {
+                        !isLoading && <Form onSubmit={handleLoginSubmit}>
 
-                        <Form.Group className="mb-3 w-100" controlId="formBasicPassword">
-                            <Form.Control
-                                onChange={handleOnChange}
-                                type="password"
-                                name="password"
-                                placeholder="Enter Password"
-                                className="inputDesign border-0 ps-0" />
-                        </Form.Group>
+                            {/* loign message */}
+                            {
+                                user.email && <Alert variant="success">
+                                    login success
+                                </Alert>
+                            }
 
-                        <Button className="w-100 btnDesign mt-2" type="submit">
-                            Login
-                        </Button>
+                            {
+                                authError && <Alert variant="success">
+                                    {authError}
+                                </Alert>
+                            }
 
-                        <Button className="w-100 btnDesignGoogle mt-3" onClick={handleGoogleSignIn} >sign in with <FcIconName.FcGoogle /></Button>
+                            <h1 className="mb-5">Login <BiIconName.BiLogInCircle /></h1>
+                            <Form.Group className="mb-3 w-100" controlId="formBasicEmail">
+                                <Form.Control
+                                    onChange={handleOnChange}
+                                    type="email"
+                                    name="email"
+                                    placeholder="Enter email"
+                                    className="inputDesign border-0 ps-0" />
+                            </Form.Group>
 
-                        <br />
+                            <Form.Group className="mb-3 w-100" controlId="formBasicPassword">
+                                <Form.Control
+                                    onChange={handleOnChange}
+                                    type="password"
+                                    name="password"
+                                    placeholder="Enter Password"
+                                    className="inputDesign border-0 ps-0" />
+                            </Form.Group>
 
-                        <NavLink
-                            className="linkTextDecoration text-center "
-                            to="/register">
-                            <p className="pt-3">New User? Please Login First</p>
-                        </NavLink>
+                            <Button className="w-100 btnDesign mt-2" type="submit">
+                                Login
+                            </Button>
 
-                    </Form>
+                            <Button className="w-100 btnDesignGoogle mt-3" onClick={handleGoogleSignIn} >sign in with <FcIconName.FcGoogle /></Button>
+
+                            <br />
+
+                            <NavLink
+                                className="linkTextDecoration text-center "
+                                to="/register">
+                                <p className="pt-3">New User? Please Login First</p>
+                            </NavLink>
+
+                        </Form>
+                    }
 
                 </div>
 

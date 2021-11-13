@@ -7,15 +7,12 @@ import { SidebarData } from './SidebarData';
 import { IconContext } from 'react-icons';
 import { useHistory } from 'react-router';
 import './Navbar.css';
+import useAuth from '../../../hooks/useAuth';
 
 function Navbar() {
     const [sidebar, setSidebar] = useState(false);
     const history = useHistory();
-    // const { user, logOut } = useAuth();
-    const user = {
-        displayName: 'Rajib Hasan',
-        email: 'rajib@hasan.com'
-    }
+    const { user, logout } = useAuth();
     const [scrolling, setScrolling] = useState(false);
 
     const showSidebar = () => setSidebar(!sidebar);
@@ -43,6 +40,7 @@ function Navbar() {
                             <FaIcons.FaBars onClick={showSidebar} className={scrolling ? 'text-dark fs-3' : 'Btext-color fs-3'} />
 
                             <h3 className="ms-3 d-none text-color-second d-md-inline stylishFont"><span className="title-color mx-0 stylishFont">Pot</span>Tery<GaIcons.GiPaintedPottery /></h3>
+
                         </Link>
                         <div className="me-0 mt-2 ms-auto d-flex text-color-second">
                             <FaIcons.FaPhoneAlt className="d-none d-md-block mt-2" />
@@ -52,7 +50,7 @@ function Navbar() {
                             {
                                 !user.email ? <p className="me-5 fw-light mt-1 text-muted login-cursor" onClick={handlePage}>Login</p>
                                     :
-                                    <div className="logoutName mt-1"><p className="text-muted pe-3"> {user.displayName} </p><p className="me-5 bg-secondary text-white px-2 rounded fw-light login-cursor" >Logout</p></div>
+                                    <div className="logoutName mt-1"><p className="text-muted pe-3"> {user.displayName} </p><p className="me-5 bg-secondary text-white px-2 rounded fw-light login-cursor" onClick={logout}>Logout</p></div>
 
                             }
 
