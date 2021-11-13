@@ -5,6 +5,7 @@ import Login from './components/Shared/Login/Login/Login';
 import Registation from './components/Shared/Login/Registation/Registation';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import AllProducts from './pages/AllProducts/AllProducts';
+import SingleProduct from './pages/Home/SingleProduct/SingleProduct';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Registation} />
             <Route exact path="/allproducts" component={AllProducts} />
+            <Route exact path="/singleproducts" component={SingleProduct} />
           </Switch>
         </Router>
       </AuthProvider>

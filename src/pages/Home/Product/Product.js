@@ -9,8 +9,13 @@ const Product = ({ value }) => {
     return (
         <Col>
             <Card className={value ? "border-0 p-3 text-start card-container HomeBackground mb-4" : "border-0 p-0 text-start card-container HomeBackground mb-4"}>
-                <div className="image-box">
-                    <Card.Img variant="top" className="card-image hoverImage" src="https://www.veniceclayartists.com/wp-content/uploads/2012/01/475px-475px-MVictorinoWV590.jpg" />
+                <div className="image-box imgContainer">
+                    <Card.Img variant="top" className="card-image hoverImage blogImage" src="https://www.veniceclayartists.com/wp-content/uploads/2012/01/475px-475px-MVictorinoWV590.jpg" />
+
+                    <div className="middle">
+                        <p>For more info click details</p>
+                        <Link className="text-decoration-none login-cursor bg-dark px-2 text-white rounded fs-6 read-more" to={`/singleproducts`}>Details<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </Link>
+                    </div>
                 </div>
 
                 <Card.Text className="discountProduct">-17%</Card.Text>
@@ -25,7 +30,7 @@ const Product = ({ value }) => {
                     <Card.Text className="text-black d-flex justify-content-between align-items-center"><span className="ps-0 ms-0 text-title">
                         $40.00 USD</span> <span><MdIconName.MdOutlineStarHalf className="fs-5 text-title" /><small className="py-2 text-title"> 6.7</small></span></Card.Text>
 
-                    <Link className="text-decoration-none login-cursor text-secondary fs-6 mt-4 read-more" to={`/tourplaces/`}>View Package <MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </Link>
+                    <Link className="text-decoration-none login-cursor bg-dark px-2 text-white rounded fs-6 read-more" to={`/tourplaces/`}>Buy Now<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </Link>
 
                 </Card.Body>
             </Card>

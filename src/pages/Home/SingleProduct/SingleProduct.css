@@ -1,0 +1,21 @@
+.singleImage{
+    width: 70%;
+}
+
+.imgContainer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.topMargin{
+    padding-top: 150px !important;
+}
+
+.btnContainer{
+    background-color: #f2f2f2;
+}
+
+.btnContainer:hover{
+    background-color: #ff5927;
+    color: #fff;
+}
