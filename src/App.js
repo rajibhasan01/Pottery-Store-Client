@@ -6,6 +6,7 @@ import Registation from './components/Shared/Login/Registation/Registation';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import AllProducts from './pages/AllProducts/AllProducts';
 import SingleProduct from './pages/Home/SingleProduct/SingleProduct';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route exact path="/register" component={Registation} />
             <Route exact path="/allproducts" component={AllProducts} />
             <Route exact path="/singleproducts" component={SingleProduct} />
+            <Route exact path="/placeorder" component={PlaceOrder} />
           </Switch>
         </Router>
       </AuthProvider>

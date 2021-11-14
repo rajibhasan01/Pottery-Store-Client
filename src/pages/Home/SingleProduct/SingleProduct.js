@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../../../components/Shared/Footer/Footer';
 import Navbar from '../../../components/Shared/Navbar/Navbar';
 import './SingleProduct.css';
@@ -6,11 +6,13 @@ import * as GoIcons from 'react-icons/go';
 import { Col, Form, Row } from 'react-bootstrap';
 import * as MdIconName from "react-icons/md";
 import SimilarProducts from '../../SimilarProducts/SimilarProducts';
+import { Link } from 'react-router-dom';
 
 
 const SingleProduct = () => {
     let price = 200;
     let quantity = 1;
+    const [count, setCount] = useState(0);
     const [cart, setCart] = useState({ size: 'sm', price, quantity });
 
 
@@ -20,7 +22,7 @@ const SingleProduct = () => {
         const newValue = { ...cart }
         newValue[field] = value;
         setCart(newValue);
-        console.log(newValue);
+        setCount(count + 1);
     }
 
     const handleQuantity = e => {
@@ -37,14 +39,37 @@ const SingleProduct = () => {
             }
 
             setCart(newQuantity);
+            setCount(count + 1);
         }
-        console.log(cart);
     }
 
+    useEffect(() => {
+        const newCart = { ...cart };
+        if (newCart.size === 'sm') {
+            newCart.price = 200;
+        }
+
+        else if (newCart.size === 'lg') {
+            newCart.price = 300;
+        }
+
+        else if (newCart.size === 'xl') {
+            newCart.price = 350;
+        }
+
+        const totalPrice = newCart.price * newCart.quantity;
+        newCart.price = totalPrice;
+
+        setCart(newCart);
+        console.log(newCart);
+
+
+    }, [count]);
+
     const haneldeSizeSelection = e => {
-        console.log(cart);
         e.preventDefault();
     }
+
     return (
         <div className="">
             <Navbar />
@@ -136,11 +161,11 @@ const SingleProduct = () => {
                             </div>
                         </div>
 
-                        <div className="mt-3">
-                            <h5 className="shadowsFont text-muted">Price:<span className="robotoFont text-dark fs-6 fw-normal ">$200</span></h5>
+                        <div className="my-3">
+                            <h5 className="shadowsFont fw-normal text-muted">Price: <span className="robotoFont fs-6 text-info fw-bold ms-0">${cart.price}</span></h5>
                         </div>
 
-                        <button className="text-decoration-none login-cursor bg-dark px-2 text-white rounded fs-6 read-more mt-2">Buy Now<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </button>
+                        <Link className="text-decoration-none login-cursor bg-dark px-2 py-1 text-white rounded fs-6 read-more" to={`/placeorder`}>Buy Now<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </Link>
                     </div>
                 </div>
             </div>
