@@ -7,6 +7,7 @@ import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import AllProducts from './pages/AllProducts/AllProducts';
 import SingleProduct from './pages/Home/SingleProduct/SingleProduct';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
+import Cart from './components/Shared/Cart/Cart';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route exact path="/allproducts" component={AllProducts} />
             <Route exact path="/singleproducts" component={SingleProduct} />
             <Route exact path="/placeorder" component={PlaceOrder} />
+            <Route exact path="/cart" component={Cart} />
           </Switch>
         </Router>
       </AuthProvider>

@@ -123,3 +123,12 @@ span {
 .text-color-second{
   color:#03035ed0;
 }
+
+.cartCursor{
+  cursor: pointer;
+  color: rgb(255, 102, 0) !important;
+}
+
+.cartCursor:hover{
+  color: rgb(0, 238, 255) !important;
+}

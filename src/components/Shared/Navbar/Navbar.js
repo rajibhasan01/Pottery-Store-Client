@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
+import * as FiIcons from 'react-icons/fi';
 import * as AiIcons from 'react-icons/ai';
 import * as GaIcons from 'react-icons/gi';
 import { Link } from 'react-router-dom';
@@ -8,6 +9,7 @@ import { IconContext } from 'react-icons';
 import { useHistory } from 'react-router';
 import './Navbar.css';
 import useAuth from '../../../hooks/useAuth';
+import Cart from '../Cart/Cart';
 
 function Navbar() {
     const [sidebar, setSidebar] = useState(false);
@@ -28,7 +30,12 @@ function Navbar() {
         else {
             setScrolling(false);
         }
-    }
+    };
+
+
+    const [lgShow, setLgShow] = useState(false);
+    const handleClose = () => setLgShow(false);
+    const handleShow = () => setLgShow(true);
 
 
     return (
@@ -50,7 +57,13 @@ function Navbar() {
                             {
                                 !user.email ? <p className="me-5 fw-light mt-1 text-muted login-cursor" onClick={handlePage}>Login</p>
                                     :
-                                    <div className="logoutName mt-1"><p className="text-muted pe-3"> {user.displayName} </p><p className="me-5 bg-secondary text-white px-2 rounded fw-light login-cursor" onClick={logout}>Logout</p></div>
+                                    <>
+                                        <div className="logoutName mt-1"><p className="text-muted pe-3"> {user.displayName} </p><p className="me-3 bg-secondary text-white px-2 rounded fw-light login-cursor" onClick={logout}>Logout</p>
+                                        </div>
+
+                                        <p onClick={handleShow}><FiIcons.FiShoppingCart className="me-4 fs-5 mt-2 cartCursor" /></p>
+
+                                    </>
 
                             }
 
@@ -79,7 +92,14 @@ function Navbar() {
                         </ul>
                     </nav>
                 </div>
+
             </IconContext.Provider>
+
+            <Cart
+                handleClose={handleClose}
+                handleShow={handleShow}
+                lgShow={lgShow}
+            />
         </>
     );
 }
