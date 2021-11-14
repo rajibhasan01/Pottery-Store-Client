@@ -50,7 +50,7 @@ const Reviews = () => {
 
     const rows = [1, 2, 3, 4, 5, 6, 7, 8];
     return (
-        <Container className="text-center my-5 py-5">
+        <Container className="text-center my-5 py-5 sliderContainer">
             <h1 className="shadowsFont">Customer Review</h1>
             <hr className="hr-style mx-auto" />
             <p className="robotoFont">Some of our customer feedback here</p>

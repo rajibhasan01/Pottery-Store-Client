@@ -45,3 +45,7 @@
     font-size: 18px;
     color: rgb(48, 48, 48);
 }
+
+.sliderContainer{
+    overflow-x: hidden!important;
+}

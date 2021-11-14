@@ -50,7 +50,7 @@ const SimilarProducts = () => {
 
     const rows = [1, 2, 3, 4, 5, 6, 7, 8];
     return (
-        <Container fluid className="text-start my-5 py-5 px-md-5">
+        <Container fluid className="text-start my-5 py-5 px-md-5 sliderContainer">
             <h1 className="shadowsFont ps-3">Similar Products</h1>
             <p className="shadowsFont ps-3">Some of our customer feedback here</p>
             <hr />
