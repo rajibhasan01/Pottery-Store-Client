@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Footer from '../../../components/Shared/Footer/Footer';
 import Navbar from '../../../components/Shared/Navbar/Navbar';
 import './SingleProduct.css';
@@ -9,6 +9,42 @@ import SimilarProducts from '../../SimilarProducts/SimilarProducts';
 
 
 const SingleProduct = () => {
+    let price = 200;
+    let quantity = 1;
+    const [cart, setCart] = useState({ size: 'sm', price, quantity });
+
+
+    const handleOnChange = e => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newValue = { ...cart }
+        newValue[field] = value;
+        setCart(newValue);
+        console.log(newValue);
+    }
+
+    const handleQuantity = e => {
+        const field = e.target.name;
+        const newQuantity = { ...cart };
+
+        if (cart.quantity > 0) {
+
+            if (field === 'minus' && cart.quantity > 1) {
+                newQuantity.quantity -= 1;
+            }
+            if (field === 'plus') {
+                newQuantity.quantity += 1;
+            }
+
+            setCart(newQuantity);
+        }
+        console.log(cart);
+    }
+
+    const haneldeSizeSelection = e => {
+        console.log(cart);
+        e.preventDefault();
+    }
     return (
         <div className="">
             <Navbar />
@@ -50,27 +86,34 @@ const SingleProduct = () => {
                         </div>
 
                         <fieldset className="mt-3">
-                            <Form.Group as={Row} className="mb-3">
+                            <Form.Group as={Row} className="mb-3" onSubmit={haneldeSizeSelection}>
                                 <h5 className="shadowsFont text-muted">Select Size</h5>
                                 <Col sm={10}>
                                     <Form.Check
                                         type="radio"
                                         label="Small"
-                                        name="formHorizontalRadios"
+                                        name="size"
+                                        value='sm'
                                         id="formHorizontalRadios1"
+                                        defaultChecked
+                                        onChange={handleOnChange}
 
                                     />
                                     <Form.Check
                                         type="radio"
                                         label="Large"
-                                        name="formHorizontalRadios"
+                                        name="size"
+                                        value='lg'
                                         id="formHorizontalRadios2"
+                                        onChange={handleOnChange}
                                     />
                                     <Form.Check
                                         type="radio"
                                         label="Extra Large"
-                                        name="formHorizontalRadios"
+                                        name="size"
+                                        value='xl'
                                         id="formHorizontalRadios3"
+                                        onChange={handleOnChange}
                                     />
                                 </Col>
                             </Form.Group>
@@ -79,9 +122,17 @@ const SingleProduct = () => {
                         <div className="mt-2">
                             <h5 className="shadowsFont text-muted">Quantity</h5>
                             <div className="d-flex">
-                                <button className="btn btnContainer px-3">-</button>
-                                <div className="my-auto mx-3">2</div>
-                                <button className="btn btnContainer px-3">+</button>
+                                <button
+                                    className="btn btnContainer px-3"
+                                    name='minus'
+                                    onClick={handleQuantity}
+                                >-</button>
+                                <div className="my-auto mx-3">{cart.quantity}</div>
+                                <button
+                                    className="btn btnContainer px-3"
+                                    name='plus'
+                                    onClick={handleQuantity}
+                                >+</button>
                             </div>
                         </div>
 
