@@ -165,7 +165,7 @@ const SingleProduct = () => {
                             <h5 className="shadowsFont fw-normal text-muted">Price: <span className="robotoFont fs-6 text-info fw-bold ms-0">${cart.price}</span></h5>
                         </div>
 
-                        <Link className="text-decoration-none login-cursor bg-dark px-2 py-1 text-white rounded fs-6 read-more" to={`/placeorder`}>Buy Now<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </Link>
+                        <Link className="text-decoration-none login-cursor bg-dark px-2 py-1 text-white rounded fs-6 read-more" to={`/placeorder`}>Place Order<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </Link>
                     </div>
                 </div>
             </div>
