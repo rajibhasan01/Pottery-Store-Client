@@ -35,6 +35,10 @@
     background-color: rgb(232, 99, 38);
 }
 
+.img-text-bg2{
+    background-color: rgb(0, 197, 122);
+}
+
 .image-box{
     overflow: hidden;
 }

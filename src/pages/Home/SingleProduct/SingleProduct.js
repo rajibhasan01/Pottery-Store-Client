@@ -5,6 +5,7 @@ import './SingleProduct.css';
 import * as GoIcons from 'react-icons/go';
 import { Col, Form, Row } from 'react-bootstrap';
 import * as MdIconName from "react-icons/md";
+import SimilarProducts from '../../SimilarProducts/SimilarProducts';
 
 
 const SingleProduct = () => {
@@ -12,11 +13,23 @@ const SingleProduct = () => {
         <div className="">
             <Navbar />
             <div className="container topMargin pb-5 mb-5">
-                <div className="row">
-                    <div className="col-6 imgContainer">
-                        <img src="https://www.veniceclayartists.com/wp-content/uploads/2012/01/475px-475px-MVictorinoWV590.jpg" className="singleImage" alt="" />
+                <div className="row g-4">
+
+                    <div className="col-md-6 text-center imgContainer">
+                        <div className="d-flex flex-column align-items-center">
+                            <img src="https://www.veniceclayartists.com/wp-content/uploads/2012/01/475px-475px-MVictorinoWV590.jpg" className="w-50 pb-2 cursor-pointer" alt="" />
+
+                            <img src="https://www.veniceclayartists.com/wp-content/uploads/2012/01/475px-475px-MVictorinoWV590.jpg" className="w-50 pb-2 cursor-pointer" alt="" />
+
+                            <img src="https://www.veniceclayartists.com/wp-content/uploads/2012/01/475px-475px-MVictorinoWV590.jpg" className="w-50 cursor-pointer" alt="" />
+                        </div>
+
+                        <img src="https://www.veniceclayartists.com/wp-content/uploads/2012/01/475px-475px-MVictorinoWV590.jpg" className="singleImage pe-3 pe-md-2" alt="" />
+
                     </div>
-                    <div className="col-6">
+
+
+                    <div className="col-md-6">
                         <h1 className="robotoFont">Customize your Blue Pot</h1>
                         <small className="robotoFont fw-light">
                             Apple M1 chip with 8-core CPU with 4 performace cores and 4 efficiency
@@ -72,10 +85,15 @@ const SingleProduct = () => {
                             </div>
                         </div>
 
-                        <button className="text-decoration-none login-cursor bg-dark px-2 text-white rounded fs-6 read-more mt-5">Buy N ow<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </button>
+                        <div className="mt-3">
+                            <h5 className="shadowsFont text-muted">Price:<span className="robotoFont text-dark fs-6 fw-normal ">$200</span></h5>
+                        </div>
+
+                        <button className="text-decoration-none login-cursor bg-dark px-2 text-white rounded fs-6 read-more mt-2">Buy Now<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </button>
                     </div>
                 </div>
             </div>
+            <SimilarProducts />
 
             <Footer />
         </div>
