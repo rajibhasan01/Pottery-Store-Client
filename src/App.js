@@ -8,7 +8,7 @@ import AllProducts from './pages/AllProducts/AllProducts';
 import SingleProduct from './pages/Home/SingleProduct/SingleProduct';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import Cart from './components/Shared/Cart/Cart';
-import Dashboard from './pages/Dashboard/Dashboard';
+import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 
 function App() {
   return (

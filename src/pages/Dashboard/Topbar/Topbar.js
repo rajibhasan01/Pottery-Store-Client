@@ -1,10 +1,9 @@
 import React from 'react';
 import * as MdIcons from 'react-icons/md';
 import * as GrIcons from 'react-icons/gr';
-import './Dashboard.css';
+import './Topbar.css';
 
-
-const Dashboard = () => {
+const Topbar = () => {
     return (
         <div className="topbar  px-md-4 mt-1">
             <div className="topbarWrapper">
@@ -30,4 +29,4 @@ const Dashboard = () => {
     );
 };
 
-export default Dashboard;
+export default Topbar;
