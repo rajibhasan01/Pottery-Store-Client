@@ -3,3 +3,6 @@
   margin-top: 10px;
   
 }
+.dashboardContainer{
+  overflow-x: hidden!important;
+}

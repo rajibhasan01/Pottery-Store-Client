@@ -9,25 +9,27 @@ import DashboardHome from '../DashboardHome/DashboardHome';
 
 const Dashboard = () => {
     return (
-        <Router>
-            <Topbar />
-            <div className="contentBox row">
-                <div className="col-md-3 col-lg-2 d-none d-md-inline">
-                    <Sidebar />
+        <div className="dashboardContainer">
+            <Router>
+                <Topbar />
+                <div className="contentBox row">
+                    <div className="col-md-3 col-lg-2 d-none d-md-inline">
+                        <Sidebar />
+                    </div>
+                    <div className="col-12 col-md-9 col-lg-10">
+                        <Switch >
+
+                            <Route exact path="/dashboard" component={DashboardHome} />
+
+                            <Route path="/users" />
+
+                            <Route path="/user/:userId" />
+
+                        </Switch >
+                    </div>
                 </div>
-                <div className="col-12 col-md-9 col-lg-10">
-                    <Switch >
-
-                        <Route exact path="/dashboard" component={DashboardHome} />
-
-                        <Route path="/users" />
-
-                        <Route path="/user/:userId" />
-
-                    </Switch >
-                </div>
-            </div>
-        </Router>
+            </Router>
+        </div>
     );
 };
 
