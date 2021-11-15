@@ -16,16 +16,9 @@ export const SidebarData = [
 
     },
     {
-        title: 'Packages',
+        title: 'Products',
         path: '/servicesprovider',
         icon: <IoIcons.IoMdPeople />,
-        cName: 'nav-text',
-        cname: 'nav-text'
-    },
-    {
-        title: 'Our Guides',
-        path: '/guides',
-        icon: <IoIcons.IoIosPeople />,
         cName: 'nav-text',
         cname: 'nav-text'
     },
@@ -52,8 +45,8 @@ export const SidebarData = [
         cname: 'nav-text'
     },
     {
-        title: 'Manage Users',
-        path: '/manageusers',
+        title: 'Dashboard',
+        path: '/dashboard',
         icon: <MdIcons.MdDashboardCustomize />,
         cName: 'nav-text d-none',
         cname: 'nav-text'

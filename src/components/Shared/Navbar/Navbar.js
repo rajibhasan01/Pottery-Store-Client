@@ -3,6 +3,7 @@ import * as FaIcons from 'react-icons/fa';
 import * as FiIcons from 'react-icons/fi';
 import * as AiIcons from 'react-icons/ai';
 import * as GaIcons from 'react-icons/gi';
+import * as MdIcons from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import { IconContext } from 'react-icons';
@@ -37,6 +38,10 @@ function Navbar() {
     const handleClose = () => setLgShow(false);
     const handleShow = () => setLgShow(true);
 
+    const handleDashboard = () => {
+        history.push('/dashboard');
+    }
+
 
     return (
         <>
@@ -52,6 +57,11 @@ function Navbar() {
                         <div className="me-0 mt-2 ms-auto d-flex text-color-second">
                             <FaIcons.FaPhoneAlt className="d-none d-md-block mt-2" />
                             <p className="me-5 text-muted fw-lighter ms-3 d-none d-md-block mt-1">01754-063712</p>
+
+                            {
+                                user.email && <div className="logoutName mt-1"><MdIcons.MdDashboardCustomize className="me-2 mt-1" /><p className="me-3 text-muted px-2 rounded fw-light login-cursor" onClick={handleDashboard}>Dashboard</p>
+                                </div>
+                            }
 
                             <FaIcons.FaUser className="me-2 mt-2" />
                             {
@@ -77,7 +87,7 @@ function Navbar() {
                                     <AiIcons.AiOutlineClose />
                                 </Link>
 
-                                <h3 className="ms-3 pt-1 text-color-second"><span className="title-color mx-0">Nexs</span>Top<GaIcons.GiCommercialAirplane /></h3>
+                                <h3 className="ms-3 pt-1 text-color-second stylishFont"><span className="title-color mx-0 stylishFont">Pot</span>Tery<GaIcons.GiPaintedPottery /></h3>
                             </li>
                             {SidebarData.map((item, index) => {
                                 return (

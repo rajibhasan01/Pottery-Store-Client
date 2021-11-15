@@ -37,12 +37,15 @@ const Login = () => {
 
 
     return (
-        <div className="container">
+        <div className="container mt-3">
             <div className="row">
 
                 <div className="col-md-5 formDesign">
                     {
-                        isLoading && <img src="http://webdesign-finder.com/skymax-demo/brobit/wp-content/uploads/2019/07/preloader03.gif" alt="" className="d-flex justify-content-center align-items-center" />
+                        isLoading && <div>
+                            <h5>Please wait a bit...</h5>
+                            <img src="https://i.ibb.co/bJJx03Y/Fountain.gif" alt="" className="d-flex justify-content-center align-items-center" />
+                        </div>
                     }
 
                     {
@@ -91,7 +94,7 @@ const Login = () => {
                             <NavLink
                                 className="linkTextDecoration text-center "
                                 to="/register">
-                                <p className="pt-3">New User? Please Login First</p>
+                                <p className="pt-3">Are You a New User? Please Register</p>
                             </NavLink>
 
                         </Form>

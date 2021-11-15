@@ -8,6 +8,7 @@ import AllProducts from './pages/AllProducts/AllProducts';
 import SingleProduct from './pages/Home/SingleProduct/SingleProduct';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import Cart from './components/Shared/Cart/Cart';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route exact path="/singleproducts" component={SingleProduct} />
             <Route exact path="/placeorder" component={PlaceOrder} />
             <Route exact path="/cart" component={Cart} />
+            <Route exact path="/dashboard" component={Dashboard} />
           </Switch>
         </Router>
       </AuthProvider>
