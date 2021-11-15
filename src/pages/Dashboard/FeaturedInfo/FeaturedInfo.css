@@ -6,3 +6,17 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px!important;
 }
 
+.fontSizeValue{
+    font-size: 14px;
+
+}
+.spanFontSize{
+    color: rgb(123, 117, 117);
+    font-size: 14px;
+}
+
+.fontMoney{
+    font-size: 28px !important;
+    font-weight: 400;
+    line-height: 3rem !important;
+}
