@@ -4,6 +4,7 @@ import * as MdIcons from 'react-icons/md';
 import * as FaIcons from 'react-icons/fa';
 import * as GiIcons from 'react-icons/gi';
 import * as RiIcons from 'react-icons/ri';
+import * as SiIcons from 'react-icons/si';
 import * as AiIcons from 'react-icons/ai';
 
 import './Sidebar.css';
@@ -52,33 +53,40 @@ const Sidebar = () => {
                         :
                         <ul className="sidebarList">
 
-                            <Link to="/users" className="text-decoration-none text-black">
-                                <li className="sidebarListItem robotoFont active">
+                            <NavLink to="/dashboard/" activeStyle={activeStyle} className="text-decoration-none text-color">
+                                <li className="sidebarListItem robotoFont">
+                                    <SiIcons.SiGoogleanalytics className="sidebarIcon" />
+                                    Analytics
+                                </li>
+                            </NavLink>
+
+                            <NavLink to="/dashboard/manageallproduct" activeStyle={activeStyle} className="text-decoration-none text-color">
+                                <li className="sidebarListItem robotoFont">
                                     <RiIcons.RiListSettingsFill className="sidebarIcon" />
                                     Manage All Orders
                                 </li>
-                            </Link>
+                            </NavLink>
 
-                            <Link to="/users" className="text-decoration-none text-black active">
-                                <li className="sidebarListItem">
+                            <NavLink to="/dashboard/addproduct" activeStyle={activeStyle} className="text-decoration-none text-color">
+                                <li className="sidebarListItem robotoFont">
                                     <AiIcons.AiFillFolderAdd className="sidebarIcon robotoFont" />
                                     Add A Product
                                 </li>
-                            </Link>
+                            </NavLink>
 
-                            <Link to="/users" className="text-decoration-none text-black">
-                                <li className="sidebarListItem">
+                            <NavLink to="/dashboard/makeadmin" activeStyle={activeStyle} className="text-decoration-none text-color">
+                                <li className="sidebarListItem robotoFont">
                                     <MdIcons.MdAdminPanelSettings className="sidebarIcon robotoFont" />
                                     Make Admin
                                 </li>
-                            </Link>
+                            </NavLink>
 
-                            <Link to="/users" className="text-decoration-none text-black">
-                                <li className="sidebarListItem">
+                            <NavLink to="/dashboard/manageproduct" activeStyle={activeStyle} className="text-decoration-none text-color">
+                                <li className="sidebarListItem robotoFont">
                                     <MdIcons.MdFormatAlignRight className="sidebarIcon robotoFont" />
                                     Manage Products
                                 </li>
-                            </Link>
+                            </NavLink>
 
 
                         </ul>
@@ -88,7 +96,7 @@ const Sidebar = () => {
                     <h3 className="sidebarTitle">Sign out</h3>
                     <ul className="sidebarList">
 
-                        <li className="sidebarListItem " onClick={logout}>
+                        <li className="sidebarListItem robotoFont" onClick={logout}>
                             <FaIcons.FaUserAltSlash className="sidebarIcon robotoFont" />
                             Logout
                         </li>
