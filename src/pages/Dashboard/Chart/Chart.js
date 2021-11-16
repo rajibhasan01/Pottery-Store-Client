@@ -7,12 +7,12 @@ const Chart = () => {
     const data = [
         {
             name: 'Jan',
-            "Active User": 4000,
+            "Active User": 1000,
 
         },
         {
             name: 'Feb',
-            "Active User": 3000,
+            "Active User": 7000,
 
         },
         {
@@ -22,17 +22,17 @@ const Chart = () => {
         },
         {
             name: 'May',
-            "Active User": 2780,
+            "Active User": 4896,
 
         },
         {
             name: 'June',
-            "Active User": 1890,
+            "Active User": 3245,
 
         },
         {
             name: 'July',
-            "Active User": 2390,
+            "Active User": 4962,
 
         },
         {
@@ -42,7 +42,7 @@ const Chart = () => {
         },
         {
             name: 'Sep',
-            "Active User": 1890,
+            "Active User": 8000,
 
         },
         {
@@ -52,12 +52,12 @@ const Chart = () => {
         },
         {
             name: 'Nov',
-            "Active User": 2390,
+            "Active User": 4469,
 
         },
         {
             name: 'Dec',
-            "Active User": 3490,
+            "Active User": 2490,
 
         },
     ];
