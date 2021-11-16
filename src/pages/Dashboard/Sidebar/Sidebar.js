@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import * as MdIcons from 'react-icons/md';
 import * as FaIcons from 'react-icons/fa';
 import * as GiIcons from 'react-icons/gi';
@@ -12,6 +12,12 @@ import useAuth from '../../../hooks/useAuth';
 const Sidebar = () => {
     const { user, logout } = useAuth();
 
+    const activeStyle = {
+        fontWeight: "bold",
+        color: "red",
+        backgroundColor: "black",
+    }
+
     return (
         <div className="sidebar mt-2">
             <div className="sidebarWrapper">
@@ -20,26 +26,26 @@ const Sidebar = () => {
                     {user.email !== "admin@admin.com" ?
                         <ul className="sidebarList">
 
-                            <Link to="/users" className="text-decoration-none">
-                                <li className="sidebarListItem robotoFont active">
+                            <NavLink to="/dashboard/pay" activeStyle={activeStyle} className="text-decoration-none text-color">
+                                <li className="sidebarListItem robotoFont">
                                     <GiIcons.GiTakeMyMoney className="sidebarIcon" />
                                     Pay
                                 </li>
-                            </Link>
+                            </NavLink>
 
-                            <Link to="/users" className="text-decoration-none text-black">
+                            <NavLink to="/dashboard/myorders" activeStyle={activeStyle} className="text-decoration-none text-color">
                                 <li className="sidebarListItem">
                                     <FaIcons.FaCartPlus className="sidebarIcon robotoFont" />
                                     My Orders
                                 </li>
-                            </Link>
+                            </NavLink>
 
-                            <Link to="/users" className="text-decoration-none text-black">
+                            <NavLink to="/dashboard/review" activeStyle={activeStyle} className="text-decoration-none text-color">
                                 <li className="sidebarListItem">
                                     <MdIcons.MdOutlineRateReview className="sidebarIcon robotoFont" />
                                     Review
                                 </li>
-                            </Link>
+                            </NavLink>
 
 
                         </ul>

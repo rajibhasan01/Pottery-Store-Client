@@ -32,19 +32,19 @@
   display:flex;
   align-items: center;
   border-radius: 7px;
-
+ 
 }
 
-.active{
+
+ 
+.sidebarListItem:hover{
+  background-color: rgb(198, 198, 206)!important;
   color: white;
 }
 
-.sidebarListItem.active, 
-.sidebarListItem:hover{
-  background-color: rgb(198, 198, 206)!important;
+.text-color{
+   color: rgb(107, 107, 107);
 }
-
-
 
 
 .sidebarIcon{

@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './Dashboard.css';
 import Sidebar from '../Sidebar/Sidebar';
 import DashboardHome from '../DashboardHome/DashboardHome';
+import Pay from '../Pay/Pay';
+import MyOrders from '../MyOrders/MyOrders/MyOrders';
+import WriteReview from '../WriteReview/WriteReview';
 
 
 const Dashboard = () => {
@@ -19,11 +22,13 @@ const Dashboard = () => {
                     <div className="col-12 col-md-9 col-lg-10">
                         <Switch >
 
-                            <Route exact path="/dashboard" component={DashboardHome} />
+                            <Route exact path="/dashboard/" component={DashboardHome} />
 
-                            <Route path="/users" />
+                            <Route exact path="/dashboard/pay" component={Pay} />
 
-                            <Route path="/user/:userId" />
+                            <Route exact path="/dashboard/myorders" component={MyOrders} />
+
+                            <Route exact path="/dashboard/review" component={WriteReview} />
 
                         </Switch >
                     </div>
