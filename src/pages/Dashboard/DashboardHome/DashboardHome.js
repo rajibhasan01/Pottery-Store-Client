@@ -4,7 +4,6 @@ import Chart from '../Chart/Chart';
 import FeaturedInfo from '../FeaturedInfo/FeaturedInfo';
 import LatestTransactions from '../LatestTransactions/LatestTransactions/LatestTransactions';
 import NewMembers from '../NewMembers/NewMembers/NewMembers';
-import Sidebar from '../Sidebar/Sidebar';
 import './DashboardHome.css';
 
 const DashboardHome = () => {
