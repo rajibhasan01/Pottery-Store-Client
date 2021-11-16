@@ -1,9 +1,8 @@
 .latestTransactions{
-    margin: 10px 10px 20px 5px!important;
+    margin: 0px 10px!important;;
     padding: 30px!important; ;
-    border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px!important;
-    height:92%;
+    height:100%;
     background-color:#f8f8f8;
    
 }

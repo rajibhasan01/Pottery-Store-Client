@@ -1,9 +1,8 @@
 .newMember{
-    margin: 10px 5px 20px 10px!important;
+    margin: 0px 10px!important;
     padding: 20px ;
-    border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px!important;
-    height:92%;
+    height:100%;
     background-color:#f8f8f8;
 
 }

@@ -11,7 +11,7 @@ const DashboardHome = () => {
             <FeaturedInfo />
             <Chart />
             <div className="mt-2">
-                <div className="row ">
+                <div className="row g-2">
                     <div className="col-12 col-lg-4">
                         <NewMembers />
                     </div>
