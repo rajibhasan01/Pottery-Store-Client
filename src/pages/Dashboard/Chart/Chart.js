@@ -65,7 +65,7 @@ const Chart = () => {
 
     return (
         <div className="chart">
-            <h3 className="chartTitle">User Analytics</h3>
+            <h4 className="chartTitle robotoFont">User Analytics</h4>
             <ResponsiveContainer width="100%" aspect={4 / 1}>
                 <LineChart data={data}>
                     <XAxis dataKey="name" stroke="#5550bd" />

@@ -1,0 +1,65 @@
+.newMember{
+     margin: 20px 10px!important;
+    padding: 20px ;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px!important;
+}
+
+.newMemberTitle{
+    font-size: 18px !important;
+    font-weight: 500;
+
+}
+
+.newMemberImg{
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
+    object-fit: cover;
+}
+
+.newMemberList{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.newMemberListItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+
+}
+
+.newMemberUser{
+    display: flex;
+    flex-direction: column;
+}
+
+.newMemberUsername{
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.newMemberUserTitle{
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.newMemberButton{
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius:10px;
+    padding: 7px 10px;
+    background-color: #eeeef7;
+    color:#555;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.newMemberIcon{
+    font-size: 16px !important;
+    margin-right: 5px;
+}

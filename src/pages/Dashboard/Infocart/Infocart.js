@@ -14,7 +14,7 @@ const Infocart = () => {
                         <MdIcons.MdArrowDownward className="text-danger fs-6" />
                     </span>
                 </div>
-                <span className="spanFontSize">Compared to last month</span>
+                <span className="spanFontSize robotoFont">Compared to last month</span>
             </div>
         </div>
     );
