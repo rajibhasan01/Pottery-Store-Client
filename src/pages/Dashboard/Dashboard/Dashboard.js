@@ -12,7 +12,7 @@ const Dashboard = () => {
         <div className="dashboardContainer">
             <Router>
                 <Topbar />
-                <div className="contentBox row">
+                <div className="contentBox row pt-5">
                     <div className="col-md-3 col-lg-2 d-none d-md-inline">
                         <Sidebar />
                     </div>

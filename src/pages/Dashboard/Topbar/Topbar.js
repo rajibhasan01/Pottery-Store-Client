@@ -5,7 +5,7 @@ import './Topbar.css';
 
 const Topbar = () => {
     return (
-        <div className="topbar  px-md-4 mt-1">
+        <div className="topbar  px-md-4 ">
             <div className="topbarWrapper">
                 <div className="topLeft">
                     <span className="logo d-none d-md-block">DashBoard</span>

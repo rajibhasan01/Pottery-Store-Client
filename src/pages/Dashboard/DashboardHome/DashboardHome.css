@@ -1,8 +1,10 @@
 .boxDesign{
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px!important;
         margin: 10px 10px 20px 5px!important;
+        position: relative;
     
 }
+
 
 .cardDesign{
     border-radius: 10px;

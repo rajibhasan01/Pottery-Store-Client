@@ -1,9 +1,8 @@
 .topbar {
   width: 100vw;
-  height: 50px;
+  height: 60px;
   background-color: white;
-  position: sticky;
-  top: 0;
+  position: fixed;
   z-index: 999;
   overflow-x: hidden!important;
 }

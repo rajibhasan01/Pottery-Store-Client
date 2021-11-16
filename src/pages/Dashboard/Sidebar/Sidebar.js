@@ -13,28 +13,34 @@ const Sidebar = () => {
                     <ul className="sidebarList">
 
                         <Link to="/users" className="text-decoration-none">
-                            <li className="sidebarListItem active">
+                            <li className="sidebarListItem robotoFont active">
                                 <MdIcons.MdLineStyle className="sidebarIcon" />
-                                User
+                                Pay
                             </li>
                         </Link>
 
 
                         <li className="sidebarListItem">
-                            <MdIcons.MdTimeline className="sidebarIcon" />
-                            Analytics
+                            <MdIcons.MdTimeline className="sidebarIcon robotoFont" />
+                            My Orders
                         </li>
 
 
                         <li className="sidebarListItem">
-                            <MdIcons.MdTrendingUp className="sidebarIcon" />
-                            Sales
+                            <MdIcons.MdTrendingUp className="sidebarIcon robotoFont" />
+                            Review
+                        </li>
+
+                        <li className="sidebarListItem">
+                            <MdIcons.MdTrendingUp className="sidebarIcon robotoFont" />
+                            Logout
                         </li>
                     </ul>
                 </div>
 
             </div>
         </div>
+
     );
 };
 
