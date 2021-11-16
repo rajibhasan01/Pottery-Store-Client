@@ -1,40 +1,92 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as MdIcons from 'react-icons/md';
+import * as FaIcons from 'react-icons/fa';
+import * as GiIcons from 'react-icons/gi';
+import * as RiIcons from 'react-icons/ri';
+import * as AiIcons from 'react-icons/ai';
 
 import './Sidebar.css';
+import useAuth from '../../../hooks/useAuth';
 
 const Sidebar = () => {
+    const { user, logout } = useAuth();
+
     return (
         <div className="sidebar mt-2">
             <div className="sidebarWrapper">
                 <div className="sidebarMenu">
-                    <h3 className="sidebarTitle">Dashboard</h3>
+                    <h3 className="sidebarTitle">{user.email === "admin@admin.com" ? "Admin Panel" : "Dashboard"}</h3>
+                    {user.email !== "admin@admin.com" ?
+                        <ul className="sidebarList">
+
+                            <Link to="/users" className="text-decoration-none">
+                                <li className="sidebarListItem robotoFont active">
+                                    <GiIcons.GiTakeMyMoney className="sidebarIcon" />
+                                    Pay
+                                </li>
+                            </Link>
+
+                            <Link to="/users" className="text-decoration-none text-black">
+                                <li className="sidebarListItem">
+                                    <FaIcons.FaCartPlus className="sidebarIcon robotoFont" />
+                                    My Orders
+                                </li>
+                            </Link>
+
+                            <Link to="/users" className="text-decoration-none text-black">
+                                <li className="sidebarListItem">
+                                    <MdIcons.MdOutlineRateReview className="sidebarIcon robotoFont" />
+                                    Review
+                                </li>
+                            </Link>
+
+
+                        </ul>
+                        :
+                        <ul className="sidebarList">
+
+                            <Link to="/users" className="text-decoration-none text-black">
+                                <li className="sidebarListItem robotoFont active">
+                                    <RiIcons.RiListSettingsFill className="sidebarIcon" />
+                                    Manage All Orders
+                                </li>
+                            </Link>
+
+                            <Link to="/users" className="text-decoration-none text-black active">
+                                <li className="sidebarListItem">
+                                    <AiIcons.AiFillFolderAdd className="sidebarIcon robotoFont" />
+                                    Add A Product
+                                </li>
+                            </Link>
+
+                            <Link to="/users" className="text-decoration-none text-black">
+                                <li className="sidebarListItem">
+                                    <MdIcons.MdAdminPanelSettings className="sidebarIcon robotoFont" />
+                                    Make Admin
+                                </li>
+                            </Link>
+
+                            <Link to="/users" className="text-decoration-none text-black">
+                                <li className="sidebarListItem">
+                                    <MdIcons.MdFormatAlignRight className="sidebarIcon robotoFont" />
+                                    Manage Products
+                                </li>
+                            </Link>
+
+
+                        </ul>
+                    }
+                </div>
+                <div className="sidebarMenu">
+                    <h3 className="sidebarTitle">Sign out</h3>
                     <ul className="sidebarList">
 
-                        <Link to="/users" className="text-decoration-none">
-                            <li className="sidebarListItem robotoFont active">
-                                <MdIcons.MdLineStyle className="sidebarIcon" />
-                                Pay
-                            </li>
-                        </Link>
-
-
-                        <li className="sidebarListItem">
-                            <MdIcons.MdTimeline className="sidebarIcon robotoFont" />
-                            My Orders
-                        </li>
-
-
-                        <li className="sidebarListItem">
-                            <MdIcons.MdTrendingUp className="sidebarIcon robotoFont" />
-                            Review
-                        </li>
-
-                        <li className="sidebarListItem">
-                            <MdIcons.MdTrendingUp className="sidebarIcon robotoFont" />
+                        <li className="sidebarListItem " onClick={logout}>
+                            <FaIcons.FaUserAltSlash className="sidebarIcon robotoFont" />
                             Logout
                         </li>
+
                     </ul>
                 </div>
 

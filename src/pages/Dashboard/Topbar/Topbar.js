@@ -2,13 +2,15 @@ import React from 'react';
 import * as MdIcons from 'react-icons/md';
 import * as GrIcons from 'react-icons/gr';
 import './Topbar.css';
+import useAuth from '../../../hooks/useAuth';
 
 const Topbar = () => {
+    const { user } = useAuth();
     return (
-        <div className="topbar  px-md-4 ">
+        <div className="topbar  pe-md-4">
             <div className="topbarWrapper">
                 <div className="topLeft">
-                    <span className="logo d-none d-md-block">DashBoard</span>
+                    <span className="logo d-none d-md-block">{user.email === "admin@admin.com" ? "Admin Panel" : "Dashboard"}</span>
                 </div>
                 <div className="topRight">
                     <div className="topbarIconContainer">

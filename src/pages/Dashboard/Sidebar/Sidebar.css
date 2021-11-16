@@ -35,12 +35,20 @@
 
 }
 
+.active{
+  color: white;
+}
+
 .sidebarListItem.active, 
 .sidebarListItem:hover{
-  background-color: rgb(198, 198, 206);
+  background-color: rgb(198, 198, 206)!important;
 }
+
+
+
 
 .sidebarIcon{
   margin-right: 5px;
   font-size: 20px !important;;
 }
+
