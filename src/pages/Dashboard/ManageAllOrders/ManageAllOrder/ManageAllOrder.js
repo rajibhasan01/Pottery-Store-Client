@@ -1,6 +1,5 @@
 import React from 'react';
-import { Dropdown, DropdownButton } from 'react-bootstrap';
-import * as MdIcons from 'react-icons/md';
+import { Dropdown } from 'react-bootstrap';
 
 
 const ManageAllOrder = () => {
