@@ -5,10 +5,12 @@ import ProductsHeading from '../ProductsHeading/ProductsHeading';
 import AllProductsHeading from '../ProductsHeading/AllProductsHeading';
 import './Products.css';
 import useData from '../../../hooks/useData';
+import useAuth from '../../../hooks/useAuth';
 
 const Products = ({ value }) => {
     const [btnactv, setBtnActv] = useState({ btn1: true, btn2: false, btn3: false });
     let [items] = useData();
+    const { isLoading } = useAuth();
 
     const handleBtn = (event) => {
         const field = event.target.name;
@@ -28,6 +30,16 @@ const Products = ({ value }) => {
         items = items.slice(0, 6);
         console.log(items);
     }
+
+    if (isLoading) {
+        return (
+            <div className="text-center my-5">
+                <h5>Please wait a bit...</h5>
+                <img src="https://i.ibb.co/bJJx03Y/Fountain.gif" alt="" className="" />
+            </div>
+        );
+    }
+
 
 
     return (

@@ -9,6 +9,7 @@ import SingleProduct from './pages/Home/SingleProduct/SingleProduct';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import Cart from './components/Shared/Cart/Cart';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
+import PrivateRoute from './components/Shared/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -21,9 +22,19 @@ function App() {
             <Route exact path="/register" component={Registation} />
             <Route exact path="/allproducts" component={AllProducts} />
             <Route exact path="/singleproducts" component={SingleProduct} />
-            <Route exact path="/placeorder" component={PlaceOrder} />
-            <Route exact path="/cart" component={Cart} />
-            <Route exact path="/dashboard" component={Dashboard} />
+
+            <PrivateRoute path='/placeorder'>
+              <PlaceOrder />
+            </PrivateRoute>
+
+            <PrivateRoute path='/dashboard'>
+              <Dashboard />
+            </PrivateRoute>
+
+            <PrivateRoute path='/cart'>
+              <Cart />
+            </PrivateRoute>
+
           </Switch>
         </Router>
       </AuthProvider>
