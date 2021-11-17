@@ -54,7 +54,7 @@ const PlaceOrder = () => {
 
                     </div>
                     <div className="col-12 col-md-7 col-lg-6">
-                        <img src="https://i.ibb.co/VvLYr9k/Pin-Clipart-com-wheels-clipart-704784.png" className="w-75" alt="" />
+                        <img src="https://i.ibb.co/dcVh8cW/Pngtree-gray-shopping-trolley-logo-4459394.png" className="w-75" alt="" />
                     </div>
                 </div>
 

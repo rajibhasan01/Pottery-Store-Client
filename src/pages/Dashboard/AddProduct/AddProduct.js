@@ -25,7 +25,7 @@ const AddProduct = () => {
         <div className="mt-5">
             <h3 className="text-warning text-center shadowsFont mt-5">Add Products</h3>
             <p className="text-muted text-center shadowsFont">You can add a new products at your site by fill up the below form</p>
-            <div className=" row mx-auto ms-md-auto container row">
+            <div className=" row ms-auto container  row">
                 <div className="col-12 col-md-5 col-lg-4 py-lg-5 mt-lg-5  rounded">
                     <form onSubmit={handleSubmit(onSubmit)} className="form-design">
 
@@ -44,8 +44,8 @@ const AddProduct = () => {
                     </form>
 
                 </div>
-                <div className="col-12 col-md-7 col-lg-6">
-                    <img src="https://i.ibb.co/jvS31kj/Pngtree-creative-minimalist-project-management-tripartite-4863913.png" className="w-100" alt="" />
+                <div className="col-12 col-md-7 col-lg-6 text-center">
+                    <img src="https://i.ibb.co/VvLYr9k/Pin-Clipart-com-wheels-clipart-704784.png" className="w-75 pt-md-5 mt-5" alt="" />
                 </div>
             </div>
 

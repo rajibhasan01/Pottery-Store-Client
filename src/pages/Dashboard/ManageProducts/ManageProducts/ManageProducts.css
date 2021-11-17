@@ -14,3 +14,9 @@
     z-index: 1;
     
 }
+
+.tableColumnDesgin{
+    display: flex;
+    justify-content: space-between!important;
+
+}
