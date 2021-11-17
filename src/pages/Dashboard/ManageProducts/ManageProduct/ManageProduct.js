@@ -5,7 +5,7 @@ const ManageProduct = () => {
     return (
         <tr>
             <td className="pb-2">
-                <img src="https://i.ibb.co/WpDGZxh/team-img-1.jpg" alt="" className="newMemberImg" />
+                <img src="https://i.ibb.co/WpDGZxh/team-img-1.jpg" alt="" className="productImageManage" />
 
                 <span className="newMemberUsername robotoFont">Susan keller
                 </span>
