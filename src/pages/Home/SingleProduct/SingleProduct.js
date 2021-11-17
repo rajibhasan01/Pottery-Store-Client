@@ -7,13 +7,27 @@ import { Col, Form, Row } from 'react-bootstrap';
 import * as MdIconName from "react-icons/md";
 import SimilarProducts from '../../SimilarProducts/SimilarProducts';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router';
 
 
 const SingleProduct = () => {
-    let price = 200;
+    const { productID } = useParams();
+    const [singleItem, setSingleItem] = useState({});
+
+    const { product_discount, product_image, product_name, product_price, product_ratings, product_title, product_type, product_details } = singleItem;
+
+    let price = product_price;
     let quantity = 1;
     const [count, setCount] = useState(0);
     const [cart, setCart] = useState({ size: 'sm', price, quantity });
+
+
+    useEffect(() => {
+        const url = `http://localhost:5000/products/${productID}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setSingleItem(data))
+    }, [productID]);
 
 
     const handleOnChange = e => {
@@ -46,15 +60,15 @@ const SingleProduct = () => {
     useEffect(() => {
         const newCart = { ...cart };
         if (newCart.size === 'sm') {
-            newCart.price = 200;
+            newCart.price = price?.sm;
         }
 
         else if (newCart.size === 'lg') {
-            newCart.price = 300;
+            newCart.price = price?.lg;
         }
 
         else if (newCart.size === 'xl') {
-            newCart.price = 350;
+            newCart.price = price?.xl;
         }
 
         const totalPrice = newCart.price * newCart.quantity;
@@ -64,11 +78,14 @@ const SingleProduct = () => {
         console.log(newCart);
 
 
-    }, [count]);
+    }, [count, productID]);
+
 
     const haneldeSizeSelection = e => {
         e.preventDefault();
     }
+
+
 
     return (
         <div className="">
@@ -78,29 +95,27 @@ const SingleProduct = () => {
 
                     <div className="col-md-6 text-center imgContainer">
                         <div className="d-flex flex-column align-items-center">
-                            <img src="https://www.veniceclayartists.com/wp-content/uploads/2012/01/475px-475px-MVictorinoWV590.jpg" className="w-50 pb-2 cursor-pointer" alt="" />
+                            <img src={product_image} className="w-50 pb-2 cursor-pointer" alt="" />
 
-                            <img src="https://www.veniceclayartists.com/wp-content/uploads/2012/01/475px-475px-MVictorinoWV590.jpg" className="w-50 pb-2 cursor-pointer" alt="" />
+                            <img src={product_image} className="w-50 pb-2 cursor-pointer" alt="" />
 
-                            <img src="https://www.veniceclayartists.com/wp-content/uploads/2012/01/475px-475px-MVictorinoWV590.jpg" className="w-50 cursor-pointer" alt="" />
+                            <img src={product_image} className="w-50 cursor-pointer" alt="" />
                         </div>
 
-                        <img src="https://www.veniceclayartists.com/wp-content/uploads/2012/01/475px-475px-MVictorinoWV590.jpg" className="singleImage pe-3 pe-md-2" alt="" />
+                        <img src={product_image} className="singleImage pe-3 pe-md-2" alt="" />
 
                     </div>
 
 
                     <div className="col-md-6">
-                        <h1 className="robotoFont">Customize your Blue Pot</h1>
-                        <small className="robotoFont fw-light">
-                            Apple M1 chip with 8-core CPU with 4 performace cores and 4 efficiency
-                            cores, 7-core GPU, and 16-core Neural Engine 8GB unified memory 245GB
-                            SSD storage Two Thunderbolt / USB 4 ports Magic Mouse Magic Kewboard -
-                            US English
+                        <h2 className="robotoFont">Customize your {product_name} -<span className="text-danger ms-0">{product_type}</span></h2>
+                        <p className="robotoFont text-warning mb-0">{product_title}</p>
+                        <small className="shadowsFont fw-light">
+                            {product_details}
                         </small>
 
                         <div className="rating-star mt-2">
-                            <small className="text-muted shadowsFont">Reviews</small>
+                            <small className="text-muted shadowsFont">Reviews {product_ratings}</small>
                             <div className="">
                                 <GoIcons.GoStar />
                                 <GoIcons.GoStar />

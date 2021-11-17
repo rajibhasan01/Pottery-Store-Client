@@ -21,7 +21,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Registation} />
             <Route exact path="/allproducts" component={AllProducts} />
-            <Route exact path="/singleproducts" component={SingleProduct} />
+            <Route exact path="/products/:productID" component={SingleProduct} />
 
             <PrivateRoute path='/placeorder'>
               <PlaceOrder />

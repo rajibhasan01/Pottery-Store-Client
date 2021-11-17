@@ -16,7 +16,7 @@ const Product = ({ value, spd, item }) => {
 
                     <div className="middle">
                         <p>For more info click details</p>
-                        <Link className="text-decoration-none login-cursor bg-dark px-2 text-white rounded fs-6 read-more" to={`/singleproducts`}>Details<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </Link>
+                        <Link className="text-decoration-none login-cursor bg-dark px-2 text-white rounded fs-6 read-more" to={`/products/${item._id}`}>Details<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </Link>
                     </div>
                 </div>
 
