@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import * as MdIcons from 'react-icons/md';
 import * as FaIcons from 'react-icons/fa';
 import * as GiIcons from 'react-icons/gi';
@@ -81,7 +81,7 @@ const Sidebar = () => {
                                 </li>
                             </NavLink>
 
-                            <NavLink to="/dashboard/manageproduct" activeStyle={activeStyle} className="text-decoration-none text-color">
+                            <NavLink to="/dashboard/manageproducts" activeStyle={activeStyle} className="text-decoration-none text-color">
                                 <li className="sidebarListItem robotoFont">
                                     <MdIcons.MdFormatAlignRight className="sidebarIcon robotoFont" />
                                     Manage Products

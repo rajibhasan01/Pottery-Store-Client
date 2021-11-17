@@ -24,10 +24,11 @@ const WriteReview = () => {
 
 
     return (
-        <div>
+        <div className="text-center">
+            <h3 className="text-warning shadowsFont mt-5 ms-4 ms-md-0">Write Down Your Valuable Review Here</h3>
+            <p className="text-muted shadowsFont">If you have any suggestions, please write down below. We appreciate your suggestions</p>
             <div className="mt-5 row mx-aut0 ms-md-auto container row">
-                <h3 className="text-warning shadowsFont mt-5 ms-4 ms-md-0">Write Down Your Valuable Review Here</h3>
-                <p className="text-muted shadowsFont">If you have any suggestions, please write down below. We appreciate your suggestions</p>
+
                 <div className="col-12 col-md-5 col-lg-4 py-5  rounded">
                     <form onSubmit={handleSubmit(onSubmit)} className="form-design">
                         <label className="fs-5 shadowsFont">Personal information</label>

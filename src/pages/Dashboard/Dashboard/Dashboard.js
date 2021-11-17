@@ -10,6 +10,7 @@ import MyOrders from '../MyOrders/MyOrders/MyOrders';
 import WriteReview from '../WriteReview/WriteReview';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddProduct from '../AddProduct/AddProduct';
+import ManageProducts from '../ManageProducts/ManageProducts/ManageProducts';
 
 
 const Dashboard = () => {
@@ -35,6 +36,8 @@ const Dashboard = () => {
                             <Route exact path="/dashboard/makeadmin" component={MakeAdmin} />
 
                             <Route exact path="/dashboard/addproduct" component={AddProduct} />
+
+                            <Route exact path="/dashboard/manageproducts" component={ManageProducts} />
 
                         </Switch >
                     </div>

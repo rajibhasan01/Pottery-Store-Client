@@ -1,0 +1,16 @@
+.searchBox{
+    width: 300px;
+   
+}
+
+.searchBtn{
+    position: relative;
+    border-radius: 45%;
+}
+
+.searchBtn:hover{
+    background-color: rgb(213, 212, 212) !important;
+    color: rgb(255, 255, 255) !important;
+    z-index: 1;
+    
+}
