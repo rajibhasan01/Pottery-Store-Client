@@ -60,7 +60,7 @@ const Sidebar = () => {
                                 </li>
                             </NavLink>
 
-                            <NavLink to="/dashboard/manageallproduct" activeStyle={activeStyle} className="text-decoration-none text-color">
+                            <NavLink to="/dashboard/manageallorders" activeStyle={activeStyle} className="text-decoration-none text-color">
                                 <li className="sidebarListItem robotoFont">
                                     <RiIcons.RiListSettingsFill className="sidebarIcon" />
                                     Manage All Orders
