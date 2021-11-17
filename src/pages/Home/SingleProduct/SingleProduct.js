@@ -78,7 +78,7 @@ const SingleProduct = () => {
         console.log(newCart);
 
 
-    }, [count, productID]);
+    }, [price?.sm, price?.lg, price?.xl, count]);
 
 
     const haneldeSizeSelection = e => {
