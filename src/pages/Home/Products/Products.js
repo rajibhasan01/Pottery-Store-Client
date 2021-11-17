@@ -4,9 +4,11 @@ import Product from '../Product/Product';
 import ProductsHeading from '../ProductsHeading/ProductsHeading';
 import AllProductsHeading from '../ProductsHeading/AllProductsHeading';
 import './Products.css';
+import useData from '../../../hooks/useData';
 
 const Products = ({ value }) => {
     const [btnactv, setBtnActv] = useState({ btn1: true, btn2: false, btn3: false });
+    let [items] = useData();
 
     const handleBtn = (event) => {
         const field = event.target.name;
@@ -17,14 +19,17 @@ const Products = ({ value }) => {
         const newBtn = { ...btnactv };
         newBtn[field] = true;
         setBtnActv(newBtn);
-
-
     }
 
-    let row = [1, 2, 3, 4, 5, 6, 8, 9, 10];
+    console.log(items);
+
+
     if (!value) {
-        row = row.slice(0, 6);
+        items = items.slice(0, 6);
+        console.log(items);
     }
+
+
     return (
         <div className="container mt-5 py-5">
 
@@ -57,10 +62,11 @@ const Products = ({ value }) => {
 
                         <Row xs={1} md={3} lg={4} className="g-4">
                             {
-                                row.map(pd => <Product
+                                items?.map(item => <Product
                                     value={value}
-                                    key={pd}
-                                ></Product>)
+                                    key={item.product_code}
+                                    item={item}
+                                />)
                             }
                         </Row>
                     </div>
@@ -71,10 +77,11 @@ const Products = ({ value }) => {
                         <ProductsHeading />
                         <Row xs={1} md={3} lg={3} className="g-4 my-5">
                             {
-                                row.map(pd => <Product
+                                items?.map(item => <Product
                                     value={value}
-                                    key={pd}
-                                ></Product>)
+                                    key={item.product_code}
+                                    item={item}
+                                />)
                             }
                         </Row>
                     </div>

@@ -4,8 +4,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Product from '../Home/Product/Product';
+import useData from '../../hooks/useData';
 
 const SimilarProducts = () => {
+    const [items] = useData();
+
     const settings = {
         className: "center",
         centerMode: true,
@@ -48,7 +51,6 @@ const SimilarProducts = () => {
 
     };
 
-    const rows = [1, 2, 3, 4, 5, 6, 7, 8];
     return (
         <Container fluid className="text-start my-5 py-5 px-md-5 sliderContainer">
             <h1 className="shadowsFont ps-3">Similar Products</h1>
@@ -58,10 +60,11 @@ const SimilarProducts = () => {
             <Slider {...settings}>
 
                 {
-                    rows.map(pd => <Product
-                        key={pd}
+                    items.map(item => <Product
+                        key={item.product_code}
                         spd={true}
                         value={true}
+                        item={item}
                     />)
                 }
 
