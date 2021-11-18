@@ -11,6 +11,9 @@ const PlaceOrder = () => {
     const { bookID } = useParams();
     const { register, handleSubmit, reset } = useForm();
 
+    const cart = JSON.parse(sessionStorage.getItem('cart'));
+    console.log("place Order -> ", cart);
+
     const onSubmit = data => {
         // fetch(`/users/${bookID}`, {
         //     method: 'POST',

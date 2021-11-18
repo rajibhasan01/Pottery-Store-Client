@@ -6,8 +6,7 @@ import * as GoIcons from 'react-icons/go';
 import { Col, Form, Row } from 'react-bootstrap';
 import * as MdIconName from "react-icons/md";
 import SimilarProducts from '../../SimilarProducts/SimilarProducts';
-import { Link } from 'react-router-dom';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 
 
 const SingleProduct = () => {
@@ -20,9 +19,14 @@ const SingleProduct = () => {
     let amount = product_price;
     let discount = product_discount;
     let discount_amount = product_discount;
+    const product_id = productID;
+    const status = "Pending";
+
     let quantity = 1;
     const [count, setCount] = useState(0);
-    const [cart, setCart] = useState({ size: 'sm', price, discount, discount_amount, amount, quantity });
+    const [cart, setCart] = useState({ product_id, size: 'sm', price, discount, discount_amount, amount, quantity, status });
+
+    const history = useHistory();
 
 
     useEffect(() => {
@@ -88,6 +92,15 @@ const SingleProduct = () => {
 
 
     }, [price?.sm, price?.lg, price?.xl, discount, discount_amount, amount, count]);
+
+
+    const handlePlaceOrder = () => {
+        console.log("button press", cart);
+        const sessionCart = JSON.stringify(cart);
+        sessionStorage.setItem('cart', sessionCart);
+        history.push('/placeorder');
+    }
+
 
 
     const haneldeSizeSelection = e => {
@@ -195,7 +208,7 @@ const SingleProduct = () => {
                             <h5 className="shadowsFont fw-bold text-warning">Discount Price: <span className="robotoFont fs-6 text-info fw-bold ms-0">${cart.discount_amount}</span></h5>
                         </div>
 
-                        <Link className="text-decoration-none login-cursor bg-dark px-2 py-1 text-white rounded fs-6 read-more" to={`/placeorder`}>Place Order<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </Link>
+                        <button className="text-decoration-none login-cursor bg-dark px-2 text-white rounded fs-6 read-more" onClick={handlePlaceOrder}>Place Order<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </button>
                     </div>
                 </div>
             </div>
