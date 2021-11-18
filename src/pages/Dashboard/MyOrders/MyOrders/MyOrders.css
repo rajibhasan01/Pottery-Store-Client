@@ -9,6 +9,26 @@
     border-radius: 32%!important;
 }
 
+.dltMute{
+    background-color:rgba(49, 46, 46, 0.891);
+    color: white;
+    border-radius: 32%!important;
+}
+
+.dltMute:hover{
+    background-color:rgba(49, 46, 46, 0.891);
+    color: white;
+    border-radius: 32%!important;
+}
+
+.dltMute:focus{
+    box-shadow: none!important;
+}
+
+.dltBtn:focus{
+    box-shadow: none!important;
+}
+
 .dltBtn:hover{
     background-color: white;
     color: rgb(213, 0, 0);

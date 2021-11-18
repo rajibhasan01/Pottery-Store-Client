@@ -10,6 +10,10 @@ const MyOrder = ({ order, handleDelete }) => {
     const matchedItem = items.find(item => item?.product_code === product_code);
     console.log(matchedItem);
 
+    const handleClick = () => {
+        alert("Sorry! your order is under processing. You can't delete it");
+    }
+
 
 
     return (
@@ -27,7 +31,13 @@ const MyOrder = ({ order, handleDelete }) => {
             <td className="robotoFont fw-lighter">{matchedItem?.product_discount}%</td>
             <td className="robotoFont fw-lighter">${discount_amount}</td>
             <td className="robotoFont fw-lighter"><button className={"widgetLgButton fw-lighter " + status}>{status} </button></td>
-            <td className="robotoFont fw-lighter"><button onClick={() => handleDelete(_id)} className="btn dltBtn rounded"><MdIcons.MdDelete className="fs-4" /></button></td>
+            <td className="robotoFont fw-lighter">
+                {
+                    status === "Pending" ? <button onClick={() => handleDelete(_id)} className="btn dltBtn rounded"><MdIcons.MdDelete className="fs-4" /></button>
+                        :
+                        <button onClick={handleClick} className="btn dltMute rounded"><MdIcons.MdDelete className="fs-4" /></button>
+                }
+            </td>
         </tr>
     );
 };
