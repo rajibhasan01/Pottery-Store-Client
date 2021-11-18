@@ -47,7 +47,7 @@ const Product = ({ value, spd, item }) => {
                         ${product_price.sm} USD</span> <span><MdIconName.MdOutlineStarHalf className="fs-5 text-title" /><small className="py-2 text-title"> {product_ratings}</small></span>
                     </Card.Text>
 
-                    <Link className="text-decoration-none login-cursor bg-dark px-2 text-white rounded fs-6 read-more" to={`/placeorder`}>Buy Now<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </Link>
+                    <Link className="text-decoration-none login-cursor bg-dark px-2 text-white rounded fs-6 read-more" to={`/products/${item._id}`}>Buy Now<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </Link>
 
                 </Card.Body>
             </Card>

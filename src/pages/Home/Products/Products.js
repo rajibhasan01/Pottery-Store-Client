@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
 import Product from '../Product/Product';
 import ProductsHeading from '../ProductsHeading/ProductsHeading';
 import AllProductsHeading from '../ProductsHeading/AllProductsHeading';
 import './Products.css';
-import useData from '../../../hooks/useData';
 import useAuth from '../../../hooks/useAuth';
 
 const Products = ({ value }) => {
     const [btnactv, setBtnActv] = useState({ btn1: true, btn2: false, btn3: false });
-    let [items] = useData();
+    let [items, setItems] = useState([]);
+    const [count, setCount] = useState(0);
+
+
     const { isLoading } = useAuth();
 
     const handleBtn = (event) => {
@@ -21,7 +23,33 @@ const Products = ({ value }) => {
         const newBtn = { ...btnactv };
         newBtn[field] = true;
         setBtnActv(newBtn);
-    }
+
+        if (field === 'btn2') {
+
+            const matchedItem = items?.filter(item => item.product_discount !== 0);
+            setItems(matchedItem);
+        }
+
+        else if (field === 'btn3') {
+            const matchedItem = items?.filter(item => item.product_ratings > 3);
+            setItems(matchedItem);
+        }
+        else {
+            setCount(count + 1)
+
+        }
+
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:5000/products')
+            .then(res => res.json())
+            .then(data => {
+                setItems(data);
+
+            });
+    }, [count]);
+
 
     console.log(items);
 
@@ -33,7 +61,7 @@ const Products = ({ value }) => {
 
     if (isLoading) {
         return (
-            <div className="text-center my-5">
+            <div className="text-center my-5 py-5">
                 <h5>Please wait a bit...</h5>
                 <img src="https://i.ibb.co/bJJx03Y/Fountain.gif" alt="" className="" />
             </div>

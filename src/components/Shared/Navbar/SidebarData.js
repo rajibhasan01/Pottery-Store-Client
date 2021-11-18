@@ -17,7 +17,7 @@ export const SidebarData = [
     },
     {
         title: 'Products',
-        path: '/servicesprovider',
+        path: '/allproducts',
         icon: <IoIcons.IoMdPeople />,
         cName: 'nav-text',
         cname: 'nav-text'
@@ -37,24 +37,11 @@ export const SidebarData = [
         cName: 'nav-text',
         cname: 'nav-text'
     },
-    {
-        title: 'My Bookings',
-        path: '/mybooking',
-        icon: <FaIcons.FaEnvelopeOpenText />,
-        cName: 'nav-text d-none',
-        cname: 'nav-text'
-    },
+
     {
         title: 'Dashboard',
         path: '/dashboard',
         icon: <MdIcons.MdDashboardCustomize />,
-        cName: 'nav-text d-none',
-        cname: 'nav-text'
-    },
-    {
-        title: 'Add Service',
-        path: '/addservice',
-        icon: <MdIcons.MdOutlinePostAdd />,
         cName: 'nav-text d-none',
         cname: 'nav-text'
     },
