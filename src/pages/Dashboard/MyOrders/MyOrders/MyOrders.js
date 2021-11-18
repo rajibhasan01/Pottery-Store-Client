@@ -6,13 +6,31 @@ import './MyOrders.css';
 const MyOrders = () => {
     const { user } = useAuth();
     const [myOrder, setMyOrder] = useState([]);
+    const [countDelete, setCountDelete] = useState(0);
 
     useEffect(() => {
         fetch(`http://localhost:5000/myOrders?search=${user.email}`)
             .then(res => res.json())
             .then(data => setMyOrder(data));
 
-    }, [user.email]);
+    }, [user.email, countDelete]);
+
+    const handleDelete = (id) => {
+        const url = `http://localhost:5000/myOrders/${id}`
+        const procced = window.confirm('Are you sure to cancell this order');
+        if (procced) {
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.acknowledged) {
+                        alert('Cancelled booking successfully');
+                        setCountDelete(countDelete + 1);
+                    }
+                });
+        }
+    }
 
 
     return (
@@ -30,6 +48,7 @@ const MyOrders = () => {
                         <th className="widgetLgTh robotoFont">Amount</th>
                         <th className="widgetLgTh robotoFont">Total Amount</th>
                         <th className="widgetLgTh robotoFont ps-1">Status</th>
+                        <th className="widgetLgTh robotoFont ps-1">Action</th>
                     </tr>
 
                     {
@@ -37,6 +56,7 @@ const MyOrders = () => {
                             key={order._id}
                             statusType={'Pending'}
                             order={order}
+                            handleDelete={handleDelete}
                         ></MyOrder>)
                     }
 

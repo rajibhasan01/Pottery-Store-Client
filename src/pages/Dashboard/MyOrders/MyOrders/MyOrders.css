@@ -1,3 +1,16 @@
 .transactions{
     padding: 30px!important;
 }
+
+.dltBtn{
+    background-color:rgb(213, 0, 0);
+    color: white;
+    border: 1px solid rgb(213, 0, 0);
+    border-radius: 32%!important;
+}
+
+.dltBtn:hover{
+    background-color: white;
+    color: rgb(213, 0, 0);
+    border: 1px solid rgb(213, 0, 0);
+}
