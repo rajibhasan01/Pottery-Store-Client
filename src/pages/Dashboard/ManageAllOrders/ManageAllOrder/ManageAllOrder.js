@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dropdown } from 'react-bootstrap';
 import * as MdIcons from 'react-icons/md';
+import './ManageAllOrder.css';
 
 
 const ManageAllOrder = ({ order, handleDelete, handleUpdateStatus }) => {
@@ -22,7 +23,7 @@ const ManageAllOrder = ({ order, handleDelete, handleUpdateStatus }) => {
             <td className="robotoFont fw-lighter text-start">{discount_amount}</td>
             <td className="robotoFont fw-lighter text-start">
                 <Dropdown>
-                    <Dropdown.Toggle variant="light">
+                    <Dropdown.Toggle className={status}>
                         {status}
                     </Dropdown.Toggle>
 
@@ -31,6 +32,8 @@ const ManageAllOrder = ({ order, handleDelete, handleUpdateStatus }) => {
                         <Dropdown.Item onClick={() => handleUpdateStatus(_id, "Approved")}>Approved</Dropdown.Item>
                         <Dropdown.Item onClick={() => handleUpdateStatus(_id, "Shipped")}>Shipped</Dropdown.Item>
                         <Dropdown.Item onClick={() => handleUpdateStatus(_id, "Recieved")}>Recieved</Dropdown.Item>
+
+                        <Dropdown.Item onClick={() => handleUpdateStatus(_id, "Rejected")}>Rejected</Dropdown.Item>
 
                     </Dropdown.Menu>
                 </Dropdown>

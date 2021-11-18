@@ -1,0 +1,46 @@
+.Pending{
+    background-color: rgb(238, 236, 236);
+    border: 0px !important;
+    color: black;
+}
+
+.Approved{
+    background-color: #16a085;
+    border: 0px !important;
+}
+
+.Shipped{
+    background-color: #f1c40f;
+    border: 0px !important;
+}
+
+.Recieved{
+    background-color: #34495e;
+    border: 0px !important;
+}
+
+.Rejected{
+    background-color: #c0392b;
+    border: 0px !important;
+}
+
+.Pending:focus{
+    box-shadow: none!important;
+    border: 0px!important;
+}
+.Approved:focus{
+    box-shadow: none!important;
+    border: 0px!important;
+}
+.Rejected:focus{
+    box-shadow: none!important;
+    border: 0px!important;
+}
+.Recieved:focus{
+    box-shadow: none!important;
+    border: 0px!important;
+}
+.Shipped:focus{
+    box-shadow: none!important;
+    border: 0px!important;
+}
