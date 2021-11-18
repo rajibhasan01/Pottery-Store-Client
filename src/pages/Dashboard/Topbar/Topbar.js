@@ -6,6 +6,7 @@ import useAuth from '../../../hooks/useAuth';
 
 const Topbar = () => {
     const { user } = useAuth();
+    const profile_pic = user.photoURL || "https://i.ibb.co/hcnzVg7/21104.png";
     return (
         <div className="topbar  pe-md-4">
             <div className="topbarWrapper">
@@ -24,7 +25,7 @@ const Topbar = () => {
                     <div className="topbarIconContainer">
                         <MdIcons.MdOutlineSettings className="fs-4 me-1" />
                     </div>
-                    <img src="https://i.ibb.co/fSS2CBd/team-img-6.jpg" alt="" className="topAvatar" />
+                    <img src={profile_pic} alt="" className="topAvatar" />
                 </div>
             </div>
         </div>

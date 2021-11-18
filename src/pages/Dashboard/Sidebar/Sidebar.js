@@ -6,18 +6,21 @@ import * as GiIcons from 'react-icons/gi';
 import * as RiIcons from 'react-icons/ri';
 import * as SiIcons from 'react-icons/si';
 import * as AiIcons from 'react-icons/ai';
+import * as IoIcons from 'react-icons/io5';
+import { HashLink } from 'react-router-hash-link';
+
 
 import './Sidebar.css';
 import useAuth from '../../../hooks/useAuth';
 
 const Sidebar = () => {
     const { user, logout } = useAuth();
-
     const activeStyle = {
         fontWeight: "bold",
         color: "red",
         backgroundColor: "black",
     }
+
 
     return (
         <div className="sidebar mt-2">
@@ -35,14 +38,14 @@ const Sidebar = () => {
                             </NavLink>
 
                             <NavLink to="/dashboard/myorders" activeStyle={activeStyle} className="text-decoration-none text-color">
-                                <li className="sidebarListItem">
+                                <li className="sidebarListItem robotoFont">
                                     <FaIcons.FaCartPlus className="sidebarIcon robotoFont" />
                                     My Orders
                                 </li>
                             </NavLink>
 
                             <NavLink to="/dashboard/review" activeStyle={activeStyle} className="text-decoration-none text-color">
-                                <li className="sidebarListItem">
+                                <li className="sidebarListItem robotoFont">
                                     <MdIcons.MdOutlineRateReview className="sidebarIcon robotoFont" />
                                     Review
                                 </li>
@@ -88,10 +91,30 @@ const Sidebar = () => {
                                 </li>
                             </NavLink>
 
-
                         </ul>
                     }
                 </div>
+                <div className="sidebarMenu">
+                    <h3 className="sidebarTitle">Back to</h3>
+                    <ul className="sidebarList">
+
+                        <HashLink to="/home#home" className="text-decoration-none text-color">
+                            <li className="sidebarListItem robotoFont">
+                                <IoIcons.IoHome className="sidebarIcon robotoFont" />
+                                Home
+                            </li>
+                        </HashLink >
+
+                        <HashLink to="/allproducts#allProduct" className="text-decoration-none text-color">
+                            <li className="sidebarListItem robotoFont">
+                                <MdIcons.MdClearAll className="sidebarIcon robotoFont" />
+                                Explore Products
+                            </li>
+                        </HashLink >
+
+                    </ul>
+                </div>
+
                 <div className="sidebarMenu">
                     <h3 className="sidebarTitle">Sign out</h3>
                     <ul className="sidebarList">

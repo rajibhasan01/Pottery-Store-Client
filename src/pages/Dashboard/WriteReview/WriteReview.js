@@ -4,21 +4,27 @@ import useAuth from '../../../hooks/useAuth';
 
 const WriteReview = () => {
     const { user } = useAuth();
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        // fetch(`/users/${bookID}`, {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(data)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.acknowledged) {
-        //             alert("Booking successfull");
-        //             reset();
-        //         }
-        //     });
+        const email = user.email;
+        const img = user.photoURL || "https://i.ibb.co/hcnzVg7/21104.png";
+        const user_name = user.displayName;
+        const newData = { ...data, email, img, user_name };
+
+        console.log(newData);
+        fetch("http://localhost:5000/review", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    alert("Thanks for your feedback :)");
+                    reset();
+                }
+            });
 
     };
 
@@ -31,15 +37,11 @@ const WriteReview = () => {
 
                 <div className="col-12 col-md-5 col-lg-4 py-5  rounded">
                     <form onSubmit={handleSubmit(onSubmit)} className="form-design">
-                        <label className="fs-5 shadowsFont">Personal information</label>
-                        <input className="form-input border-1 rounded" {...register("name")} defaultValue={user.displayName} />
-
-                        <input className="form-input border-1 rounded" {...register("email")} value={user.email} />
 
                         <label className="mt-5 fs-5 shadowsFont">Your review</label>
                         <input className="form-input border-1 rounded" type="number" {...register("ratings", { required: true })} placeholder="Your ratings in 5" />
 
-                        <textarea className="form-input border-1 rounded" {...register("feedback", { required: true })} placeholder="Your feedback" />
+                        <textarea className="form-input border-1 rounded" {...register("comment", { required: true })} placeholder="Your feedback" />
 
                         <textarea className="form-input border-1 rounded" {...register("suggestions", { required: false })} placeholder="Your suggestions" />
 

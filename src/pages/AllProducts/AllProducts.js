@@ -6,7 +6,7 @@ import './AllProducts.css';
 
 const AllProducts = () => {
     return (
-        <div className="marginTop">
+        <div className="marginTop" id="allProduct">
             <Navbar />
             <Products value={true} />
             <Footer />

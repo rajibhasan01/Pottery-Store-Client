@@ -29,7 +29,7 @@ const Review = ({ review }) => {
             <GoIcons.GoStar />
           </Card.Text>
           <Card.Text className="text-muted">
-            <RiIcons.RiDoubleQuotesL className="quote" />{comment.slice(0, 100)}...<RiIcons.RiDoubleQuotesR className="quote" />
+            <RiIcons.RiDoubleQuotesL className="quote" />{comment?.slice(0, 100)}...<RiIcons.RiDoubleQuotesR className="quote" />
           </Card.Text>
         </Card.Body>
       </Card>
