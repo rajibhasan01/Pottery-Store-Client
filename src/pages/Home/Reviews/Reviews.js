@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -6,6 +6,14 @@ import Slider from "react-slick";
 import Review from '../Review/Review';
 
 const Reviews = () => {
+    const [reviews, setReviews] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/reviews")
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [reviews]);
+
     const settings = {
         className: "center",
         centerMode: true,
@@ -48,7 +56,6 @@ const Reviews = () => {
 
     };
 
-    const rows = [1, 2, 3, 4, 5, 6, 7, 8];
     return (
         <Container className="text-center my-5 py-5 sliderContainer">
             <h1 className="shadowsFont">Customer Review</h1>
@@ -58,9 +65,9 @@ const Reviews = () => {
             <Slider {...settings}>
 
                 {
-                    rows.map(review => <Review
-                        key={review}
-                        value={review}
+                    reviews?.map(review => <Review
+                        key={review._id}
+                        review={review}
                     />)
                 }
 
