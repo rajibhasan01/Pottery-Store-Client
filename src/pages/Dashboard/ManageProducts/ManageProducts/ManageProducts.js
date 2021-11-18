@@ -1,9 +1,12 @@
 import React from 'react';
+import useData from '../../../../hooks/useData';
 import ManageProduct from '../ManageProduct/ManageProduct';
 import "./ManageProducts.css";
 
 const ManageProducts = () => {
-    const rows = [1, 2, 3];
+
+    const [items] = useData();
+
 
     return (
         <div className="container-fluid">
@@ -24,17 +27,24 @@ const ManageProducts = () => {
                 <hr />
                 <div className="table-responsive-sm mt-3">
                     <table className="widgetLgTable text-center">
-                        <tr className="">
-                            <th className="widgetLgTh text-center robotoFont">Product Name</th>
-                            <th className="widgetLgTh text-center robotoFont">Product Code</th>
-                            <th className="widgetLgTh text-center robotoFont">Stock</th>
-                            <th className="widgetLgTh text-center robotoFont">Price</th>
-                            <th className="widgetLgTh text-center robotoFont">Action</th>
-                        </tr>
+                        <thead>
+                            <tr className=" text-start">
+                                <th className="widgetLgTh robotoFont text-start">Product Name</th>
+                                <th className="widgetLgTh robotoFont text-start">Product Code</th>
+                                <th className="widgetLgTh robotoFont text-start">Discount</th>
+                                <th className="widgetLgTh robotoFont text-start">Price</th>
+                                <th className="widgetLgTh robotoFont text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                        {
-                            rows.map(row => <ManageProduct key={row} />)
-                        }
+                            {
+                                items?.map(item => <ManageProduct
+                                    key={item._id}
+                                    item={item}
+                                />)
+                            }
+                        </tbody>
 
                     </table>
 
