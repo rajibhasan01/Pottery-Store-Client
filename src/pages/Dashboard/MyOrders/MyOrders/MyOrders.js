@@ -25,6 +25,7 @@ const MyOrders = () => {
                         <th className="widgetLgTh robotoFont">Customer</th>
                         <th className="widgetLgTh robotoFont">Email</th>
                         <th className="widgetLgTh robotoFont">Phone</th>
+                        <th className="widgetLgTh robotoFont">Product Code</th>
                         <th className="widgetLgTh robotoFont">Product Details</th>
                         <th className="widgetLgTh robotoFont">Amount</th>
                         <th className="widgetLgTh robotoFont">Total Amount</th>

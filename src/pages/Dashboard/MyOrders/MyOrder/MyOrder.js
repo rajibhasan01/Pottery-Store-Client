@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MyOrder = ({ order }) => {
-    const { status, email, size, quantity, price, amount, discount_amount, name, phone } = order;
+    const { status, product_code, email, size, quantity, price, amount, discount_amount, name, phone } = order;
     return (
         <tr>
             <td className="pb-2">
@@ -12,6 +12,7 @@ const MyOrder = ({ order }) => {
             </td>
             <td className="robotoFont fw-lighter">{email}</td>
             <td className="robotoFont fw-lighter">{phone}</td>
+            <td className="robotoFont fw-lighter">{product_code}</td>
             <td className="robotoFont fw-lighter">{quantity} X {price} ({size})</td>
             <td className="robotoFont fw-lighter">${amount}</td>
             <td className="robotoFont fw-lighter">${discount_amount}</td>
