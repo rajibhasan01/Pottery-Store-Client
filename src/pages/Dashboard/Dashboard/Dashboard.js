@@ -1,9 +1,6 @@
 import React from 'react';
 import Topbar from '../Topbar/Topbar';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import './Dashboard.css';
-import Sidebar from '../Sidebar/Sidebar';
 import DashboardHome from '../DashboardHome/DashboardHome';
 import Pay from '../Pay/Pay';
 import MyOrders from '../MyOrders/MyOrders/MyOrders';
@@ -12,40 +9,182 @@ import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddProduct from '../AddProduct/AddProduct';
 import ManageProducts from '../ManageProducts/ManageProducts/ManageProducts';
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders/ManageAllOrders';
+import useAuth from '../../../hooks/useAuth';
+import { NavLink } from 'react-router-dom';
+import * as MdIcons from 'react-icons/md';
+import * as FaIcons from 'react-icons/fa';
+import * as GiIcons from 'react-icons/gi';
+import * as RiIcons from 'react-icons/ri';
+import * as SiIcons from 'react-icons/si';
+import * as AiIcons from 'react-icons/ai';
+import * as IoIcons from 'react-icons/io5';
+import { HashLink } from 'react-router-hash-link';
+import {
+
+    Switch,
+    Route,
+    useRouteMatch
+} from "react-router-dom";
 
 
 const Dashboard = () => {
+    const { user, logout } = useAuth();
+    const activeStyle = {
+        fontWeight: "bold",
+        color: "red",
+        backgroundColor: "black",
+    };
+
+    let { path, url } = useRouteMatch();
+
+
     return (
         <div className="dashboardContainer">
-            <Router>
-                <Topbar />
-                <div className="contentBox row pt-5">
-                    <div className="col-md-3 col-lg-2 d-none d-md-inline">
-                        <Sidebar />
+            <Topbar />
+            <div className="contentBox row pt-5">
+                <div className="col-md-3 col-lg-2 d-none d-md-inline">
+                    <div className="sidebar mt-2">
+                        <div className="sidebarWrapper">
+                            <div className="sidebarMenu">
+                                <h3 className="sidebarTitle">{user.email === "admin@admin.com" ? "Admin Panel" : "Dashboard"}</h3>
+                                {user.email !== "admin@admin.com" ?
+                                    <ul className="sidebarList">
+
+                                        <NavLink to={`${url}/pay`} activeStyle={activeStyle} className="text-decoration-none text-color">
+                                            <li className="sidebarListItem robotoFont">
+                                                <GiIcons.GiTakeMyMoney className="sidebarIcon" />
+                                                Pay
+                                            </li>
+                                        </NavLink>
+
+                                        <NavLink to={`${url}/myOrders`} activeStyle={activeStyle} className="text-decoration-none text-color">
+                                            <li className="sidebarListItem robotoFont">
+                                                <FaIcons.FaCartPlus className="sidebarIcon robotoFont" />
+                                                My Orders
+                                            </li>
+                                        </NavLink>
+
+                                        <NavLink to={`${url}/review`} activeStyle={activeStyle} className="text-decoration-none text-color">
+                                            <li className="sidebarListItem robotoFont">
+                                                <MdIcons.MdOutlineRateReview className="sidebarIcon robotoFont" />
+                                                Review
+                                            </li>
+                                        </NavLink>
+
+
+                                    </ul>
+                                    :
+                                    <ul className="sidebarList">
+
+                                        <NavLink to={`${url}/analytics`} activeStyle={activeStyle} className="text-decoration-none text-color">
+                                            <li className="sidebarListItem robotoFont">
+                                                <SiIcons.SiGoogleanalytics className="sidebarIcon" />
+                                                Analytics
+                                            </li>
+                                        </NavLink>
+
+                                        <NavLink to={`${url}/manageAllOrders`} activeStyle={activeStyle} className="text-decoration-none text-color">
+                                            <li className="sidebarListItem robotoFont">
+                                                <RiIcons.RiListSettingsFill className="sidebarIcon" />
+                                                Manage All Orders
+                                            </li>
+                                        </NavLink>
+
+                                        <NavLink to={`${url}/addProduct`} activeStyle={activeStyle} className="text-decoration-none text-color">
+                                            <li className="sidebarListItem robotoFont">
+                                                <AiIcons.AiFillFolderAdd className="sidebarIcon robotoFont" />
+                                                Add A Product
+                                            </li>
+                                        </NavLink>
+
+                                        <NavLink to={`${url}/makeAdmin`} activeStyle={activeStyle} className="text-decoration-none text-color">
+                                            <li className="sidebarListItem robotoFont">
+                                                <MdIcons.MdAdminPanelSettings className="sidebarIcon robotoFont" />
+                                                Make Admin
+                                            </li>
+                                        </NavLink>
+
+                                        <NavLink to={`${url}/manageProducts`} activeStyle={activeStyle} className="text-decoration-none text-color">
+                                            <li className="sidebarListItem robotoFont">
+                                                <MdIcons.MdFormatAlignRight className="sidebarIcon robotoFont" />
+                                                Manage Products
+                                            </li>
+                                        </NavLink>
+
+                                    </ul>
+                                }
+                            </div>
+                            <div className="sidebarMenu">
+                                <h3 className="sidebarTitle">Back to</h3>
+                                <ul className="sidebarList">
+
+                                    <HashLink to="/home#home" className="text-decoration-none text-color">
+                                        <li className="sidebarListItem robotoFont">
+                                            <IoIcons.IoHome className="sidebarIcon robotoFont" />
+                                            Home
+                                        </li>
+                                    </HashLink >
+
+                                    <HashLink to="/allproducts#allProduct" className="text-decoration-none text-color">
+                                        <li className="sidebarListItem robotoFont">
+                                            <MdIcons.MdClearAll className="sidebarIcon robotoFont" />
+                                            Explore Products
+                                        </li>
+                                    </HashLink >
+
+                                </ul>
+                            </div>
+
+                            <div className="sidebarMenu">
+                                <h3 className="sidebarTitle">Sign out</h3>
+                                <ul className="sidebarList">
+
+                                    <li className="sidebarListItem robotoFont" onClick={logout}>
+                                        <FaIcons.FaUserAltSlash className="sidebarIcon robotoFont" />
+                                        Logout
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
                     </div>
-                    <div className="col-12 col-md-9 col-lg-10">
-                        <Switch >
 
-                            <Route exact path="/dashboard" component={DashboardHome} />
-
-                            <Route exact path="/dashboard/pay" component={Pay} />
-
-                            <Route exact path="/dashboard/myorders" component={MyOrders} />
-
-                            <Route exact path="/dashboard/review" component={WriteReview} />
-
-                            <Route exact path="/dashboard/makeadmin" component={MakeAdmin} />
-
-                            <Route exact path="/dashboard/addproduct" component={AddProduct} />
-
-                            <Route exact path="/dashboard/manageproducts" component={ManageProducts} />
-
-                            <Route exact path="/dashboard/manageallorders" component={ManageAllOrders} />
-
-                        </Switch >
-                    </div>
                 </div>
-            </Router>
+                <div className="col-12 col-md-9 col-lg-10">
+                    <Switch>
+                        <Route exact path={path}>
+                            <h3>Please select a topic.</h3>
+                        </Route>
+                        <Route path={`${path}/pay`}>
+                            <Pay />
+                        </Route>
+                        <Route path={`${path}/myOrders`}>
+                            <MyOrders />
+                        </Route>
+                        <Route path={`${path}/review`}>
+                            <WriteReview />
+                        </Route>
+                        <Route path={`${path}/analytics`}>
+                            <DashboardHome />
+                        </Route>
+                        <Route path={`${path}/manageAllOrders`}>
+                            <ManageAllOrders />
+                        </Route>
+                        <Route path={`${path}/addProduct`}>
+                            <AddProduct />
+                        </Route>
+                        <Route path={`${path}/makeAdmin`}>
+                            <MakeAdmin />
+                        </Route>
+                        <Route path={`${path}/manageProducts`}>
+                            <ManageProducts />
+                        </Route>
+                    </Switch>
+
+                </div>
+            </div>
+
         </div>
     );
 };

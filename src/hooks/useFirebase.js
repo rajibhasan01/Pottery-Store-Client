@@ -139,7 +139,7 @@ const useFirebase = () => {
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
 
-        fetch("http://localhost:5000/users", {
+        fetch("http://localhost:5000/userList", {
             method: method,
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)
