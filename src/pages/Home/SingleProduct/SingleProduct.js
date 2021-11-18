@@ -13,7 +13,7 @@ const SingleProduct = () => {
     const { productID } = useParams();
     const [singleItem, setSingleItem] = useState({});
 
-    const { product_discount, product_image, product_name, product_price, product_ratings, product_title, product_type, product_details } = singleItem;
+    const { product_discount, product_code, product_image, product_name, product_price, product_ratings, product_title, product_type, product_details } = singleItem;
 
     let price = product_price;
     let amount = product_price;
@@ -24,7 +24,7 @@ const SingleProduct = () => {
 
     let quantity = 1;
     const [count, setCount] = useState(0);
-    const [cart, setCart] = useState({ product_id, size: 'sm', price, discount, discount_amount, amount, quantity, status });
+    const [cart, setCart] = useState({ product_id, size: 'sm', price, discount, discount_amount, amount, quantity, status, product_code });
 
     const history = useHistory();
 
@@ -87,11 +87,13 @@ const SingleProduct = () => {
         const totalDiscount = newCart.discount * 0.01 * newCart.amount;
         newCart.discount_amount = newCart.amount - totalDiscount;
 
+        newCart.product_code = product_code;
+
         setCart(newCart);
-        console.log(newCart);
+        console.log("newCart =>", newCart);
 
 
-    }, [price?.sm, price?.lg, price?.xl, discount, discount_amount, amount, count]);
+    }, [price?.sm, price?.lg, price?.xl, discount, discount_amount, amount, count, product_code, product_discount]);
 
 
     const handlePlaceOrder = () => {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router';
 import Footer from '../../components/Shared/Footer/Footer';
 import Navbar from '../../components/Shared/Navbar/Navbar';
 import useAuth from '../../hooks/useAuth';
@@ -8,25 +7,27 @@ import './PlaceOrder.css';
 
 const PlaceOrder = () => {
     const { user } = useAuth();
-    const { bookID } = useParams();
     const { register, handleSubmit, reset } = useForm();
 
     const cart = JSON.parse(sessionStorage.getItem('cart'));
-    console.log("place Order -> ", cart);
 
     const onSubmit = data => {
-        // fetch(`/users/${bookID}`, {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(data)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.acknowledged) {
-        //             alert("Booking successfull");
-        //             reset();
-        //         }
-        //     });
+        const orderInfo = { ...cart, ...data };
+        console.log(orderInfo);
+
+        fetch("http://localhost:5000/users", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    alert("Booking successfull");
+                    reset();
+                }
+            });
+
 
     };
 
@@ -49,8 +50,6 @@ const PlaceOrder = () => {
                             <input className="form-input border-1 rounded" {...register("city", { required: true })} placeholder="city" />
 
                             <input className="form-input border-1 rounded" type="number" {...register("phone", { required: true })} placeholder="Phone Number" />
-
-                            <input className="form-input border-1 rounded d-none" type="text" {...register("product_id", { required: true })} value={bookID} />
 
                             <input className="form-input btn bg-warning rounded" type="submit" />
                         </form>

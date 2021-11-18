@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import useAuth from '../../../../hooks/useAuth';
 import MyOrder from '../MyOrder/MyOrder';
 import './MyOrders.css';
 
 const MyOrders = () => {
-    const rows = [1, 2, 3, 4, 5, 6];
+    const { user } = useAuth();
+    const [myOrder, setMyOrder] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/myOrders?search=${user.email}`)
+            .then(res => res.json())
+            .then(data => setMyOrder(data));
+
+    }, [user.email]);
 
 
     return (
@@ -14,14 +23,19 @@ const MyOrders = () => {
                 <table className="widgetLgTable">
                     <tr className="">
                         <th className="widgetLgTh robotoFont">Customer</th>
-                        <th className="widgetLgTh robotoFont">Date</th>
+                        <th className="widgetLgTh robotoFont">Phone</th>
                         <th className="widgetLgTh robotoFont">Product Details</th>
                         <th className="widgetLgTh robotoFont">Amount</th>
+                        <th className="widgetLgTh robotoFont">Total Amount</th>
                         <th className="widgetLgTh robotoFont ps-1">Status</th>
                     </tr>
 
                     {
-                        rows.map(row => <MyOrder key={row} statusType={'Pending'}></MyOrder>)
+                        myOrder?.map(order => <MyOrder
+                            key={order._id}
+                            statusType={'Pending'}
+                            order={order}
+                        ></MyOrder>)
                     }
 
                 </table>
