@@ -2,21 +2,30 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const AddProduct = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        // fetch(`/users/${bookID}`, {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(data)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.acknowledged) {
-        //             alert("Booking successfull");
-        //             reset();
-        //         }
-        //     });
+
+        const sm = parseInt(data.product_price_sm);
+        const lg = parseInt(data.product_price_lg);
+        const xl = parseInt(data.product_price_xl);
+        const product_price = { sm, lg, xl };
+        const { product_code, product_details, product_discount, product_image, product_name, product_ratings, product_title, product_type } = data;
+        const newData = { product_price, product_code, product_details, product_discount, product_image, product_name, product_ratings, product_title, product_type };
+
+
+        fetch("http://localhost:5000/product", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    alert("Product added successfully! :) ");
+                    reset();
+                }
+            });
 
     };
 
@@ -26,19 +35,31 @@ const AddProduct = () => {
             <h3 className="text-warning text-center shadowsFont mt-5">Add Products</h3>
             <p className="text-muted text-center shadowsFont">You can add a new products at your site by fill up the below form</p>
             <div className=" row ms-auto container  row">
-                <div className="col-12 col-md-5 col-lg-4 py-lg-5 mt-lg-5  rounded">
+                <div className="col-12 col-md-5 col-lg-4 rounded">
                     <form onSubmit={handleSubmit(onSubmit)} className="form-design">
 
                         <label className="mt-5 fs-5 shadowsFont">Product Details</label>
-                        <input className="form-input border-1 rounded" type="text" {...register("p_name", { required: true })} placeholder="Product Name" />
+                        <input className="form-input border-1 rounded" type="number" {...register("product_code", { required: true })} placeholder="Product code" />
 
-                        <textarea className="form-input border-1 rounded" type="text" {...register("p_details", { required: true })} placeholder="Products Details" />
+                        <input className="form-input border-1 rounded" type="text" {...register("product_name", { required: true })} placeholder="Product name" />
 
-                        <input className="form-input border-1 rounded" type="text" {...register("p_origin", { required: true })} placeholder="Product Origin" />
+                        <textarea className="form-input border-1 rounded" type="text" {...register("product_title", { required: true })} placeholder="Product title" />
 
-                        <input className="form-input border-1 rounded" type="text" {...register("p_image", { required: true })} placeholder="Product Image Link" />
+                        <textarea className="form-input border-1 rounded" type="text" {...register("product_details", { required: true })} placeholder="Product details" />
 
-                        <input className="form-input border-1 rounded" type="number" {...register("p_price", { required: true })} placeholder="Product Price" />
+                        <input className="form-input border-1 rounded" type="number" {...register("product_price_sm", { required: true })} placeholder="Product Price small" />
+
+                        <input className="form-input border-1 rounded" type="number" {...register("product_price_lg", { required: true })} placeholder="Product Price large" />
+
+                        <input className="form-input border-1 rounded" type="number" {...register("product_price_xl", { required: true })} placeholder="Product Price extra-large" />
+
+                        <input className="form-input border-1 rounded" type="number" {...register("product_ratings", { required: true })} placeholder="Product initials ratings" />
+
+                        <input className="form-input border-1 rounded" type="number" {...register("product_discount", { required: true })} placeholder="Product Price discount" />
+
+                        <input className="form-input border-1 rounded" type="text" {...register("product_type", { required: true })} placeholder="Product type" />
+
+                        <input className="form-input border-1 rounded" type="text" {...register("product_image", { required: true })} placeholder="Product image" />
 
                         <input className="form-input btn bg-warning rounded" type="submit" />
                     </form>
