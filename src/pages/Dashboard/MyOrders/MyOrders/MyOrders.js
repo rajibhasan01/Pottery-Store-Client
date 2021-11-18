@@ -25,7 +25,7 @@ const MyOrders = () => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.acknowledged) {
-                        alert('Cancelled booking successfully');
+                        alert('Cancel order successfully');
                         setCountDelete(countDelete + 1);
                     }
                 });

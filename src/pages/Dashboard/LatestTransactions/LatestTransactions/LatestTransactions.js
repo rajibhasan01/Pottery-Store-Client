@@ -12,16 +12,20 @@ const LatestTransactions = () => {
             </span>
             <div className="table-responsive-sm">
                 <table className="widgetLgTable">
-                    <tr className="">
-                        <th className="widgetLgTh robotoFont">Customer</th>
-                        <th className="widgetLgTh robotoFont">Date</th>
-                        <th className="widgetLgTh robotoFont">Amount</th>
-                        <th className="widgetLgTh robotoFont ps-2">Status</th>
-                    </tr>
+                    <thead>
+                        <tr className="">
+                            <th className="widgetLgTh robotoFont">Customer</th>
+                            <th className="widgetLgTh robotoFont">Date</th>
+                            <th className="widgetLgTh robotoFont">Amount</th>
+                            <th className="widgetLgTh robotoFont ps-2">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                    {
-                        rows.map(row => <LatestTransaction key={row} statusType={'Pending'}></LatestTransaction>)
-                    }
+                        {
+                            rows.map(row => <LatestTransaction key={row} statusType={'Pending'}></LatestTransaction>)
+                        }
+                    </tbody>
 
                 </table>
 

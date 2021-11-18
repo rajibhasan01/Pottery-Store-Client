@@ -38,7 +38,25 @@ const ManageProducts = () => {
                 .then(data => setItems(data))
 
         }
-    }
+    };
+
+
+    const handleDelete = id => {
+        const url = `http://localhost:5000/deleteproduct/${id}`
+        const procced = window.confirm('Are you sure to cancell this order');
+        if (procced) {
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.acknowledged) {
+                        alert('Delete Product Successfully');
+                        setCount(count + 1);
+                    }
+                });
+        }
+    };
 
 
     return (
@@ -75,6 +93,7 @@ const ManageProducts = () => {
                                 items?.map(item => <ManageProduct
                                     key={item._id}
                                     item={item}
+                                    handleDelete={handleDelete}
                                 />)
                             }
                         </tbody>
