@@ -39,26 +39,30 @@ const MyOrders = () => {
             </span>
             <div className="table-responsive-sm">
                 <table className="widgetLgTable">
-                    <tr className="">
-                        <th className="widgetLgTh robotoFont">Customer</th>
-                        <th className="widgetLgTh robotoFont">Email</th>
-                        <th className="widgetLgTh robotoFont">Phone</th>
-                        <th className="widgetLgTh robotoFont">Product Code</th>
-                        <th className="widgetLgTh robotoFont">Product Details</th>
-                        <th className="widgetLgTh robotoFont">Amount</th>
-                        <th className="widgetLgTh robotoFont">Total Amount</th>
-                        <th className="widgetLgTh robotoFont ps-1">Status</th>
-                        <th className="widgetLgTh robotoFont ps-1">Action</th>
-                    </tr>
+                    <thead>
+                        <tr className="">
+                            <th className="widgetLgTh robotoFont">Product</th>
+                            <th className="widgetLgTh robotoFont">Product Name</th>
+                            <th className="widgetLgTh robotoFont">Product Code</th>
+                            <th className="widgetLgTh robotoFont">Product Details</th>
+                            <th className="widgetLgTh robotoFont">Amount</th>
+                            <th className="widgetLgTh robotoFont">Discount</th>
+                            <th className="widgetLgTh robotoFont">Total Amount</th>
+                            <th className="widgetLgTh robotoFont ps-1">Status</th>
+                            <th className="widgetLgTh robotoFont ps-1">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                    {
-                        myOrder?.map(order => <MyOrder
-                            key={order._id}
-                            statusType={'Pending'}
-                            order={order}
-                            handleDelete={handleDelete}
-                        ></MyOrder>)
-                    }
+                        {
+                            myOrder?.map(order => <MyOrder
+                                key={order._id}
+                                statusType={'Pending'}
+                                order={order}
+                                handleDelete={handleDelete}
+                            ></MyOrder>)
+                        }
+                    </tbody>
 
                 </table>
 
