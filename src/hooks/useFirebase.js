@@ -81,6 +81,7 @@ const useFirebase = () => {
                 const user = result.user;
                 saveUser(user.email, user.displayName, 'PUT');
 
+
                 setAuthError('');
 
             })
@@ -136,14 +137,15 @@ const useFirebase = () => {
     };
 
     const saveUser = (email, displayName, method) => {
-        // const user = { email, displayName };
-        // fetch('http://localhost:5000/users', {
-        //     method: method,
-        //     headers: { 'content-type': 'application/json' },
-        //     body: JSON.stringify(user)
-        // })
-        //     .then()
+        const user = { email, displayName };
 
+        fetch("http://localhost:5000/users", {
+            method: method,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
     }
 
     return {
