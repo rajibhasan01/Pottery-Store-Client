@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import useData from '../../../../hooks/useData';
 import ManageProduct from '../ManageProduct/ManageProduct';
 import "./ManageProducts.css";
 
