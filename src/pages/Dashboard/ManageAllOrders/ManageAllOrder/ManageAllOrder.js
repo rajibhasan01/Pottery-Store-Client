@@ -1,38 +1,44 @@
 import React from 'react';
 import { Dropdown } from 'react-bootstrap';
+import * as MdIcons from 'react-icons/md';
 
 
-const ManageAllOrder = () => {
+const ManageAllOrder = ({ order, handleDelete, handleUpdateStatus }) => {
+    const { _id, size, price, discount, discount_amount, amount, quantity, status, product_code, name, email, phone } = order;
     return (
         <tr>
-            <td className="pb-2">
+            <td className="pb-2 text-start">
                 <img src="https://i.ibb.co/WpDGZxh/team-img-1.jpg" alt="" className="newMemberImg" />
 
-                <span className="newMemberUsername robotoFont">Susan keller
+                <span className="newMemberUsername robotoFont">{name}
                 </span>
             </td>
-            <td className="robotoFont fw-lighter">2 Jun 2021</td>
-            <td className="robotoFont fw-lighter">2 X 122</td>
-            <td className="robotoFont fw-lighter">$122.00</td>
-            <td className="robotoFont fw-lighter">
+            <td className="robotoFont fw-lighter text-start">{email}</td>
+            <td className="robotoFont fw-lighter text-start">{phone}</td>
+            <td className="robotoFont fw-lighter text-start">{product_code}</td>
+            <td className="robotoFont fw-lighter text-start">{quantity} X {price} ({size})</td>
+            <td className="robotoFont fw-lighter text-start">{amount}</td>
+            <td className="robotoFont fw-lighter text-start">{discount}%</td>
+            <td className="robotoFont fw-lighter text-start">{discount_amount}</td>
+            <td className="robotoFont fw-lighter text-start">
                 <Dropdown>
                     <Dropdown.Toggle variant="light">
-                        Pending
+                        {status}
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu variant="dark">
-                        <Dropdown.Item>Pending</Dropdown.Item>
-                        <Dropdown.Item>Approved</Dropdown.Item>
-                        <Dropdown.Item>Shipped</Dropdown.Item>
-                        <Dropdown.Item>Recieved</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleUpdateStatus(_id, "Pending")}>Pending</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleUpdateStatus(_id, "Approved")}>Approved</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleUpdateStatus(_id, "Shipped")}>Shipped</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleUpdateStatus(_id, "Recieved")}>Recieved</Dropdown.Item>
 
                     </Dropdown.Menu>
                 </Dropdown>
 
             </td>
-            <td className="robotoFont fw-lighter">
-                <button className="btn bg-danger me-2 text-white">Delete</button>
-                <button className="btn bg-info text-white">Check</button>
+            <td className="robotoFont fw-lighter text-start">
+                <button className="btn dltBtn rounded" onClick={() => handleDelete(_id)}><MdIcons.MdDelete className="fs-5" /></button>
+                <button className="btn checkBtn ms-2 rounded"><MdIcons.MdRemoveRedEye className="fs-5" /></button>
             </td>
         </tr>
     );

@@ -15,9 +15,23 @@
     border: 1px solid rgb(213, 0, 0);
 }
 
+.checkBtn{
+    background-color:rgb(0, 213, 167);
+    color: white;
+    border: 1px solid rgb(0, 213, 167);
+    border-radius: 32%!important;
+}
+
+.checkBtn:hover{
+    background-color: white;
+    color: rgb(0, 213, 167);
+    border: 1px solid rgb(0, 213, 167);
+}
+
 .myOderImg{
     width: 40px;
     height: 40px;
     border-radius:20%;
     object-fit: cover;
 }
+
