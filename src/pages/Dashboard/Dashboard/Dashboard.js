@@ -28,7 +28,7 @@ import {
 
 
 const Dashboard = () => {
-    const { user, logout } = useAuth();
+    const { user, logout, admin } = useAuth();
     const activeStyle = {
         fontWeight: "bold",
         color: "red",
@@ -36,6 +36,8 @@ const Dashboard = () => {
     };
 
     let { path, url } = useRouteMatch();
+
+    console.log("admin => ", admin);
 
 
     return (
@@ -47,7 +49,7 @@ const Dashboard = () => {
                         <div className="sidebarWrapper">
                             <div className="sidebarMenu">
                                 <h3 className="sidebarTitle">{user.email === "admin@admin.com" ? "Admin Panel" : "Dashboard"}</h3>
-                                {user.email !== "admin@admin.com" ?
+                                {!admin ?
                                     <ul className="sidebarList">
 
                                         <NavLink to={`${url}/pay`} activeStyle={activeStyle} className="text-decoration-none text-color">

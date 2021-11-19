@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const MakeAdmin = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
+    const [success, setSuccess] = useState(false);
 
     const onSubmit = data => {
-        // fetch(`/users/${bookID}`, {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(data)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.acknowledged) {
-        //             alert("Booking successfull");
-        //             reset();
-        //         }
-        //     });
+        if (data.email !== data.confirm_email) {
+            alert('email does not matched, please type again your email');
+        }
+        else {
+            const { email } = data;
+            const user = { email };
 
+            fetch('http://localhost:5000/makeAdmin/admin', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(user)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.modifiedCount) {
+                        alert("Make admin successfull");
+                        setSuccess(true);
+                        reset();
+                    }
+                });
+
+        }
     };
 
 
