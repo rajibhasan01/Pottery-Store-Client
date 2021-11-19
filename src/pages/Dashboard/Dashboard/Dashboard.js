@@ -28,7 +28,7 @@ import {
 
 
 const Dashboard = () => {
-    const { user, logout, admin } = useAuth();
+    const { logout, admin } = useAuth();
     const activeStyle = {
         fontWeight: "bold",
         color: "red",
@@ -48,7 +48,7 @@ const Dashboard = () => {
                     <div className="sidebar mt-2">
                         <div className="sidebarWrapper">
                             <div className="sidebarMenu">
-                                <h3 className="sidebarTitle">{user.email === "admin@admin.com" ? "Admin Panel" : "Dashboard"}</h3>
+                                <h3 className="sidebarTitle">{admin ? "Admin Panel" : "Dashboard"}</h3>
                                 {!admin ?
                                     <ul className="sidebarList">
 

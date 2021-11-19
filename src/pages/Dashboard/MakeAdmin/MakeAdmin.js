@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 
 const MakeAdmin = () => {
     const { register, handleSubmit, reset } = useForm();
-    const [success, setSuccess] = useState(false);
 
     const onSubmit = data => {
         if (data.email !== data.confirm_email) {
@@ -22,7 +21,6 @@ const MakeAdmin = () => {
                 .then(data => {
                     if (data.modifiedCount) {
                         alert("Make admin successfull");
-                        setSuccess(true);
                         reset();
                     }
                 });

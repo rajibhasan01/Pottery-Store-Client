@@ -5,13 +5,13 @@ import './Topbar.css';
 import useAuth from '../../../hooks/useAuth';
 
 const Topbar = () => {
-    const { user } = useAuth();
+    const { user, admin } = useAuth();
     const profile_pic = user.photoURL || "https://i.ibb.co/hcnzVg7/21104.png";
     return (
         <div className="topbar  pe-md-4">
             <div className="topbarWrapper">
                 <div className="topLeft">
-                    <span className="logo d-none d-md-block">{user.email === "admin@admin.com" ? "Admin Panel" : "Dashboard"}</span>
+                    <span className="logo d-none d-md-block">{admin ? "Admin Panel" : "Dashboard"}</span>
                 </div>
                 <div className="topRight">
                     <div className="topbarIconContainer">

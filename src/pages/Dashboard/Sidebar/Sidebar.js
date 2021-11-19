@@ -14,7 +14,7 @@ import './Sidebar.css';
 import useAuth from '../../../hooks/useAuth';
 
 const Sidebar = () => {
-    const { user, logout } = useAuth();
+    const { logout, admin } = useAuth();
     const activeStyle = {
         fontWeight: "bold",
         color: "red",
@@ -26,8 +26,8 @@ const Sidebar = () => {
         <div className="sidebar mt-2">
             <div className="sidebarWrapper">
                 <div className="sidebarMenu">
-                    <h3 className="sidebarTitle">{user.email === "admin@admin.com" ? "Admin Panel" : "Dashboard"}</h3>
-                    {user.email !== "admin@admin.com" ?
+                    <h3 className="sidebarTitle">{admin ? "Admin Panel" : "Dashboard"}</h3>
+                    {!admin ?
                         <ul className="sidebarList">
 
                             <NavLink to="/dashboard/pay" activeStyle={activeStyle} className="text-decoration-none text-color">
