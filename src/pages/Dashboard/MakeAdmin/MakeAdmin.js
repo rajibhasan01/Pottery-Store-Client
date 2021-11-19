@@ -1,8 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import useAuth from '../../../hooks/useAuth';
 
 const MakeAdmin = () => {
     const { register, handleSubmit, reset } = useForm();
+    const { token } = useAuth();
 
     const onSubmit = data => {
         if (data.email !== data.confirm_email) {
@@ -14,7 +16,10 @@ const MakeAdmin = () => {
 
             fetch('http://localhost:5000/makeAdmin/admin', {
                 method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify(user)
             })
                 .then(res => res.json())
