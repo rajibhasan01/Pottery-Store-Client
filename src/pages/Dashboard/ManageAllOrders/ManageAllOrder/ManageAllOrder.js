@@ -5,11 +5,11 @@ import './ManageAllOrder.css';
 
 
 const ManageAllOrder = ({ order, handleDelete, handleUpdateStatus }) => {
-    const { _id, size, price, discount, discount_amount, amount, quantity, status, product_code, name, email, phone } = order;
+    const { _id, size, price, discount, discount_amount, amount, quantity, status, product_code, name, email, phone, img } = order;
     return (
         <tr>
             <td className="pb-2 text-start">
-                <img src="https://i.ibb.co/WpDGZxh/team-img-1.jpg" alt="" className="newMemberImg" />
+                <img src={img} alt="" className="newMemberImg" />
 
                 <span className="newMemberUsername robotoFont">{name}
                 </span>

@@ -12,7 +12,8 @@ const PlaceOrder = () => {
     const cart = JSON.parse(sessionStorage.getItem('cart'));
 
     const onSubmit = data => {
-        const orderInfo = { ...cart, ...data };
+        const img = user.photoURL || "https://i.ibb.co/KwXM8M3/16196015-10154888128487744-6901111466535510271-n.png";
+        const orderInfo = { ...cart, ...data, img };
         console.log(orderInfo);
 
         fetch("https://immense-mountain-96317.herokuapp.com/users", {

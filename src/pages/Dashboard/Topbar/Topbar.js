@@ -6,7 +6,7 @@ import useAuth from '../../../hooks/useAuth';
 
 const Topbar = () => {
     const { user, admin } = useAuth();
-    const profile_pic = user.photoURL || "https://i.ibb.co/hcnzVg7/21104.png";
+    const profile_pic = user.photoURL || "https://i.ibb.co/KwXM8M3/16196015-10154888128487744-6901111466535510271-n.png";
     return (
         <div className="topbar  pe-md-4">
             <div className="topbarWrapper">

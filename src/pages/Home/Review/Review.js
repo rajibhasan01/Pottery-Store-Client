@@ -24,33 +24,33 @@ const Review = ({ review }) => {
         <Card.Body>
 
           {
-            ratings == 1 && <Card.Text className="rating-star my-0">
+            ratings === "1" && <Card.Text className="rating-star my-0">
               <GoIcons.GoStar />
             </Card.Text>
           }
           {
-            ratings == 2 && <Card.Text className="rating-star my-0">
-              <GoIcons.GoStar />
-              <GoIcons.GoStar />
-            </Card.Text>
-          }
-          {
-            ratings == 3 && <Card.Text className="rating-star my-0">
-              <GoIcons.GoStar />
+            ratings === "2" && <Card.Text className="rating-star my-0">
               <GoIcons.GoStar />
               <GoIcons.GoStar />
             </Card.Text>
           }
           {
-            ratings == 4 && <Card.Text className="rating-star my-0">
-              <GoIcons.GoStar />
+            ratings === "3" && <Card.Text className="rating-star my-0">
               <GoIcons.GoStar />
               <GoIcons.GoStar />
               <GoIcons.GoStar />
             </Card.Text>
           }
           {
-            ratings == 5 && <Card.Text className="rating-star my-0">
+            ratings === "4" && <Card.Text className="rating-star my-0">
+              <GoIcons.GoStar />
+              <GoIcons.GoStar />
+              <GoIcons.GoStar />
+              <GoIcons.GoStar />
+            </Card.Text>
+          }
+          {
+            ratings === "5" && <Card.Text className="rating-star my-0">
               <GoIcons.GoStar />
               <GoIcons.GoStar />
               <GoIcons.GoStar />
