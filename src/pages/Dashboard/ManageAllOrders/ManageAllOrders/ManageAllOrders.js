@@ -6,14 +6,14 @@ const ManageAllOrders = () => {
     const [countDelete, setCountDelete] = useState(0);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allOrders`)
+        fetch(`https://immense-mountain-96317.herokuapp.com/allOrders`)
             .then(res => res.json())
             .then(data => setAllOrders(data));
 
     }, [countDelete]);
 
     const handleDelete = (id) => {
-        const url = `http://localhost:5000/myOrders/${id}`
+        const url = `https://immense-mountain-96317.herokuapp.com/myOrders/${id}`
         const procced = window.confirm('Are you sure to cancell this order');
         if (procced) {
             fetch(url, {
@@ -32,7 +32,7 @@ const ManageAllOrders = () => {
     const handleUpdateStatus = (id, value) => {
         const status = [value];
 
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://immense-mountain-96317.herokuapp.com/orders/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

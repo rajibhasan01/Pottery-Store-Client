@@ -30,7 +30,7 @@ const SingleProduct = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/products/${productID}`;
+        const url = `https://immense-mountain-96317.herokuapp.com/products/${productID}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setSingleItem(data))

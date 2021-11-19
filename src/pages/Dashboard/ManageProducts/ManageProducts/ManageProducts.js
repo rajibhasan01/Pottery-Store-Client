@@ -8,7 +8,7 @@ const ManageProducts = () => {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://immense-mountain-96317.herokuapp.com/products')
             .then(res => res.json())
             .then(data => {
                 setItems(data);
@@ -33,7 +33,7 @@ const ManageProducts = () => {
         }
 
         else {
-            fetch(`http://localhost:5000/product?search=${search}`)
+            fetch(`https://immense-mountain-96317.herokuapp.com/product?search=${search}`)
                 .then(res => res.json())
                 .then(data => setItems(data))
 
@@ -42,7 +42,7 @@ const ManageProducts = () => {
 
 
     const handleDelete = id => {
-        const url = `http://localhost:5000/deleteproduct/${id}`
+        const url = `https://immense-mountain-96317.herokuapp.com/deleteproduct/${id}`
         const procced = window.confirm('Are you sure to cancell this order');
         if (procced) {
             fetch(url, {

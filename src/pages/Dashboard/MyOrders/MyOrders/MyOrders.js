@@ -9,14 +9,14 @@ const MyOrders = () => {
     const [countDelete, setCountDelete] = useState(0);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders?search=${user.email}`)
+        fetch(`https://immense-mountain-96317.herokuapp.com/myOrders?search=${user.email}`)
             .then(res => res.json())
             .then(data => setMyOrder(data));
 
     }, [user.email, countDelete]);
 
     const handleDelete = (id) => {
-        const url = `http://localhost:5000/myOrders/${id}`
+        const url = `https://immense-mountain-96317.herokuapp.com/myOrders/${id}`
         const procced = window.confirm('Are you sure to cancell this order');
         if (procced) {
             fetch(url, {

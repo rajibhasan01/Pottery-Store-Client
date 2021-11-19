@@ -14,7 +14,7 @@ const MakeAdmin = () => {
             const { email } = data;
             const user = { email };
 
-            fetch('http://localhost:5000/makeAdmin/admin', {
+            fetch('https://immense-mountain-96317.herokuapp.com/makeAdmin/admin', {
                 method: 'PUT',
                 headers: {
                     'authorization': `Bearer ${token}`,

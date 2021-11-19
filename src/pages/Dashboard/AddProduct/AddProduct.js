@@ -14,7 +14,7 @@ const AddProduct = () => {
         const newData = { product_price, product_code, product_details, product_discount, product_image, product_name, product_ratings, product_title, product_type };
 
 
-        fetch("http://localhost:5000/product", {
+        fetch("https://immense-mountain-96317.herokuapp.com/product", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newData)

@@ -13,7 +13,7 @@ const WriteReview = () => {
         const newData = { ...data, email, img, user_name };
 
         console.log(newData);
-        fetch("http://localhost:5000/review", {
+        fetch("https://immense-mountain-96317.herokuapp.com/review", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newData)

@@ -15,7 +15,7 @@ const PlaceOrder = () => {
         const orderInfo = { ...cart, ...data };
         console.log(orderInfo);
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://immense-mountain-96317.herokuapp.com/users", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(orderInfo)
