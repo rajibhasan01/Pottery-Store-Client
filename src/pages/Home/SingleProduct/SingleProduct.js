@@ -6,27 +6,26 @@ import * as GoIcons from 'react-icons/go';
 import { Col, Form, Row } from 'react-bootstrap';
 import * as MdIconName from "react-icons/md";
 import SimilarProducts from '../../SimilarProducts/SimilarProducts';
-import { useHistory, useParams } from 'react-router';
+import { useParams } from 'react-router';
 
 
 const SingleProduct = () => {
     const { productID } = useParams();
     const [singleItem, setSingleItem] = useState({});
 
-    const { product_discount, product_code, product_image, product_name, product_price, product_ratings, product_title, product_type, product_details } = singleItem;
+    const { _id, product_discount, product_code, product_image, product_name, product_price, product_ratings, product_title, product_type, product_details } = singleItem;
+    // console.log("single item", singleItem);
 
     let price = product_price;
     let amount = product_price;
     let discount = product_discount;
     let discount_amount = product_discount;
-    const product_id = productID;
+    let product_id = productID;
     const status = "Pending";
 
     let quantity = 1;
     const [count, setCount] = useState(0);
     const [cart, setCart] = useState({ product_id, size: 'sm', price, discount, discount_amount, amount, quantity, status, product_code });
-
-    const history = useHistory();
 
 
     useEffect(() => {
@@ -88,6 +87,7 @@ const SingleProduct = () => {
         newCart.discount_amount = newCart.amount - totalDiscount;
 
         newCart.product_code = product_code;
+        newCart.product_id = _id;
 
         setCart(newCart);
         console.log("newCart =>", newCart);
@@ -95,12 +95,45 @@ const SingleProduct = () => {
 
     }, [price?.sm, price?.lg, price?.xl, discount, discount_amount, amount, count, product_code, product_discount]);
 
+    // localStorage function
+    const addItem = (name, data) => {
+        let getCart = localStorage.getItem(name);
+        if (getCart === null) {
+            const cart = JSON.stringify([data]);
+            localStorage.setItem(name, cart);
+        }
+        else {
+            getCart = JSON.parse(getCart);
+            for (const item of getCart) {
+                if (data.product_id === item.product_id && data.size === item.size) {
+                    console.log("same ", data);
+                    item.quantity = item.quantity + data.quantity;
+                    const cart = JSON.stringify(getCart);
+                    localStorage.setItem(name, cart);
+                    return;
+                }
+            }
+            getCart.push(data);
+            const cart = JSON.stringify(getCart);
+            localStorage.setItem(name, cart);
+            console.log(getCart);
+
+        }
+    }
+
+
 
     const handlePlaceOrder = () => {
-        console.log("button press", cart);
+        setCount(count + 1)
+        // console.log("button press", cart);
         const sessionCart = JSON.stringify(cart);
         sessionStorage.setItem('cart', sessionCart);
-        history.push('/placeorder');
+
+        // what we store in localstorage
+        const localCart = { product_id: cart.product_id, size: cart.size, quantity: cart.quantity };
+        // sent value and key to the function that will add it to local storage
+        addItem('cart', localCart);
+        // history.push('/placeorder');
     }
 
 
@@ -210,7 +243,7 @@ const SingleProduct = () => {
                             <h5 className="shadowsFont fw-bold text-warning">Discount Price: <span className="robotoFont fs-6 text-info fw-bold ms-0">${cart.discount_amount}</span></h5>
                         </div>
 
-                        <button className="text-decoration-none login-cursor bg-dark px-2 text-white rounded fs-6 read-more" onClick={handlePlaceOrder}>Place Order<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </button>
+                        <button className="text-decoration-none login-cursor bg-dark px-2 text-white rounded fs-6 read-more" onClick={handlePlaceOrder}>Add to Cart<MdIconName.MdDoubleArrow className="fs-5 icon-background ms-2" /> </button>
                     </div>
                 </div>
             </div>

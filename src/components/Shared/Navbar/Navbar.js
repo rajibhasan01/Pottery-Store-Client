@@ -40,7 +40,10 @@ function Navbar() {
 
     const handleDashboard = () => {
         history.push('/dashboard');
-    }
+    };
+
+    // get cart data from local storage
+    const getCart = JSON.parse(localStorage.getItem('cart'));
 
 
     return (
@@ -71,7 +74,7 @@ function Navbar() {
                                         <div className="logoutName mt-1"><p className="text-muted pe-3"> {user.displayName} </p><p className="me-3 bg-secondary text-white px-2 rounded fw-light login-cursor" onClick={logout}>Logout</p>
                                         </div>
 
-                                        <p onClick={handleShow}><FiIcons.FiShoppingCart className="me-4 fs-5 mt-2 cartCursor" /></p>
+                                        <p onClick={handleShow}><FiIcons.FiShoppingCart className="me-4 fs-5 mt-2 cartCursor" /> {getCart?.length && <span className="notification">{getCart?.length}</span>}</p>
 
                                     </>
 
@@ -109,6 +112,7 @@ function Navbar() {
                 handleClose={handleClose}
                 handleShow={handleShow}
                 lgShow={lgShow}
+                products={getCart}
             />
         </>
     );

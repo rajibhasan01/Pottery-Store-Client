@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Col, Container, Modal, Row } from 'react-bootstrap';
 
-const Cart = ({ handleClose, lgShow }) => {
+const Cart = ({ handleClose, lgShow, products }) => {
 
     return (
         <>
@@ -21,6 +21,7 @@ const Cart = ({ handleClose, lgShow }) => {
                         <Row>
                             <Col xs={12} className="text-center">
                                 <h2>Page under development</h2>
+                                <h2>total products = {products?.length}</h2>
                                 <img src="https://i.ibb.co/pf2ZVTJ/Pin-Clipart-com-kingdom-clipart-5790860.png" className="w-50" alt="" />
                             </Col>
                         </Row>

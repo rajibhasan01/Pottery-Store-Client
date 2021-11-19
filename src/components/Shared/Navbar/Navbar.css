@@ -125,10 +125,24 @@ span {
 }
 
 .cartCursor{
+  position: relative;
   cursor: pointer;
   color: rgb(255, 102, 0) !important;
 }
 
 .cartCursor:hover{
   color: rgb(0, 238, 255) !important;
+}
+
+.notification{
+  background-color: rgb(1, 208, 255);
+  color: white;
+  position: absolute;
+  top: 30px;
+  right: 15px;
+  font-size: 10px;
+  font-weight: 500;
+  width: 15px;
+  text-align: center;
+  border-radius: 50%;
 }
