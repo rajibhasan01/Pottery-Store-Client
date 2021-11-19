@@ -25,6 +25,7 @@ import {
     Route,
     useRouteMatch
 } from "react-router-dom";
+import AdminRoute from '../../../components/Shared/Login/AdminRoute/AdminRoute';
 
 
 const Dashboard = () => {
@@ -158,30 +159,39 @@ const Dashboard = () => {
                         <Route exact path={path}>
                             <h3>Please select a topic.</h3>
                         </Route>
+
                         <Route path={`${path}/pay`}>
                             <Pay />
                         </Route>
+
                         <Route path={`${path}/myOrders`}>
                             <MyOrders />
                         </Route>
+
                         <Route path={`${path}/review`}>
                             <WriteReview />
                         </Route>
-                        <Route path={`${path}/analytics`}>
+
+                        <AdminRoute path={`${path}/analytics`}>
                             <DashboardHome />
-                        </Route>
-                        <Route path={`${path}/manageAllOrders`}>
+                        </AdminRoute>
+
+                        <AdminRoute path={`${path}/manageAllOrders`}>
                             <ManageAllOrders />
-                        </Route>
-                        <Route path={`${path}/addProduct`}>
+                        </AdminRoute>
+
+                        <AdminRoute path={`${path}/addProduct`}>
                             <AddProduct />
-                        </Route>
-                        <Route path={`${path}/makeAdmin`}>
+                        </AdminRoute>
+
+                        <AdminRoute path={`${path}/makeAdmin`}>
                             <MakeAdmin />
-                        </Route>
-                        <Route path={`${path}/manageProducts`}>
+                        </AdminRoute>
+
+                        <AdminRoute path={`${path}/manageProducts`}>
                             <ManageProducts />
-                        </Route>
+                        </AdminRoute>
+
                     </Switch>
 
                 </div>
