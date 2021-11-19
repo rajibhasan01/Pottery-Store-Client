@@ -22,12 +22,43 @@ const Review = ({ review }) => {
           </div>
         </Card.Header>
         <Card.Body>
-          <Card.Text className="rating-star my-0">
-            <GoIcons.GoStar />
-            <GoIcons.GoStar />
-            <GoIcons.GoStar />
-            <GoIcons.GoStar />
-          </Card.Text>
+
+          {
+            ratings == 1 && <Card.Text className="rating-star my-0">
+              <GoIcons.GoStar />
+            </Card.Text>
+          }
+          {
+            ratings == 2 && <Card.Text className="rating-star my-0">
+              <GoIcons.GoStar />
+              <GoIcons.GoStar />
+            </Card.Text>
+          }
+          {
+            ratings == 3 && <Card.Text className="rating-star my-0">
+              <GoIcons.GoStar />
+              <GoIcons.GoStar />
+              <GoIcons.GoStar />
+            </Card.Text>
+          }
+          {
+            ratings == 4 && <Card.Text className="rating-star my-0">
+              <GoIcons.GoStar />
+              <GoIcons.GoStar />
+              <GoIcons.GoStar />
+              <GoIcons.GoStar />
+            </Card.Text>
+          }
+          {
+            ratings == 5 && <Card.Text className="rating-star my-0">
+              <GoIcons.GoStar />
+              <GoIcons.GoStar />
+              <GoIcons.GoStar />
+              <GoIcons.GoStar />
+              <GoIcons.GoStar />
+            </Card.Text>
+          }
+
           <Card.Text className="text-muted">
             <RiIcons.RiDoubleQuotesL className="quote" />{comment?.slice(0, 100)}...<RiIcons.RiDoubleQuotesR className="quote" />
           </Card.Text>
