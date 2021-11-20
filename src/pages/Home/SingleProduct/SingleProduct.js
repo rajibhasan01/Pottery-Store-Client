@@ -249,6 +249,8 @@ const SingleProduct = () => {
                     </div>
                 </div>
             </div>
+
+
             <SimilarProducts />
 
             <Footer />

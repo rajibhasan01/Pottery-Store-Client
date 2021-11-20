@@ -15,6 +15,13 @@ const CartItem = ({ product, handleMinus, handlePlus, handleDltItem }) => {
 
     const discount_amount = ((quantity * matchedItem?.product_price[size])) - ((quantity * matchedItem?.product_price[size]) * matchedItem?.product_discount * 0.01);
 
+    if (!items || !matchedItem || !product) {
+        return (
+            <div>
+                <img src="https://i.ibb.co/bJJx03Y/Fountain.gif" alt="" className="d-flex justify-content-center align-items-center" />
+            </div>
+        )
+    }
 
     return (
         <tr className="text-start">
@@ -33,13 +40,13 @@ const CartItem = ({ product, handleMinus, handlePlus, handleDltItem }) => {
                     <button
                         className="btn  px-2"
                         name='minus'
-                        onClick={handleMinus}
+                        onClick={() => handleMinus(product_id, size)}
 
                     >-</button>
                     <button
                         className="btn px-2"
                         name='plus'
-                        onClick={handlePlus}
+                        onClick={() => handlePlus(product_id, size)}
 
                     >+</button>
 
