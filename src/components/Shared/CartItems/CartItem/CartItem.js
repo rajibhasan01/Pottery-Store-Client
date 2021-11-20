@@ -18,9 +18,11 @@ const CartItem = ({ product, handleMinus, handlePlus, handleDltItem }) => {
 
     if (!items || !matchedItem || !product) {
         return (
-            <div>
-                <img src="https://i.ibb.co/bJJx03Y/Fountain.gif" alt="" className="d-flex justify-content-center align-items-center" />
-            </div>
+            <tr>
+                <td>
+                    <img src="https://i.ibb.co/bJJx03Y/Fountain.gif" alt="" className="d-flex justify-content-center align-items-center" />
+                </td>
+            </tr>
         )
     }
 

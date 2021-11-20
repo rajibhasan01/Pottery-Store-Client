@@ -1,17 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../../hooks/useAuth';
+import useData from '../../../../hooks/useData';
 import CartItem from '../CartItem/CartItem';
 
 const CartItems = () => {
     const { user } = useAuth();
     const [count, setCount] = useState(0);
     const [products, setProducts] = useState([]);
+    const [totalAmount, setTotalAmount] = useState([]);
+    const [items] = useData();
 
     useEffect(() => {
         const items = JSON.parse(localStorage.getItem(`${user.email}_cart`));
         setProducts(items);
 
     }, [count, user.email]);
+
+    // calculated total amount
+    useEffect(() => {
+        let sum = 0;
+        for (const product of products) {
+            for (const item of items) {
+                if (product.product_id === item._id) {
+                    sum = sum + (item.product_price[product.size] * product.quantity * (100 - item.product_discount) / 100);
+                }
+            }
+        };
+        setTotalAmount(sum);
+
+    }, [products, items])
 
 
     // handle delete item from cart
@@ -70,6 +87,15 @@ const CartItems = () => {
                                 handleMinus={handleMinus}
                             />)
                         }
+                        <tr className="border-bottom"><td className="displayHidden"> .</td></tr>
+
+                        <tr className="text-start robotoFont fs-6 ">
+                            <td></td>
+                            <td></td>
+                            <td className="text-start robotoFont fs-6 ">Total =</td>
+                            <td className="text-start robotoFont text-danger ">${totalAmount}</td>
+
+                        </tr>
                     </tbody>
 
                 </table>
