@@ -7,11 +7,13 @@ import { Col, Form, Row } from 'react-bootstrap';
 import * as MdIconName from "react-icons/md";
 import SimilarProducts from '../../SimilarProducts/SimilarProducts';
 import { useParams } from 'react-router';
+import useAuth from '../../../hooks/useAuth';
 
 
 const SingleProduct = () => {
     const { productID } = useParams();
     const [singleItem, setSingleItem] = useState({});
+    const { user } = useAuth();
 
     const { _id, product_discount, product_code, product_image, product_name, product_price, product_ratings, product_title, product_type, product_details } = singleItem;
     // console.log("single item", singleItem);
@@ -127,12 +129,12 @@ const SingleProduct = () => {
         setCount(count + 1)
         // console.log("button press", cart);
         const sessionCart = JSON.stringify(cart);
-        sessionStorage.setItem('cart', sessionCart);
+        sessionStorage.setItem(`${user.email}_cart`, sessionCart);
 
         // what we store in localstorage
         const localCart = { product_id: cart.product_id, size: cart.size, quantity: cart.quantity };
         // sent value and key to the function that will add it to local storage
-        addItem('cart', localCart);
+        addItem(`${user.email}_cart`, localCart);
         // history.push('/placeorder');
     }
 

@@ -1,7 +1,12 @@
 import React from 'react';
-import { Button, Col, Container, Modal, Row } from 'react-bootstrap';
+import { Button, Container, Modal } from 'react-bootstrap';
+import * as GiIcons from 'react-icons/gi';
+import PlaceOrder from '../../../pages/PlaceOrder/PlaceOrder';
+import CartItems from '../CartItems/CartItems/CartItems';
 
-const Cart = ({ handleClose, lgShow, products }) => {
+
+const Cart = ({ handleClose, lgShow, placeOrder, handlePlaceOrder }) => {
+
 
     return (
         <>
@@ -14,17 +19,18 @@ const Cart = ({ handleClose, lgShow, products }) => {
                 show={lgShow}
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Modal title</Modal.Title>
+                    <Modal.Title className="shadowsFont fw-bold">MyCart<GiIcons.GiShoppingCart className="fw-bold ms-1 fs-3" /></Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="show-grid">
-                    <Container>
-                        <Row>
-                            <Col xs={12} className="text-center">
-                                <h2>Page under development</h2>
-                                <h2>total products = {products?.length}</h2>
-                                <img src="https://i.ibb.co/pf2ZVTJ/Pin-Clipart-com-kingdom-clipart-5790860.png" className="w-50" alt="" />
-                            </Col>
-                        </Row>
+                    <Container className="text-center">
+
+                        {
+                            !placeOrder ? <>
+                                <h2 className="shadowsFont text-warning">Product Details</h2>
+                                <CartItems />
+                            </> :
+                                <PlaceOrder />
+                        }
 
                     </Container>
                 </Modal.Body>
@@ -32,7 +38,9 @@ const Cart = ({ handleClose, lgShow, products }) => {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary">Understood</Button>
+                    {
+                        !placeOrder && <Button variant="primary" onClick={handlePlaceOrder}>PlaceOrder</Button>
+                    }
                 </Modal.Footer>
             </Modal>
         </>
