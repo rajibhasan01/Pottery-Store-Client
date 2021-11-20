@@ -50,6 +50,10 @@ function Navbar() {
         setPlaceOrder(true);
     };
 
+    const handleBackToCart = () => {
+        setPlaceOrder(false);
+    };
+
     const handleDashboard = () => {
         history.push('/dashboard');
     };
@@ -127,6 +131,7 @@ function Navbar() {
                 products={getCart}
                 placeOrder={placeOrder}
                 handlePlaceOrder={handlePlaceOrder}
+                handleBackToCart={handleBackToCart}
             />
         </>
     );

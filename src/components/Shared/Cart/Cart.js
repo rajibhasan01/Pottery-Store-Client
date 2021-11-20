@@ -5,7 +5,7 @@ import PlaceOrder from '../../../pages/PlaceOrder/PlaceOrder';
 import CartItems from '../CartItems/CartItems/CartItems';
 
 
-const Cart = ({ handleClose, lgShow, placeOrder, handlePlaceOrder }) => {
+const Cart = ({ handleClose, lgShow, placeOrder, handlePlaceOrder, handleBackToCart }) => {
 
 
     return (
@@ -35,12 +35,20 @@ const Cart = ({ handleClose, lgShow, placeOrder, handlePlaceOrder }) => {
                     </Container>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
                     {
-                        !placeOrder && <Button variant="primary" onClick={handlePlaceOrder}>PlaceOrder</Button>
+                        placeOrder ?
+                            <>
+                                <Button variant="primary" className="btnFocus" onClick={handleBackToCart}>View Cart</Button>
+                                <Button variant="secondary" className="btnFocus" onClick={handleClose}>Close</Button>
+                            </>
+                            :
+                            <>
+                                <Button variant="secondary" className="btnFocus" onClick={handleClose}>Close</Button>
+                                <Button variant="primary" className="btnFocus" onClick={handlePlaceOrder}>PlaceOrder</Button>
+                            </>
                     }
+
+
                 </Modal.Footer>
             </Modal>
         </>

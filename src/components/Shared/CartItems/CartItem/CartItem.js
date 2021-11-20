@@ -1,6 +1,7 @@
 import React from 'react';
 import useData from '../../../../hooks/useData';
 import * as MdIcons from 'react-icons/md';
+import "./CartItem.css";
 
 
 const CartItem = ({ product, handleMinus, handlePlus, handleDltItem }) => {
@@ -38,22 +39,22 @@ const CartItem = ({ product, handleMinus, handlePlus, handleDltItem }) => {
             <td className="robotoFont fw-lighter">
                 <div className="d-flex">
                     <button
-                        className="btn  px-2"
+                        className="btn px-2 btnFocus"
                         name='minus'
                         onClick={() => handleMinus(product_id, size)}
 
                     >-</button>
                     <button
-                        className="btn px-2"
+                        className="btn px-2 btnFocus"
                         name='plus'
                         onClick={() => handlePlus(product_id, size)}
 
                     >+</button>
 
                     <button
-                        className="btn rounded"
+                        className="btn rounded btnFocus"
                         onClick={() => handleDltItem(product_id, size)}>
-                        <MdIcons.MdDelete className="fs-4" />
+                        <MdIcons.MdClose className="fs-4" />
                     </button>
                 </div>
             </td>

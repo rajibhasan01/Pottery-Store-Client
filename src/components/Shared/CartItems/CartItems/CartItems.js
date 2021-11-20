@@ -11,7 +11,8 @@ const CartItems = () => {
         const items = JSON.parse(localStorage.getItem(`${user.email}_cart`));
         setProducts(items);
 
-    }, [count, user.email])
+    }, [count, user.email]);
+
 
     // handle delete item from cart
     const handleDltItem = (id, size) => {
@@ -40,7 +41,8 @@ const CartItems = () => {
             localStorage.setItem(`${user.email}_cart`, JSON.stringify(newCart));
             setCount(count + 1);
         }
-    }
+    };
+
 
     return (
         <div>
