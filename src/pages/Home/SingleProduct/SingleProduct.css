@@ -19,3 +19,7 @@
     background-color: #ff5927;
     color: #fff;
 }
+
+.checked{
+    background-color: rgb(10, 10, 10)!important;
+}

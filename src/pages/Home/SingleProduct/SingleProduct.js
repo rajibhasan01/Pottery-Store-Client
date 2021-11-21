@@ -179,11 +179,11 @@ const SingleProduct = () => {
                         <div className="rating-star mt-2">
                             <small className="text-muted shadowsFont">Reviews {product_ratings}</small>
                             <div className="">
-                                <GoIcons.GoStar />
-                                <GoIcons.GoStar />
-                                <GoIcons.GoStar />
-                                <GoIcons.GoStar />
-                                <GoIcons.GoStar />
+                                <GoIcons.GoStar className={product_ratings > 0 ? "text-warning" : "text-muted"} />
+                                <GoIcons.GoStar className={product_ratings > 1 ? "text-warning" : "text-muted"} />
+                                <GoIcons.GoStar className={product_ratings > 2 ? "text-warning" : "text-muted"} />
+                                <GoIcons.GoStar className={product_ratings > 3 ? "text-warning" : "text-muted"} />
+                                <GoIcons.GoStar className={product_ratings > 4 ? "text-warning" : "text-muted"} />
                             </div>
                         </div>
 
