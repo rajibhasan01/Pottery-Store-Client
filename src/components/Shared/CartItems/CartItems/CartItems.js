@@ -31,14 +31,15 @@ const CartItems = () => {
 
                     value = { ...product, product_image: item.product_image, product_code: item.product_code, product_discount: item.product_discount, product_name: item.product_name, product_price: item.product_price[product.size], status: "Pending", discount_amount, amount };
                     arr.push(value);
-                    console.log('Value =>', value);
                 }
             }
         };
         setTotalAmount(sum);
         setOrderList(arr);
+        sessionStorage.setItem(`${user.email}_CartItem`, JSON.stringify(arr));
 
-    }, [products, items]);
+    }, [products, items, user.email]);
+
 
 
 
@@ -91,7 +92,7 @@ const CartItems = () => {
                     <tbody>
 
                         {
-                            orderList?.map((product, key) => <CartItem
+                            products?.map((product, key) => <CartItem
                                 key={key}
                                 product={product}
                                 handleDltItem={handleDltItem}

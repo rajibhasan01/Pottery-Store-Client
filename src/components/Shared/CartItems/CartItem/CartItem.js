@@ -9,8 +9,6 @@ const CartItem = ({ product, handleMinus, handlePlus, handleDltItem }) => {
     const { product_id, size, quantity } = product;
 
     const matchedItem = items?.find(item => item._id === product.product_id);
-    console.log("matchedItem Cart", matchedItem);
-
 
     // const { product_image, product_name, product_price, product_discount } = matchedItem;
 
