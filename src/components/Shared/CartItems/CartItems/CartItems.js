@@ -8,6 +8,7 @@ const CartItems = () => {
     const [count, setCount] = useState(0);
     const [products, setProducts] = useState([]);
     const [totalAmount, setTotalAmount] = useState([]);
+    const [orderList, setOrderList] = useState([]);
     const [items] = useData();
 
     useEffect(() => {
@@ -18,17 +19,28 @@ const CartItems = () => {
 
     // calculated total amount
     useEffect(() => {
+        const arr = [];
         let sum = 0;
+        let value = {};
         for (const product of products) {
             for (const item of items) {
                 if (product.product_id === item._id) {
                     sum = sum + (item.product_price[product.size] * product.quantity * (100 - item.product_discount) / 100);
+                    let amount = item.product_price[product.size] * product.quantity;
+                    let discount_amount = (amount * (100 - item.product_discount) / 100);
+
+                    value = { ...product, product_image: item.product_image, product_code: item.product_code, product_discount: item.product_discount, product_name: item.product_name, product_price: item.product_price[product.size], status: "Pending", discount_amount, amount };
+                    arr.push(value);
+                    console.log('Value =>', value);
                 }
             }
         };
         setTotalAmount(sum);
+        setOrderList(arr);
 
-    }, [products, items])
+    }, [products, items]);
+
+
 
 
     // handle delete item from cart
@@ -79,7 +91,7 @@ const CartItems = () => {
                     <tbody>
 
                         {
-                            products?.map((product, key) => <CartItem
+                            orderList?.map((product, key) => <CartItem
                                 key={key}
                                 product={product}
                                 handleDltItem={handleDltItem}
@@ -87,6 +99,7 @@ const CartItems = () => {
                                 handleMinus={handleMinus}
                             />)
                         }
+
                         <tr className="border-bottom"><td className="displayHidden"> .</td></tr>
 
                         <tr className="text-start robotoFont fs-6 ">
