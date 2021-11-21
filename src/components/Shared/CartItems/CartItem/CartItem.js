@@ -28,7 +28,7 @@ const CartItem = ({ product, handleMinus, handlePlus, handleDltItem }) => {
 
     return (
         <tr className="text-start">
-            <td className="pb-2">
+            <td className="pb-2 ps-md-5">
                 <img src={matchedItem?.product_image} alt="" className="myOderImg" />
 
                 <span className="newMemberUsername robotoFont">{matchedItem?.product_name}

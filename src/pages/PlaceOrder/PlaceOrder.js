@@ -8,9 +8,10 @@ const PlaceOrder = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const cart = JSON.parse(sessionStorage.getItem(`${user.email}_cart`));
+    const img = user.photoURL || "https://i.ibb.co/KwXM8M3/16196015-10154888128487744-6901111466535510271-n.png";
 
     const onSubmit = data => {
-        const img = user.photoURL || "https://i.ibb.co/KwXM8M3/16196015-10154888128487744-6901111466535510271-n.png";
+
         const orderInfo = { ...cart, ...data, img };
         console.log(orderInfo);
 
@@ -32,8 +33,9 @@ const PlaceOrder = () => {
 
     return (
         <div>
-            <div className="my-5 mx-aut0 ms-md-auto container">
-                <h3 className="text-warning shadowsFont">Purchase Your Product NOW</h3>
+            <div className="mx-aut0 ms-md-auto bg-light py-5 container">
+
+                <h3 className="text-dark shadowsFont">Purchase Your Product NOW</h3>
 
                 <div className="rounded">
                     <form onSubmit={handleSubmit(onSubmit)} className="form-design">

@@ -62,14 +62,14 @@ const CartItems = () => {
 
 
     return (
-        <div>
+        <div className="bg-light p-2">
             <h4 className="robotoFont fw-light text-muted pt-3">Total Products = {products?.length}</h4>
             <hr />
             <div className="table-responsive-sm">
-                <table className="widgetLgTable">
+                <table className="widgetLgTable mx-auto">
                     <thead>
                         <tr className="">
-                            <th className="widgetLgTh robotoFont">Product</th>
+                            <th className="widgetLgTh robotoFont ps-md-5">Product</th>
                             <th className="widgetLgTh robotoFont">Details</th>
                             <th className="widgetLgTh robotoFont">Discount</th>
                             <th className="widgetLgTh robotoFont">Amount</th>
@@ -93,7 +93,7 @@ const CartItems = () => {
                             <td></td>
                             <td></td>
                             <td className="text-start robotoFont fs-6 ">Total =</td>
-                            <td className="text-start robotoFont text-danger ">${totalAmount}</td>
+                            <td className="text-start robotoFont text-danger">${totalAmount}</td>
 
                         </tr>
                     </tbody>
