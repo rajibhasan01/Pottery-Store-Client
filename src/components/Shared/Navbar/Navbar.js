@@ -75,7 +75,7 @@ function Navbar() {
                         </Link>
                         <div className="me-0 mt-2 ms-auto d-flex text-color-second">
                             <FaIcons.FaPhoneAlt className="d-none d-md-block mt-2" />
-                            <p className="me-5 text-muted fw-lighter ms-3 d-none d-md-block mt-1">01754-063712</p>
+                            <p className="me-4 text-muted fw-lighter ms-3 d-none d-md-block mt-1">01754-063712</p>
 
                             {
                                 user.email && <div className="logoutName mt-1"><MdIcons.MdDashboardCustomize className="me-2 mt-1" /><p className="me-3 text-muted px-2 rounded fw-light login-cursor" onClick={handleDashboard}>Dashboard</p>
