@@ -3,6 +3,7 @@ import ManageAllOrder from '../ManageAllOrder/ManageAllOrder';
 
 const ManageAllOrders = () => {
     const [allOrders, setAllOrders] = useState([]);
+    const [search, setSearch] = useState('');
     const [countDelete, setCountDelete] = useState(0);
 
     useEffect(() => {
@@ -11,6 +12,31 @@ const ManageAllOrders = () => {
             .then(data => setAllOrders(data));
 
     }, [countDelete]);
+
+
+    const handleSearchInput = (e) => {
+        const value = e.target.value;
+        setSearch(value);
+        if (value === '') {
+            setCountDelete(countDelete + 1);
+        }
+
+    };
+
+    const handleSearchBtn = () => {
+
+        if (search === '') {
+            setCountDelete(countDelete + 1);
+        }
+
+        else {
+            fetch(`https://immense-mountain-96317.herokuapp.com/myOrders?search=${search}`)
+                .then(res => res.json())
+                .then(data => setAllOrders(data))
+
+        }
+    };
+
 
     const handleDelete = (id) => {
         const url = `https://immense-mountain-96317.herokuapp.com/myOrders/${id}`
@@ -55,6 +81,12 @@ const ManageAllOrders = () => {
             <div className="text-center">
                 <span className="text-warning shadowsFont fs-3">Manage All Orders
                 </span>
+                <div className="mt-2 ms-auto me-md-4 pe-md-3 searchBox">
+                    <div className="input-group mb-3 rounded border">
+                        <input type="text" onChange={handleSearchInput} className="form-control ps-4 bg-transparent robotoFontt border-0" placeholder="search by customer email" aria-label="Recipient's username" aria-describedby="button-addons" />
+                        <button className="btn searchBtn2" onClick={handleSearchBtn} type="button" id="button-addons"> <div><i className="fas fa-search"></i></div></button>
+                    </div>
+                </div>
                 <hr />
                 <div className="table-responsive-sm mt-3">
                     <table className="widgetLgTable text-center">

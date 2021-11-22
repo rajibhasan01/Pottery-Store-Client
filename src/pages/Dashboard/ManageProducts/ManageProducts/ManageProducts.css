@@ -27,3 +27,14 @@
     border-radius:20%;
     object-fit: cover;
 }
+
+.searchBtn2{
+    position: relative;
+}
+
+.searchBtn2:hover{
+    background-color: rgb(213, 212, 212) !important;
+    color: rgb(255, 255, 255) !important;
+    z-index: 1;
+    
+}
