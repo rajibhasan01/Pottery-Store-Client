@@ -11,19 +11,23 @@ const PlaceOrder = () => {
     const img = user.photoURL || "https://i.ibb.co/KwXM8M3/16196015-10154888128487744-6901111466535510271-n.png";
 
     const onSubmit = data => {
-
-        const orderInfo = { order_product, ...data, img };
-        console.log(orderInfo);
+        const valueArray = [];
+        for (const order of order_product) {
+            const newValue = { ...order, ...data, img };
+            valueArray.push(newValue);
+        }
 
         fetch("https://immense-mountain-96317.herokuapp.com/users", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(orderInfo)
+            body: JSON.stringify(valueArray)
         })
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
                     alert("Booking successfull");
+                    localStorage.removeItem(`${user.email}_cart`);
+                    sessionStorage.removeItem(`${user.email}_CartItem`);
                     reset();
                 }
             });

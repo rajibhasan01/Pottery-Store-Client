@@ -1,14 +1,9 @@
 import React from 'react';
 import * as MdIcons from 'react-icons/md';
-import useData from '../../../../hooks/useData';
 
 const MyOrder = ({ order, handleDelete }) => {
-    const { _id, status, product_code, size, quantity, price, amount, discount_amount } = order;
+    const { _id, product_image, product_name, product_discount, status, product_code, size, quantity, product_price, amount, discount_amount, product_type } = order;
 
-    const [items] = useData();
-
-    const matchedItem = items.find(item => item?.product_code === product_code);
-    console.log(matchedItem);
 
     const handleClick = () => {
         alert("Sorry! your order is under processing. You can't delete it");
@@ -19,16 +14,16 @@ const MyOrder = ({ order, handleDelete }) => {
     return (
         <tr className="text-start">
             <td className="text-start pb-2">
-                <img src={matchedItem?.product_image} alt="" className="myOderImg" />
+                <img src={product_image} alt="" className="myOderImg" />
 
-                <span className="newMemberUsername robotoFont">{matchedItem?.product_type}
+                <span className="newMemberUsername robotoFont">{product_type}
                 </span>
             </td>
-            <td className="robotoFont text-start fw-lighter">{matchedItem?.product_name}</td>
+            <td className="robotoFont text-start fw-lighter">{product_name}</td>
             <td className="robotoFont text-start fw-lighter">{product_code}</td>
-            <td className="robotoFont text-start fw-lighter">{quantity} X {price} ({size})</td>
+            <td className="robotoFont text-start fw-lighter">{quantity} X {product_price} ({size})</td>
             <td className="robotoFont text-start fw-lighter">${amount}</td>
-            <td className="robotoFont text-start fw-lighter">{matchedItem?.product_discount}%</td>
+            <td className="robotoFont text-start fw-lighter">{product_discount}%</td>
             <td className="robotoFont text-start fw-lighter">${discount_amount}</td>
             <td className="robotoFont text-start fw-lighter"><button className={"widgetLgButton fw-lighter " + status}>{status} </button></td>
             <td className="robotoFont text-start fw-lighter">

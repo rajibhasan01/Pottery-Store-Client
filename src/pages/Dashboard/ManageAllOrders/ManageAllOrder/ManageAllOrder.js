@@ -5,7 +5,7 @@ import './ManageAllOrder.css';
 
 
 const ManageAllOrder = ({ order, handleDelete, handleUpdateStatus }) => {
-    const { _id, size, price, discount, discount_amount, amount, quantity, status, product_code, name, email, phone, img } = order;
+    const { _id, size, product_price, product_discount, discount_amount, amount, quantity, status, product_code, name, email, phone, img } = order;
     return (
         <tr>
             <td className="pb-2 text-start">
@@ -17,9 +17,9 @@ const ManageAllOrder = ({ order, handleDelete, handleUpdateStatus }) => {
             <td className="robotoFont fw-lighter text-start">{email}</td>
             <td className="robotoFont fw-lighter text-start">{phone}</td>
             <td className="robotoFont fw-lighter text-start">{product_code}</td>
-            <td className="robotoFont fw-lighter text-start">{quantity} X {price} ({size})</td>
+            <td className="robotoFont fw-lighter text-start">{quantity} X {product_price} ({size})</td>
             <td className="robotoFont fw-lighter text-start">{amount}</td>
-            <td className="robotoFont fw-lighter text-start">{discount}%</td>
+            <td className="robotoFont fw-lighter text-start">{product_discount}%</td>
             <td className="robotoFont fw-lighter text-start">{discount_amount}</td>
             <td className="robotoFont fw-lighter text-start">
                 <Dropdown>

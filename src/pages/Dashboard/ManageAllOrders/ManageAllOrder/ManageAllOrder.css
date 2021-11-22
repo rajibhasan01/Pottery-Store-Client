@@ -15,12 +15,14 @@
 }
 
 .Recieved{
-    background-color: #34495e;
+    background-color: #2f6b63;
+    color: white;
     border: 0px !important;
 }
 
 .Rejected{
-    background-color: #c0392b;
+    background-color: #c0392b!important;
+    color: white;
     border: 0px !important;
 }
 
