@@ -2,10 +2,11 @@ import React from 'react';
 import { Button, Container, Modal } from 'react-bootstrap';
 import * as GiIcons from 'react-icons/gi';
 import PlaceOrder from '../../../pages/PlaceOrder/PlaceOrder';
+import Success from '../../../pages/Success/Success';
 import CartItems from '../CartItems/CartItems/CartItems';
 
 
-const Cart = ({ handleClose, lgShow, placeOrder, handlePlaceOrder, handleBackToCart }) => {
+const Cart = ({ handleClose, lgShow, placeOrder, handlePlaceOrder, handleBackToCart, setSuccess, success }) => {
 
 
     return (
@@ -29,23 +30,31 @@ const Cart = ({ handleClose, lgShow, placeOrder, handlePlaceOrder, handleBackToC
                                 <h2 className="shadowsFont text-warning">Product Details</h2>
                                 <CartItems />
                             </> :
-                                <PlaceOrder />
+                                !success ?
+                                    <PlaceOrder setSuccess={setSuccess} />
+                                    :
+                                    <Success />
                         }
 
                     </Container>
                 </Modal.Body>
                 <Modal.Footer>
                     {
-                        placeOrder ?
-                            <>
-                                <Button variant="primary" className="btnFocus" onClick={handleBackToCart}>View Cart</Button>
-                                <Button variant="secondary" className="btnFocus" onClick={handleClose}>Close</Button>
-                            </>
-                            :
+                        !placeOrder ?
+
                             <>
                                 <Button variant="secondary" className="btnFocus" onClick={handleClose}>Close</Button>
                                 <Button variant="primary" className="btnFocus" onClick={handlePlaceOrder}>PlaceOrder</Button>
                             </>
+                            :
+                            !success ?
+                                <>
+                                    <Button variant="primary" className="btnFocus" onClick={handleBackToCart}>View Cart</Button>
+                                    <Button variant="secondary" className="btnFocus" onClick={handleClose}>Close</Button>
+                                </>
+                                :
+                                <Button variant="success" className="btnFocus" onClick={handleClose}>Okay</Button>
+
                     }
 
 

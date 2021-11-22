@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
 import './PlaceOrder.css';
 
-const PlaceOrder = () => {
+const PlaceOrder = ({ setSuccess }) => {
     const { user } = useAuth();
     const { register, handleSubmit, reset } = useForm();
 
@@ -29,6 +29,7 @@ const PlaceOrder = () => {
                     localStorage.removeItem(`${user.email}_cart`);
                     sessionStorage.removeItem(`${user.email}_CartItem`);
                     reset();
+                    setSuccess(true);
                 }
             });
 

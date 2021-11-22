@@ -127,9 +127,6 @@ const SingleProduct = () => {
 
     const handlePlaceOrder = () => {
         setCount(count + 1)
-        // console.log("button press", cart);
-        const sessionCart = JSON.stringify(cart);
-        sessionStorage.setItem(`${user.email}_cart`, sessionCart);
 
         // what we store in localstorage
         const localCart = { product_id: cart.product_id, size: cart.size, quantity: cart.quantity };

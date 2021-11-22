@@ -36,6 +36,8 @@ function Navbar() {
 
     const [lgShow, setLgShow] = useState(false);
     const [placeOrder, setPlaceOrder] = useState(false);
+    const [success, setSuccess] = useState(false);
+
 
     const handleClose = () => {
         setLgShow(false);
@@ -48,6 +50,7 @@ function Navbar() {
 
     const handlePlaceOrder = () => {
         setPlaceOrder(true);
+        setSuccess(false);
     };
 
     const handleBackToCart = () => {
@@ -132,6 +135,8 @@ function Navbar() {
                 placeOrder={placeOrder}
                 handlePlaceOrder={handlePlaceOrder}
                 handleBackToCart={handleBackToCart}
+                setSuccess={setSuccess}
+                success={success}
             />
         </>
     );

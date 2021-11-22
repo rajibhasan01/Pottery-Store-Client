@@ -10,6 +10,7 @@ import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import Cart from './components/Shared/Cart/Cart';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 import PrivateRoute from './components/Shared/Login/PrivateRoute/PrivateRoute';
+import Success from './pages/Success/Success';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/success" component={Success} />
             <Route exact path="/register" component={Registation} />
             <Route exact path="/allproducts" component={AllProducts} />
             <Route exact path="/products/:productID" component={SingleProduct} />
