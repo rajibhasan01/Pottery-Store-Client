@@ -26,6 +26,7 @@ import {
     useRouteMatch
 } from "react-router-dom";
 import AdminRoute from '../../../components/Shared/Login/AdminRoute/AdminRoute';
+import NotFound from '../../NotFound/NotFound';
 
 
 const Dashboard = () => {
@@ -190,6 +191,10 @@ const Dashboard = () => {
                         <AdminRoute path={`${path}/manageProducts`}>
                             <ManageProducts />
                         </AdminRoute>
+
+                        <Route path={`${path}/*`}>
+                            <NotFound />
+                        </Route>
 
                     </Switch>
 

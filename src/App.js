@@ -11,6 +11,7 @@ import Cart from './components/Shared/Cart/Cart';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 import PrivateRoute from './components/Shared/Login/PrivateRoute/PrivateRoute';
 import Success from './pages/Success/Success';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
             <PrivateRoute path='/cart'>
               <Cart />
             </PrivateRoute>
+
+            <Route path='*' component={NotFound} />
 
           </Switch>
         </Router>
