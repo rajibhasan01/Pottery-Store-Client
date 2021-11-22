@@ -3,17 +3,6 @@
    
 }
 
-.searchBtn{
-    position: relative;
-    border-radius: 45%;
-}
-
-.searchBtn:hover{
-    background-color: rgb(213, 212, 212) !important;
-    color: rgb(255, 255, 255) !important;
-    z-index: 1;
-    
-}
 
 .tableColumnDesgin{
     display: flex;
@@ -28,13 +17,17 @@
     object-fit: cover;
 }
 
-.searchBtn2{
+.searchBtn{
     position: relative;
 }
 
-.searchBtn2:hover{
+.searchBtn:hover{
     background-color: rgb(213, 212, 212) !important;
     color: rgb(255, 255, 255) !important;
     z-index: 1;
+    
+}
+.searchBtn:focus{
+    box-shadow: none;
     
 }

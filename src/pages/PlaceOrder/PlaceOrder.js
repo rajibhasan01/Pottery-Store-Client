@@ -58,7 +58,7 @@ const PlaceOrder = ({ setSuccess }) => {
 
                         <textarea className="form-input border-1 rounded" type="text" {...register("message", { required: false })} placeholder="Message if any!" />
 
-                        <input className="form-input btn bg-warning rounded" type="submit" />
+                        <input className="form-input submitBtn btn bg-warning rounded" type="submit" />
 
                     </form>
 

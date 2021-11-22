@@ -61,13 +61,6 @@ const ManageProducts = () => {
 
     return (
         <div className="container-fluid">
-            <div className="py-5 searchBox mx-auto">
-                <h4 className="text-warning shadowsFont text-center mb-3">Search Here</h4>
-                <div className="input-group mb-3 border rounded-pill">
-                    <input type="text" onChange={handleSearchInput} className="form-control ps-4 bg-transparent robotoFontt border-0" placeholder="search by product code" aria-label="Recipient's username" aria-describedby="button-addons" />
-                    <button className="btn searchBtn" onClick={handleSearchBtn} type="button" id="button-addons"> <div><i className="fas fa-search"></i></div></button>
-                </div>
-            </div>
 
             {/* product list */}
 
@@ -75,6 +68,12 @@ const ManageProducts = () => {
             <div className="text-center">
                 <span className="text-warning shadowsFont fs-3">Stock Products
                 </span>
+                <div className="mt-2 me-auto searchBox">
+                    <div className="input-group mb-3 rounded border">
+                        <input type="text" onChange={handleSearchInput} className="form-control bg-transparent robotoFontt border-0" placeholder="search by product code" aria-label="Recipient's username" aria-describedby="button-addons" />
+                        <button className="btn searchBtn" onClick={handleSearchBtn} type="button" id="button-addons"> <div><i className="fas fa-search"></i></div></button>
+                    </div>
+                </div>
                 <hr />
                 <div className="table-responsive-sm mt-3">
                     <table className="widgetLgTable text-center">

@@ -50,7 +50,9 @@ function Navbar() {
 
     const handlePlaceOrder = () => {
         if (getCart) {
-            setPlaceOrder(true);
+            if (getCart.length > 0) {
+                setPlaceOrder(true);
+            }
         }
 
         setSuccess(false);

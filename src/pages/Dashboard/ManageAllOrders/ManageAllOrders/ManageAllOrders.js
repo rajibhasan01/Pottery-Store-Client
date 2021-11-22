@@ -83,8 +83,8 @@ const ManageAllOrders = () => {
                 </span>
                 <div className="mt-2 ms-auto me-md-4 pe-md-3 searchBox">
                     <div className="input-group mb-3 rounded border">
-                        <input type="text" onChange={handleSearchInput} className="form-control ps-4 bg-transparent robotoFontt border-0" placeholder="search by customer email" aria-label="Recipient's username" aria-describedby="button-addons" />
-                        <button className="btn searchBtn2" onClick={handleSearchBtn} type="button" id="button-addons"> <div><i className="fas fa-search"></i></div></button>
+                        <input type="text" onChange={handleSearchInput} className="form-control ps-3 bg-transparent robotoFontt border-0" placeholder="search by customer email" aria-label="Recipient's username" aria-describedby="button-addons" />
+                        <button className="btn searchBtn" onClick={handleSearchBtn} type="button" id="button-addons"> <div><i className="fas fa-search"></i></div></button>
                     </div>
                 </div>
                 <hr />

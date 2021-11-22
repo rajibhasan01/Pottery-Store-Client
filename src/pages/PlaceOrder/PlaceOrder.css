@@ -26,3 +26,7 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
+.submitBtn:focus{
+    box-shadow: none;
+}
