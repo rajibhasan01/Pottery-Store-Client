@@ -39,9 +39,15 @@ const ManageAllOrder = ({ order, handleDelete, handleUpdateStatus }) => {
                 </Dropdown>
 
             </td>
-            <td className="robotoFont fw-lighter text-start">
-                <button className="btn dltBtn rounded" onClick={() => handleDelete(_id)}><MdIcons.MdDelete className="fs-5" /></button>
-                <button className="btn checkBtn ms-2 rounded"><MdIcons.MdRemoveRedEye className="fs-5" /></button>
+            <td className="robotoFont fw-lighter text-start ">
+                <div>
+                    <button className="btn dltBtn rounded" onClick={() => handleDelete(_id)}><MdIcons.MdDelete className="fs-5" /></button>
+                    <button className="btn checkBtn ms-2 d-none d-lg-inline rounded"><MdIcons.MdRemoveRedEye className="fs-5" /></button>
+                </div>
+
+            </td>
+            <td>
+                <button className="btn checkBtn d-lg-none rounded"><MdIcons.MdRemoveRedEye className="fs-5" /></button>
             </td>
         </tr>
     );

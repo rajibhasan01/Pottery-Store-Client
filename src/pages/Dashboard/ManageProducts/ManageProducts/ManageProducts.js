@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 import ManageProduct from '../ManageProduct/ManageProduct';
 import "./ManageProducts.css";
 
@@ -76,7 +77,7 @@ const ManageProducts = () => {
                 </div>
                 <hr />
                 <div className="table-responsive-sm mt-3">
-                    <table className="widgetLgTable text-center">
+                    <Table responsive borderless className="widgetLgTable text-center">
                         <thead>
                             <tr className=" text-start">
                                 <th className="widgetLgTh robotoFont text-start">Product Name</th>
@@ -97,7 +98,7 @@ const ManageProducts = () => {
                             }
                         </tbody>
 
-                    </table>
+                    </Table>
 
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 import useAuth from '../../../../hooks/useAuth';
 import MyOrder from '../MyOrder/MyOrder';
 import './MyOrders.css';
@@ -40,7 +41,7 @@ const MyOrders = () => {
                 </span>
                 <hr />
                 <div className="table-responsive-sm">
-                    <table className="widgetLgTable">
+                    <Table responsive borderless className="widgetLgTable">
                         <thead>
                             <tr className="">
                                 <th className="widgetLgTh robotoFont">Product</th>
@@ -66,7 +67,7 @@ const MyOrders = () => {
                             }
                         </tbody>
 
-                    </table>
+                    </Table>
 
                 </div>
             </div>

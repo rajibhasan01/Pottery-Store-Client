@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 import ManageAllOrder from '../ManageAllOrder/ManageAllOrder';
 
 const ManageAllOrders = () => {
@@ -88,8 +89,8 @@ const ManageAllOrders = () => {
                     </div>
                 </div>
                 <hr />
-                <div className="table-responsive-sm mt-3">
-                    <table className="widgetLgTable text-center">
+                <div className="mt-3">
+                    <Table responsive borderless className="widgetLgTable text-center">
                         <thead>
                             <tr className="">
                                 <th className="widgetLgTh robotoFont">Customer</th>
@@ -116,7 +117,7 @@ const ManageAllOrders = () => {
                             }
                         </tbody>
 
-                    </table>
+                    </Table>
 
                 </div>
             </div>
