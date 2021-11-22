@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const NotFound = () => {
+
+    useEffect(() => {
+        document.title = "Not Found"
+    }, []);
+
     return (
         <div className="container py-5">
             <div className="row d-flex justify-content-around align-items-center my-5 py-5">

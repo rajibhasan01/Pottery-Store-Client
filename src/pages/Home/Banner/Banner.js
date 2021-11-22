@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Banner.css';
 import * as GaIcons from 'react-icons/gi';
 import { useHistory } from 'react-router';
@@ -10,6 +10,10 @@ const Banner = () => {
     const handleViewAllProducts = () => {
         history.push('./allproducts');
     }
+
+    useEffect(() => {
+        document.title = "Pottery Store"
+    }, []);
 
     return (
         <div className="">

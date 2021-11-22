@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import * as BiIconName from "react-icons/bi";
 import { NavLink, useHistory } from 'react-router-dom';
@@ -31,6 +31,9 @@ const Registation = () => {
         e.preventDefault();
     }
 
+    useEffect(() => {
+        document.title = "Registation"
+    }, []);
 
     return (
         <div className="container mt-3">

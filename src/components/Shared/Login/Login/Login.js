@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Alert, Button, Form } from 'react-bootstrap';
 import * as BiIconName from "react-icons/bi";
 import * as FcIconName from "react-icons/fc";
@@ -34,6 +34,9 @@ const Login = () => {
         signInWithGoogle(location, history);
     }
 
+    useEffect(() => {
+        document.title = "Login"
+    }, []);
 
     return (
         <div className="container mt-3">

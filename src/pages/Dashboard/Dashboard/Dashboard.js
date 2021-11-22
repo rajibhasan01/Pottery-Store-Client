@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Topbar from '../Topbar/Topbar';
 import './Dashboard.css';
 import DashboardHome from '../DashboardHome/DashboardHome';
@@ -39,6 +39,9 @@ const Dashboard = () => {
 
     let { path, url } = useRouteMatch();
 
+    useEffect(() => {
+        document.title = "DashBoard"
+    }, []);
 
 
     return (
