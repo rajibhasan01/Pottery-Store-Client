@@ -6,7 +6,7 @@ import Success from '../../../pages/Success/Success';
 import CartItems from '../CartItems/CartItems/CartItems';
 
 
-const Cart = ({ handleClose, lgShow, placeOrder, handlePlaceOrder, handleBackToCart, setSuccess, success }) => {
+const Cart = ({ handleClose, lgShow, placeOrder, handlePlaceOrder, handleBackToCart, setSuccess, success, setCheckForPlaceOrder }) => {
 
 
     return (
@@ -28,7 +28,7 @@ const Cart = ({ handleClose, lgShow, placeOrder, handlePlaceOrder, handleBackToC
                         {
                             !placeOrder ? <>
                                 <h2 className="shadowsFont text-warning">Product Details</h2>
-                                <CartItems />
+                                <CartItems setCheckForPlaceOrder={setCheckForPlaceOrder} />
                             </> :
                                 !success ?
                                     <PlaceOrder setSuccess={setSuccess} />

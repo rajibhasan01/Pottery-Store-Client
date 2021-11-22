@@ -17,6 +17,7 @@ function Navbar() {
     const history = useHistory();
     const { user, logout } = useAuth();
     const [scrolling, setScrolling] = useState(false);
+    const [checkForPlaceOrder, setCheckForPlaceOrder] = useState(0);
 
     const showSidebar = () => setSidebar(!sidebar);
 
@@ -50,7 +51,7 @@ function Navbar() {
 
     const handlePlaceOrder = () => {
         if (getCart) {
-            if (getCart.length > 0) {
+            if (getCart.length > 0 && checkForPlaceOrder) {
                 setPlaceOrder(true);
             }
         }
@@ -142,6 +143,7 @@ function Navbar() {
                 handleBackToCart={handleBackToCart}
                 setSuccess={setSuccess}
                 success={success}
+                setCheckForPlaceOrder={setCheckForPlaceOrder}
             />
         </>
     );

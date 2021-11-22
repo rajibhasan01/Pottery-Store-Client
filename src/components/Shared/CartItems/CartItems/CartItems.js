@@ -3,7 +3,7 @@ import useAuth from '../../../../hooks/useAuth';
 import useData from '../../../../hooks/useData';
 import CartItem from '../CartItem/CartItem';
 
-const CartItems = () => {
+const CartItems = ({ setCheckForPlaceOrder }) => {
     const { user } = useAuth();
     const [count, setCount] = useState(0);
     const [products, setProducts] = useState([]);
@@ -38,6 +38,7 @@ const CartItems = () => {
             };
         }
         setTotalAmount(sum);
+        setCheckForPlaceOrder(sum);
         sessionStorage.setItem(`${user.email}_CartItem`, JSON.stringify(arr));
 
     }, [products, items, user.email]);
