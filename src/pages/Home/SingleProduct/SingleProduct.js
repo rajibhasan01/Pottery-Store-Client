@@ -16,7 +16,6 @@ const SingleProduct = () => {
     const { user } = useAuth();
 
     const { _id, product_discount, product_code, product_image, product_name, product_price, product_ratings, product_title, product_type, product_details } = singleItem;
-    // console.log("single item", singleItem);
 
     let price = product_price;
     let amount = product_price;
@@ -92,7 +91,6 @@ const SingleProduct = () => {
         newCart.product_id = _id;
 
         setCart(newCart);
-        console.log("newCart =>", newCart);
 
 
     }, [price?.sm, price?.lg, price?.xl, discount, discount_amount, amount, count, product_code, product_discount]);
@@ -108,7 +106,6 @@ const SingleProduct = () => {
             getCart = JSON.parse(getCart);
             for (const item of getCart) {
                 if (data.product_id === item.product_id && data.size === item.size) {
-                    console.log("same ", data);
                     item.quantity = item.quantity + data.quantity;
                     const cart = JSON.stringify(getCart);
                     localStorage.setItem(name, cart);
@@ -118,7 +115,6 @@ const SingleProduct = () => {
             getCart.push(data);
             const cart = JSON.stringify(getCart);
             localStorage.setItem(name, cart);
-            console.log(getCart);
 
         }
     }

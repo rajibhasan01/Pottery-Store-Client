@@ -38,7 +38,6 @@ const Dashboard = () => {
 
     let { path, url } = useRouteMatch();
 
-    console.log("admin => ", admin);
 
 
     return (

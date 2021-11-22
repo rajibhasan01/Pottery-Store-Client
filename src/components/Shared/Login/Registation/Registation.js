@@ -16,7 +16,6 @@ const Registation = () => {
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
         setLoginData(newLoginData);
-        console.log(loginData);
 
 
     }

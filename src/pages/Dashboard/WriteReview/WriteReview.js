@@ -12,7 +12,6 @@ const WriteReview = () => {
         const user_name = user.displayName;
         const newData = { ...data, email, img, user_name };
 
-        console.log(newData);
         fetch("https://immense-mountain-96317.herokuapp.com/review", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

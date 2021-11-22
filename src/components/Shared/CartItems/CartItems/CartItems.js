@@ -8,7 +8,6 @@ const CartItems = () => {
     const [count, setCount] = useState(0);
     const [products, setProducts] = useState([]);
     const [totalAmount, setTotalAmount] = useState([]);
-    const [orderList, setOrderList] = useState([]);
     const [items] = useData();
 
     useEffect(() => {
@@ -39,7 +38,6 @@ const CartItems = () => {
             };
         }
         setTotalAmount(sum);
-        setOrderList(arr);
         sessionStorage.setItem(`${user.email}_CartItem`, JSON.stringify(arr));
 
     }, [products, items, user.email]);
@@ -50,7 +48,6 @@ const CartItems = () => {
 
     // handle delete item from cart
     const handleDltItem = (id, size) => {
-        console.log(id, size);
         const unMatchProducts = products.filter(product => product.product_id !== id || product.size !== size);
         localStorage.setItem(`${user.email}_cart`, JSON.stringify(unMatchProducts));
         setCount(count + 1);

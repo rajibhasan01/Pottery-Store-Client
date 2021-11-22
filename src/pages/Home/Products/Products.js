@@ -16,7 +16,6 @@ const Products = ({ value }) => {
 
     const handleBtn = (event) => {
         const field = event.target.name;
-        console.log(field);
         btnactv.btn1 = false;
         btnactv.btn2 = false;
         btnactv.btn3 = false;
@@ -51,12 +50,8 @@ const Products = ({ value }) => {
     }, [count]);
 
 
-    console.log(items);
-
-
     if (!value) {
         items = items.slice(0, 6);
-        console.log(items);
     }
 
     if (isLoading) {
