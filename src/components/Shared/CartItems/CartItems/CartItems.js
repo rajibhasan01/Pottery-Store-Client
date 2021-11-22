@@ -22,20 +22,22 @@ const CartItems = () => {
         const arr = [];
         let sum = 0;
         let value = {};
-        for (const product of products) {
-            for (const item of items) {
-                if (product.product_id === item._id) {
-                    sum = sum + (item.product_price[product.size] * product.quantity * (100 - item.product_discount) / 100);
-                    let amount = item.product_price[product.size] * product.quantity;
-                    let discount_amount = (amount * (100 - item.product_discount) / 100);
+        if (products) {
+            for (const product of products) {
+                for (const item of items) {
+                    if (product.product_id === item._id) {
+                        sum = sum + (item.product_price[product.size] * product.quantity * (100 - item.product_discount) / 100);
+                        let amount = item.product_price[product.size] * product.quantity;
+                        let discount_amount = (amount * (100 - item.product_discount) / 100);
 
-                    value = {
-                        ...product, product_image: item.product_image, product_code: item.product_code, product_discount: item.product_discount, product_name: item.product_name, product_price: item.product_price[product.size], status: "Pending", discount_amount, amount, product_type: item.product_type
-                    };
-                    arr.push(value);
+                        value = {
+                            ...product, product_image: item.product_image, product_code: item.product_code, product_discount: item.product_discount, product_name: item.product_name, product_price: item.product_price[product.size], status: "Pending", discount_amount, amount, product_type: item.product_type
+                        };
+                        arr.push(value);
+                    }
                 }
-            }
-        };
+            };
+        }
         setTotalAmount(sum);
         setOrderList(arr);
         sessionStorage.setItem(`${user.email}_CartItem`, JSON.stringify(arr));

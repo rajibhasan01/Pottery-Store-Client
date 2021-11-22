@@ -49,7 +49,10 @@ function Navbar() {
     };
 
     const handlePlaceOrder = () => {
-        setPlaceOrder(true);
+        if (getCart) {
+            setPlaceOrder(true);
+        }
+
         setSuccess(false);
     };
 
