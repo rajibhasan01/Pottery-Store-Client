@@ -160,7 +160,9 @@ const Dashboard = () => {
                 <div className="col-12 col-md-9 col-lg-10">
                     <Switch>
                         <Route exact path={path}>
-                            <h3>ATTENT!ON <MdIcons.MdOutlineWarning className="text-warning" /><br /> This page is underdevelopment. <br /> Sorry for the inconvenience. <br /> Please choose your route you want to go. <br /> All those route are work well. <br /> Like -<span className="text-danger">Pay, Analytics, My Order, Manage All Order </span> etc.</h3>
+                            {
+                                !admin ? <Pay /> : <DashboardHome />
+                            }
                         </Route>
 
                         <Route path={`${path}/pay`}>
