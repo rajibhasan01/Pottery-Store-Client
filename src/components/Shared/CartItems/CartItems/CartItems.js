@@ -51,15 +51,15 @@ const CartItems = () => {
     // handle delete item from cart
     const handleDltItem = (id, size) => {
         console.log(id, size);
-        const unMatchProducts = products.filter(product => product.product_id != id || product.size != size);
+        const unMatchProducts = products.filter(product => product.product_id !== id || product.size !== size);
         localStorage.setItem(`${user.email}_cart`, JSON.stringify(unMatchProducts));
         setCount(count + 1);
     };
 
     // handle increase item
     const handlePlus = (id, size) => {
-        const matchProducts = products.filter(product => product.product_id == id && product.size == size);
-        const unMatchProducts = products.filter(product => product.product_id != id || product.size != size);
+        const matchProducts = products.filter(product => product.product_id === id && product.size === size);
+        const unMatchProducts = products.filter(product => product.product_id !== id || product.size !== size);
         matchProducts[0].quantity = matchProducts[0].quantity + 1;
         const newCart = [...unMatchProducts, ...matchProducts];
         localStorage.setItem(`${user.email}_cart`, JSON.stringify(newCart));
@@ -67,8 +67,8 @@ const CartItems = () => {
     }
     // handle decrease item
     const handleMinus = (id, size) => {
-        const matchProducts = products.filter(product => product.product_id == id && product.size == size);
-        const unMatchProducts = products.filter(product => product.product_id != id || product.size != size);
+        const matchProducts = products.filter(product => product.product_id === id && product.size === size);
+        const unMatchProducts = products.filter(product => product.product_id !== id || product.size !== size);
         if (matchProducts[0].quantity > 1) {
             matchProducts[0].quantity = matchProducts[0].quantity - 1;
             const newCart = [...unMatchProducts, ...matchProducts];
