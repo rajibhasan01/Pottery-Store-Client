@@ -14,7 +14,6 @@ const CartItems = ({ setCheckForPlaceOrder }) => {
     const [promo, setPromo] = useState(false);
     const [promoCode, setPromoCode] = useState('');
     const [items] = useData();
-    const voucherCode = 'rajib';
 
     useEffect(() => {
         const items = JSON.parse(localStorage.getItem(`${user.email}_cart`));
@@ -47,7 +46,7 @@ const CartItems = ({ setCheckForPlaceOrder }) => {
         setCheckForPlaceOrder(sum);
         sessionStorage.setItem(`${user.email}_CartItem`, JSON.stringify(arr));
 
-    }, [products, items, user.email]);
+    }, [products, items, user.email, setCheckForPlaceOrder]);
 
     // handle promo code
     const handlePromoCode = () => {
@@ -63,9 +62,14 @@ const CartItems = ({ setCheckForPlaceOrder }) => {
 
     // set voucher percentage
     const handlePromoCodeAction = () => {
-        if (voucherCode === promoCode) {
-            setVoucher(10);
-        }
+        fetch(`https://immense-mountain-96317.herokuapp.com/promo?search=${promoCode}`)
+            .then(res => res.json())
+            .then(data => setVoucher(data[0].discount))
+            .catch(error => {
+                alert('Invalid promo code. Type FnF as promo code')
+            });
+
+
     };
 
     // calculate total for each changes

@@ -10,7 +10,11 @@ User -
 5. User can manage order
 6. User can add or remove product from the cart.
 7. User also can edit order from my order (if the order is not yet accepted by the admin)
-6. User can give your feedback
+8. User can give his/her feedback
+9. User can use promo code for discount
+
+Promo Code for 10% discount:
+FnF
 
 Admin -
 1. Can add products
@@ -21,6 +25,10 @@ Admin -
 6. Make another admin 
 7. Can see visual analysis graph
 8. Can search order by customer email
+
+For check admin panel login with
+email:elon@mask.com
+pass:123456
 
 
 
