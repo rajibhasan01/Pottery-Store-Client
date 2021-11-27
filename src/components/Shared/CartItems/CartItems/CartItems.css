@@ -1,0 +1,16 @@
+.promoBtn{
+    color: white;
+    background-color: crimson;
+    border-radius: 5px;
+    padding: 1px 20px;
+    margin-left: 10px;
+}
+.promoBtn:hover{
+    background-color: rgb(0, 65, 163);
+    color: white;
+    
+}
+.inputBox{
+     border-radius: 5px;
+     width: 180px;
+}
