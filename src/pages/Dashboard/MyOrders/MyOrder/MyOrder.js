@@ -25,6 +25,7 @@ const MyOrder = ({ order, handleDelete }) => {
             <td className="robotoFont text-start fw-lighter">${amount}</td>
             <td className="robotoFont text-start fw-lighter">{product_discount}%</td>
             <td className="robotoFont text-start fw-lighter">${discount_amount}</td>
+            <td className="robotoFont text-start fw-lighter"><button className="bg-info px-3 border-0 py-1 rounded text-white">Pay</button></td>
             <td className="robotoFont text-start fw-lighter"><button className={"widgetLgButton fw-lighter " + status}>{status} </button></td>
             <td className="robotoFont text-start fw-lighter">
                 {
