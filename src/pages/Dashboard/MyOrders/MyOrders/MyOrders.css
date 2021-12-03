@@ -55,3 +55,7 @@
     object-fit: cover;
 }
 
+.payBtn{
+    color: white;
+    text-decoration: none;
+}

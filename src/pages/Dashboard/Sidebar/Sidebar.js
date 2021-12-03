@@ -30,12 +30,7 @@ const Sidebar = () => {
                     {!admin ?
                         <ul className="sidebarList">
 
-                            <NavLink to="/dashboard/pay" activeStyle={activeStyle} className="text-decoration-none text-color">
-                                <li className="sidebarListItem robotoFont">
-                                    <GiIcons.GiTakeMyMoney className="sidebarIcon" />
-                                    Pay
-                                </li>
-                            </NavLink>
+
 
                             <NavLink to="/dashboard/myorders" activeStyle={activeStyle} className="text-decoration-none text-color">
                                 <li className="sidebarListItem robotoFont">

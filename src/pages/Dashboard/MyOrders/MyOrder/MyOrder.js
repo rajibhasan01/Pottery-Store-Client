@@ -1,5 +1,6 @@
 import React from 'react';
 import * as MdIcons from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const MyOrder = ({ order, handleDelete }) => {
     const { _id, product_image, product_name, product_discount, status, product_code, size, quantity, product_price, amount, discount_amount, product_type } = order;
@@ -25,7 +26,16 @@ const MyOrder = ({ order, handleDelete }) => {
             <td className="robotoFont text-start fw-lighter">${amount}</td>
             <td className="robotoFont text-start fw-lighter">{product_discount}%</td>
             <td className="robotoFont text-start fw-lighter">${discount_amount}</td>
-            <td className="robotoFont text-start fw-lighter"><button className="bg-info px-3 border-0 py-1 rounded text-white">Pay</button></td>
+            <td className="robotoFont text-start fw-lighter">
+
+                {
+                    order.payment ?
+                        <button className="bg-secondary px-3 border-0 py-1 rounded text-white">Paid </button>
+                        :
+                        <button className="bg-info px-3 border-0 py-1 rounded"> <Link className="payBtn" to={`/dashboard/payment/${_id}`}>Pay</Link> </button>
+                }
+
+            </td>
             <td className="robotoFont text-start fw-lighter"><button className={"widgetLgButton fw-lighter " + status}>{status} </button></td>
             <td className="robotoFont text-start fw-lighter">
                 {

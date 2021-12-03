@@ -101,6 +101,7 @@ const ManageAllOrders = () => {
                                 <th className="widgetLgTh robotoFont">Amount</th>
                                 <th className="widgetLgTh robotoFont">Discount</th>
                                 <th className="widgetLgTh robotoFont">Total Amount</th>
+                                <th className="widgetLgTh robotoFont">Payment</th>
                                 <th className="widgetLgTh robotoFont ps-1">Status</th>
                                 <th className="widgetLgTh robotoFont ps-1">Action</th>
                             </tr>

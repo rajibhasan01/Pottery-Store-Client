@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
 import './PlaceOrder.css';
 
+
 const PlaceOrder = ({ setSuccess }) => {
     const { user } = useAuth();
     const { register, handleSubmit, reset } = useForm();
@@ -25,7 +26,7 @@ const PlaceOrder = ({ setSuccess }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert("Booking successfull");
+
                     localStorage.removeItem(`${user.email}_cart`);
                     sessionStorage.removeItem(`${user.email}_CartItem`);
                     reset();

@@ -22,8 +22,16 @@ const ManageAllOrder = ({ order, handleDelete, handleUpdateStatus }) => {
             <td className="robotoFont fw-lighter text-start">{product_discount}%</td>
             <td className="robotoFont fw-lighter text-start">{discount_amount}</td>
             <td className="robotoFont fw-lighter text-start">
+                {
+                    order?.payment ?
+                        <button className="btn bg-success text-white btnWidth">Paid</button>
+                        :
+                        <button className="btn bg-danger text-white btnWidth">Due</button>}
+
+            </td>
+            <td className="robotoFont fw-lighter text-start">
                 <Dropdown>
-                    <Dropdown.Toggle className={status}>
+                    <Dropdown.Toggle className={status + " dropWidth"}>
                         {status}
                     </Dropdown.Toggle>
 

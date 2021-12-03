@@ -13,7 +13,6 @@ import useAuth from '../../../hooks/useAuth';
 import { NavLink } from 'react-router-dom';
 import * as MdIcons from 'react-icons/md';
 import * as FaIcons from 'react-icons/fa';
-import * as GiIcons from 'react-icons/gi';
 import * as RiIcons from 'react-icons/ri';
 import * as SiIcons from 'react-icons/si';
 import * as AiIcons from 'react-icons/ai';
@@ -27,6 +26,10 @@ import {
 } from "react-router-dom";
 import AdminRoute from '../../../components/Shared/Login/AdminRoute/AdminRoute';
 import NotFound from '../../NotFound/NotFound';
+import Payment from '../Payment/Payment';
+import Success from '../Success/Success';
+import Failed from '../Success/Failed';
+
 
 
 const Dashboard = () => {
@@ -56,12 +59,7 @@ const Dashboard = () => {
                                 {!admin ?
                                     <ul className="sidebarList">
 
-                                        <NavLink to={`${url}/pay`} activeStyle={activeStyle} className="text-decoration-none text-color">
-                                            <li className="sidebarListItem robotoFont">
-                                                <GiIcons.GiTakeMyMoney className="sidebarIcon" />
-                                                Pay
-                                            </li>
-                                        </NavLink>
+
 
                                         <NavLink to={`${url}/myOrders`} activeStyle={activeStyle} className="text-decoration-none text-color">
                                             <li className="sidebarListItem robotoFont">
@@ -161,12 +159,24 @@ const Dashboard = () => {
                     <Switch>
                         <Route exact path={path}>
                             {
-                                !admin ? <Pay /> : <DashboardHome />
+                                !admin ? <MyOrders /> : <DashboardHome />
                             }
                         </Route>
 
-                        <Route path={`${path}/pay`}>
+                        <Route path={`${path}/payment/:orderId`}>
                             <Pay />
+                        </Route>
+
+                        <Route path={`${path}/paymentSSL/:orderId`}>
+                            <Payment />
+                        </Route>
+
+                        <Route path={`${path}/success`}>
+                            <Success />
+                        </Route>
+
+                        <Route path={`${path}/failed`}>
+                            <Failed />
                         </Route>
 
                         <Route path={`${path}/myOrders`}>

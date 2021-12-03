@@ -46,3 +46,10 @@
     box-shadow: none!important;
     border: 0px!important;
 }
+
+.dropWidth{
+    width: 120px;
+}
+.btnWidth{
+    width: 60px;
+}
